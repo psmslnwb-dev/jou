@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시설 조직도 - 조우직업재활시설</title>
+    <style>
+        /* =========================
+           공통 및 헤더/푸터 스타일 (기존과 동일)
+        ========================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .main-menu { height: 100%; display: flex; align-items: center; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
+        .main-menu > li > a:hover { color: #4d873e; }
+        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+        
+        @media (max-width: 900px) {
+            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; } .main-menu > li > a { padding: 0 12px; font-size: 14px; } .submenu { top: 75px; }
+        }
+        @media (max-width: 700px) {
+            .header-inner { padding: 0 15px; } .main-menu > li > a { padding: 0 7px; font-size: 12px; } .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
+
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* =========================
+           조직도 전용 스타일
+        ========================= */
+        .org_wrapper { 
+            padding: 20px 0 140px 0; 
+            background: #ffffff; 
+            text-align: center; 
+            position: relative;
+            overflow: visible; 
+            overflow-x: auto; /* 화면이 좁아질 때 가로 스크롤 허용 */
+        }
+
+        .org_tree, .org_tree ul, .org_tree li { position: relative; list-style: none; margin: 0; padding: 0; }
+        .org_tree { display: inline-block; white-space: nowrap; }
+
+        /* 단계별 상하 간격 */
+        .org_tree ul { display: flex; justify-content: center; padding-top: 80px; }
+        .org_tree li { padding: 35px 20px 0; } /* 3개 팀 배치를 위해 좌우 여백 살짝 조절 */
+
+        /* 연결선 디자인 */
+        .org_tree li::before, .org_tree li::after { content: ''; position: absolute; top: 0; right: 50%; border-top: 1px solid #cbd5e1; width: 50%; height: 35px; }
+        .org_tree li::after { right: auto; left: 50%; border-left: 1px solid #cbd5e1; }
+        .org_tree li:only-child::after, .org_tree li:only-child::before { display: none; }
+        .org_tree li:only-child { padding-top: 0; }
+        .org_tree li:first-child::before, .org_tree li:last-child::after { border: 0 none; }
+        .org_tree li:last-child::before { border-right: 1px solid #cbd5e1; border-radius: 0 5px 0 0; }
+        .org_tree li:first-child::after { border-radius: 5px 0 0 0; }
+
+        /* 중앙 수직 연결선 */
+        .org_tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 1px solid #cbd5e1; width: 0; height: 80px; margin-left: -1px; }
+
+        /* 노드 박스 디자인 */
+        .org_node {
+            display: inline-block;
+            width: 200px;
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .node_pos { display: block; padding: 18px 0; font-size: 15px; font-weight: 700; color: #1e293b; }
+
+        /* 마우스 올렸을 때 효과 */
+        .org_node:hover { 
+            z-index: 999 !important;
+            border-color: #3c5f34 !important; /* 사이트 메인 컬러톤으로 맞춤 */
+            transform: translateY(-8px) scale(1.02); 
+            box-shadow: 0 20px 25px -5px rgba(60, 95, 52, 0.25); 
+        }
+
+        /* 팝업 레이아웃 */
+        .node_pop {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            width: 320px;
+            background: #ffffff;
+            border: 2px solid #5d914d; /* 메인 테마 컬러 반영 */
+            border-radius: 14px;
+            padding: 16px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 10px 20px -6px rgba(0, 0, 0, 0.1);
+            white-space: normal; /* 팝업 내부는 줄바꿈 허용 */
+        }
+
+        /* 마우스 올릴 때 팝업 모션 */
+        .org_node:hover .node_pop { 
+            opacity: 1; 
+            visibility: visible; 
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(12px); 
+        }
+
+        /* 직원 정보 내부 스타일 */
+        .pop_item { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0; 
+            border-bottom: 1px solid #f1f5f9; 
+        }
+        .pop_item:last-child { border: none; }
+
+        /* 뱃지 크기 고정 및 정렬 */
+        .pop_item .p_pos { 
+            display: inline-block;
+            width: 105px; /* 직책명이 길어서 폭을 좀 더 넓힘 */
+            text-align: center; 
+            font-size: 12px; 
+            color: #426b38; 
+            background: #f6faf3;
+            padding: 4px 0; 
+            border-radius: 6px;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0; 
+        }
+
+        /* 이름 영역 정렬 */
+        .p_name { 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #0f172a; 
+            margin-left: 15px; 
+            flex-grow: 1;
+            text-align: left;
+            min-height: 20px; /* 공백일 때도 공간 확보 */
+        }
+
+        /* 전화번호 */
+        .p_phone { 
+            font-size: 13px; 
+            color: #475569; 
+            font-weight: 500;
+            flex-shrink: 0;
+            min-width: 90px; /* 공백일 때도 공간 확보 */
+            text-align: right;
+        }
+
+        /* 팀별 상단 라인 */
+        .top_line { border-top: 5px solid #1e293b; }
+        .admin_line { border-top: 5px solid #75a65c; } /* 총무팀 테마 컬러 */
+        .rehab_line { border-top: 5px solid #5d914d; } /* 직업재활팀 테마 컬러 */
+        .production_line { border-top: 5px solid #3c5f34; } /* 생산관리팀 테마 컬러 */
+
+        /* 모바일 최적화 */
+        @media (max-width: 768px) {
+            .org_wrapper { padding: 20px 10px 100px 10px; }
+            .org_tree ul { flex-direction: column; align-items: center; padding-top: 20px; }
+            .org_tree li { padding: 15px 0 0 0; width: 100%; }
+            .org_node { width: 160px; }
+            .org_tree li::before, .org_tree li::after { border: none !important; }
+            .org_tree ul ul::before { height: 15px; top: 0; }
+            .node_pop { width: 280px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="facility_greeting.html">시설</a>
+                        <ul class="submenu">
+                            <li><a href="facility_greeting.html">인사말</a></li>
+                            <li><a href="facility_vision.html">미션과 비전</a></li>
+                            <li><a href="facility_procedure.html">고용 및 이용절차</a></li>
+                            <li><a href="facility_business.html">사업소개</a></li>
+                            <li><a href="facility_history.html">연혁</a></li>
+                            <li><a href="facility_organization.html">조직도</a></li>
+                            <li><a href="facility_location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">소통공간</a>
+                        <ul class="submenu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">일상</a></li>
+                            <li><a href="#">식단표</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2 class="page-title">조직도</h2>
+        
+        <div class="org_wrapper">
+            <div class="org_tree">
+                <ul>
+                    <li>
+                        <!-- 1단계: 시설장 -->
+                        <div class="org_node top_line">
+                            <span class="node_pos">시설장</span>
+                            <div class="node_pop">
+                                <!-- 내용은 비워두었습니다 -->
+                                <div class="pop_item"><span class="p_pos">시설장</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <!-- 2단계: 사무국장 -->
+                                <div class="org_node top_line">
+                                    <span class="node_pos">사무국장</span>
+                                    <div class="node_pop">
+                                        <div class="pop_item"><span class="p_pos">사무국장</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 3단계: 하위 3개 팀 -->
+                                <ul>
+                                    <!-- 추가된 총무팀 -->
+                                    <li>
+                                        <div class="org_node admin_line">
+                                            <span class="node_pos">총무팀</span>
+                                            <div class="node_pop">
+                                                <div class="pop_item"><span class="p_pos">총무팀장</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">사무원</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <!-- 직업재활팀 -->
+                                    <li>
+                                        <div class="org_node rehab_line">
+                                            <span class="node_pos">직업재활팀</span>
+                                            <div class="node_pop">
+                                                <div class="pop_item"><span class="p_pos">직업재활팀장</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">대리</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">직업훈련교사</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">직업훈련교사</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">직업훈련교사</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <!-- 직업재활팀 소속 사무원이 총무팀으로 이동했다면 이 줄은 삭제하셔도 됩니다 -->
+                                                <div class="pop_item"><span class="p_pos">사무원</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <!-- 생산관리팀 -->
+                                    <li>
+                                        <div class="org_node production_line">
+                                            <span class="node_pos">생산관리팀</span>
+                                            <div class="node_pop">
+                                                <div class="pop_item"><span class="p_pos">생산관리팀장</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">생산판매관리기사</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                                <div class="pop_item"><span class="p_pos">운전원</span> <span class="p_name"></span> <span class="p_phone"></span></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+</body>
+</html>
