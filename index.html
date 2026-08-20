@@ -6,50 +6,41 @@
     <title>조우직업재활시설</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #ffffff; }
+        body { font-family: 'Pretendard', sans-serif; color: #2d3748; line-height: 1.7; background-color: #fafaf7; }
         
-        /* 상단 헤더: 화사하고 깔끔하게 */
-        header { background: #ffffff; border-bottom: 1px solid #edf2f7; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        header { background: #ffffff; border-bottom: 1px solid #e8f5e9; position: sticky; top: 0; z-index: 100; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
-        .logo { font-size: 24px; font-weight: 800; color: #0284c7; text-decoration: none; letter-spacing: -1px; }
+        .logo { font-size: 24px; font-weight: 800; color: #2e7d32; text-decoration: none; }
         
         .nav-menu { display: flex; list-style: none; gap: 40px; }
-        .nav-menu > li { position: relative; }
-        .nav-menu > li > a { text-decoration: none; color: #1e293b; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
-        .nav-menu > li > a:hover { color: #0284c7; }
-        
-        /* 드롭다운 서브메뉴 */
-        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #f1f5f9; }
-        .nav-menu > li:hover .submenu { display: block; }
-        .submenu li a { display: block; padding: 10px 20px; color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
-        .submenu li a:hover { background: #f0f9ff; color: #0284c7; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; }
+        .nav-menu > li > a:hover { color: #2e7d32; }
 
-        /* 메인 비주얼 배너: 화사한 블루 톤 그라데이션 */
-        .hero { background: linear-gradient(135deg, rgba(2, 132, 199, 0.85), rgba(30, 58, 138, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; height: 480px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-        .hero h1 { font-size: 42px; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        /* 메인 배너: CI의 초록 나무를 연상시키는 따뜻한 톤 */
+        .hero { 
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(76, 175, 80, 0.8)), 
+            url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; 
+            height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; 
+        }
+        .hero h1 { font-size: 44px; font-weight: 800; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .hero p { font-size: 20px; font-weight: 400; opacity: 0.95; }
 
-        /* 컨텐츠 섹션 */
-        .container { max-width: 1200px; margin: 70px auto; padding: 0 30px; }
-        .section-title { text-align: center; font-size: 30px; color: #0f172a; margin-bottom: 50px; font-weight: 800; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #0284c7; margin: 15px auto 0; border-radius: 2px; }
+        .container { max-width: 1200px; margin: 80px auto; padding: 0 30px; }
+        .section-title { text-align: center; font-size: 32px; color: #1b4332; margin-bottom: 60px; font-weight: 800; }
         
+        /* 카드 디자인: 부드러운 초록 그림자 */
         .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card { background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; text-align: center; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(2,132,199,0.1); border-color: #bae6fd; }
-        .card h3 { font-size: 22px; color: #0f172a; margin-bottom: 15px; font-weight: 700; }
-        .card p { font-size: 15px; color: #64748b; line-height: 1.6; }
-
-        /* 하단 푸터 */
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 50px 0; margin-top: 100px; font-size: 14px; line-height: 1.8; }
-        footer .footer-logo { color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 12px; display: inline-block; }
-
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .card-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 30px; }
-            .hero p { font-size: 16px; }
+        .card { 
+            background: #ffffff; padding: 40px 30px; border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(46,125,50,0.08); 
+            border: 1px solid #e8f5e9; text-align: center; transition: 0.3s;
         }
+        .card:hover { transform: translateY(-10px); border-color: #a5d6a7; }
+        .card h3 { font-size: 22px; color: #2e7d32; margin-bottom: 15px; }
+        .card p { font-size: 15px; color: #555; line-height: 1.6; }
+
+        footer { background: #1b4332; color: #a3b18b; text-align: center; padding: 50px 0; margin-top: 100px; }
+        .footer-logo { color: #fff; font-weight: 700; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -58,68 +49,40 @@
         <div class="nav-container">
             <a href="index.html" class="logo">조우직업재활시설</a>
             <ul class="nav-menu">
-                <li>
-                    <a href="#">법인소개</a>
-                    <ul class="submenu">
-                        <li><a href="greeting.html">인사말</a></li>
-                        <li><a href="#">법인운영방침</a></li>
-                        <li><a href="#">사업추진방향</a></li>
-                        <li><a href="#">조직도</a></li>
-                        <li><a href="#">오시는 길</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">시설소개</a>
-                    <ul class="submenu">
-                        <li><a href="greeting.html">인사말</a></li>
-                        <li><a href="#">미션과 비전</a></li>
-                        <li><a href="#">이용절차</a></li>
-                        <li><a href="#">사업소개</a></li>
-                        <li><a href="#">연혁</a></li>
-                        <li><a href="#">조직도</a></li>
-                        <li><a href="#">오시는 길</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">소통공간</a>
-                    <ul class="submenu">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">일상</a></li>
-                        <li><a href="#">식단표</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">법인소개</a></li>
+                <li><a href="#">시설소개</a></li>
+                <li><a href="#">소통공간</a></li>
             </ul>
         </div>
     </header>
 
     <div class="hero">
         <div>
-            <h1>조우직업재활시설에 오신 것을 환영합니다</h1>
-            <p>따뜻한 나눔과 자립을 함께 만들어가는 행복한 공간입니다.</p>
+            <h1>마음과 마음이 만나, 함께 날아오르다</h1>
+            <p>조우직업재활시설은 따뜻한 나눔의 가치를 실천합니다.</p>
         </div>
     </div>
 
     <div class="container">
-        <h2 class="section-title">주요 안내 및 서비스</h2>
+        <h2 class="section-title">주요 서비스</h2>
         <div class="card-grid">
             <div class="card">
                 <h3>법인소개</h3>
-                <p>조우직업재활시설의 설립 이념과 운영 방향, 투명한 법인 가치를 확인하실 수 있습니다.</p>
+                <p>꿈과 희망을 연결하는 블루링크사회적협동조합의 비전과 철학을 소개합니다.</p>
             </div>
             <div class="card">
-                <h3>시설 및 사업</h3>
-                <p>이용자들의 자립을 돕기 위한 다양한 맞춤형 직업재활 프로그램과 시설을 소개합니다.</p>
+                <h3>직업 재활</h3>
+                <p>개개인의 능력을 존중하며, 자립을 위한 맞춤형 직업 훈련을 제공합니다.</p>
             </div>
             <div class="card">
-                <h3>소통공간</h3>
-                <p>시설의 생생한 일상 소식과 공지사항, 매주 업데이트되는 식단표를 확인하세요.</p>
+                <h3>소통 공간</h3>
+                <p>시설의 일상과 소식을 나누며 함께 성장하는 행복한 커뮤니티입니다.</p>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-logo">조우직업재활시설</div>
-        <p>주소 및 상세 연락처 입력란 | 대표전화: 031-XXX-XXXX</p>
         <p>Copyright © 조우직업재활시설 All rights reserved.</p>
     </footer>
 
