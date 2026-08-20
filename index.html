@@ -353,93 +353,6 @@
         }
 
         /* =========================
-           소개 카드 (타이틀 제거됨)
-        ========================= */
-
-        .quick-section {
-            padding: 75px 25px;
-            background: #ffffff;
-        }
-
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .quick-card {
-            padding: 35px 30px;
-
-            border: 1px solid #e4ece0;
-            border-radius: 15px;
-
-            background: #ffffff;
-
-            transition: 0.25s;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-card::before {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background: #82ae63;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(61, 98, 53, 0.10);
-        }
-
-        .quick-icon {
-            font-size: 34px;
-            margin-bottom: 18px;
-        }
-
-        .quick-card h3 {
-            font-size: 22px;
-            color: #3f6336;
-
-            margin-bottom: 10px;
-        }
-
-        .quick-card p {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .quick-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .quick-links span {
-            padding: 5px 10px;
-
-            border-radius: 20px;
-
-            background: #f1f7ee;
-            color: #648b57;
-
-            font-size: 12px;
-        }
-
-        /* =========================
            하단 문의
         ========================= */
 
@@ -609,10 +522,6 @@
                 font-size: 65px;
             }
 
-            .quick-grid {
-                grid-template-columns: 1fr;
-            }
-
             .contact-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -729,7 +638,7 @@
                         함께 날아오르는 조우직업재활시설입니다.
                     </p>
 
-                    <a href="#quick" class="hero-button">
+                    <a href="facility_greeting.html" class="hero-button">
                         시설 알아보기 →
                     </a>
 
@@ -750,96 +659,6 @@
             </div>
 
         </section>
-
-
-        <!-- =========================
-             QUICK MENU
-        ========================== -->
-
-        <section class="quick-section" id="quick">
-
-            <div class="section-inner">
-
-                <!-- 기존 타이틀 영역 삭제됨 -->
-
-                <div class="quick-grid">
-
-
-                    <!-- 법인 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🌱</div>
-
-                        <h3>법인</h3>
-
-                        <p>
-                            조우를 운영하는 법인의<br>
-                            방향과 운영철학을 소개합니다.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>인사말</span>
-                            <span>운영방침</span>
-                            <span>사업추진방향</span>
-                            <span>조직도</span>
-                        </div>
-
-                    </div>
-
-
-                    <!-- 시설 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🌿</div>
-
-                        <h3>시설</h3>
-
-                        <p>
-                            조우직업재활시설의<br>
-                            미션과 사업을 소개합니다.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>미션과 비전</span>
-                            <span>사업소개</span>
-                            <span>고용 및 이용절차</span>
-                            <span>연혁</span>
-                        </div>
-
-                    </div>
-
-
-                    <!-- 소통 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🦋</div>
-
-                        <h3>소통공간</h3>
-
-                        <p>
-                            조우의 소식과 일상을<br>
-                            함께 만나보세요.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>공지사항</span>
-                            <span>일상</span>
-                            <span>식단표</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT 구역 삭제됨 -->
 
 
         <!-- =========================
@@ -902,7 +721,6 @@
         </div>
 
     </footer>
-
 
 </body>
 </html>
