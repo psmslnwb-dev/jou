@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연혁 - 조우직업재활시설</title>
+    <style>
+        /* =========================
+           공통 및 헤더/푸터 스타일 (최신버전)
+        ========================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+
+        /* 메인 메뉴 (입체적 테두리 적용) */
+        .main-menu { height: 100%; display: flex; align-items: center; gap: 15px; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { 
+            padding: 10px 24px; display: flex; align-items: center; font-size: 16px; font-weight: 700; color: #444; 
+            background: #ffffff; border: 2px solid #e4ece0; border-radius: 30px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.05); transition: 0.25s; 
+        }
+        .main-menu > li:hover > a { 
+            background: #5d914d; border-color: #5d914d; color: #ffffff; 
+            box-shadow: 0 6px 15px rgba(93, 145, 77, 0.3); transform: translateY(-2px); 
+        }
+
+        /* 드롭다운 메뉴 */
+        .submenu { 
+            position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; 
+            background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; 
+            opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); 
+        }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+
+        /* 서브페이지 공통 레이아웃 */
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+        
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+
+        @media (max-width: 900px) {
+            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; }
+            .main-menu { gap: 6px; } .main-menu > li > a { padding: 6px 14px; font-size: 14px; } .submenu { top: 75px; }
+        }
+        @media (max-width: 700px) {
+            .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
+            .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
+
+        /* =========================
+           연혁 전용 스타일
+        ========================= */
+        .history_wrapper { font-family: 'Pretendard', sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px 20px 80px 20px; text-align: center; }
+
+        /* 연도 선택 네비게이션 (2026년 단독) */
+        .history_nav { display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0; margin-bottom: 40px; }
+        .history_btn { 
+            display: block; 
+            padding: 12px 28px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #fff; 
+            background: #5d914d; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            box-shadow: 0 4px 10px rgba(93, 145, 77, 0.25); 
+        }
+
+        /* 연혁 내용 출력 패널 */
+        .history_container { position: relative; min-height: 200px; }
+        .history_panel { max-width: 700px; margin: 0 auto; text-align: left; }
+
+        /* 연혁 리스트 스타일 */
+        .history_list { list-style: none; padding: 0; margin: 0; }
+        .history_list li { 
+            position: relative; 
+            padding: 20px 25px 20px 60px; 
+            background: #fff; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+        }
+
+        /* 월 표시 뱃지 */
+        .history_month { 
+            position: absolute; 
+            left: 15px; 
+            font-size: 15px; 
+            font-weight: 800; 
+            color: #5d914d; 
+            background: #f6faf3; 
+            padding: 4px 8px; 
+            border-radius: 6px; 
+            min-width: 32px;
+            text-align: center;
+            border: 1px solid #e4ece0;
+        }
+
+        /* 세부 내용 텍스트 */
+        .history_text { font-size: 15px; color: #334155; font-weight: 600; line-height: 1.6; word-break: keep-all; }
+
+        @media (max-width: 768px) {
+            .history_btn { padding: 10px 20px; font-size: 14px; }
+            .history_list li { padding: 15px 15px 15px 55px; }
+            .history_month { left: 10px; font-size: 13px; }
+            .history_text { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- =========================
+         최신 HEADER
+    ========================== -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <!-- 법인 -->
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <!-- 시설 -->
+                    <li>
+                        <a href="facility_greeting.html">시설</a>
+                        <ul class="submenu">
+                            <li><a href="facility_greeting.html">인사말</a></li>
+                            <li><a href="facility_vision.html">미션과 비전</a></li>
+                            <li><a href="facility_procedure.html">고용 및 이용절차</a></li>
+                            <li><a href="facility_business.html">사업소개</a></li>
+                            <li><a href="facility_history.html">연혁</a></li>
+                            <li><a href="facility_organization.html">조직도</a></li>
+                            <li><a href="facility_location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <!-- 소통공간 (네이버 카페 연동) -->
+                    <li>
+                        <a href="#" target="_blank">소통공간</a>
+                        <ul class="submenu">
+                            <li><a href="#" target="_blank">공지사항 (카페)</a></li>
+                            <li><a href="#" target="_blank">일상 (카페)</a></li>
+                            <li><a href="#" target="_blank">식단표 (카페)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================
+         본문 (연혁)
+    ========================== -->
+    <main class="content-page">
+        <h2 class="page-title">연혁</h2>
+        
+        <div class="history_wrapper">
+            <ul class="history_nav">
+                <li><span class="history_btn">2026</span></li>
+            </ul>
+
+            <div class="history_container">
+                <!-- 2026년 (공백 상태) -->
+                <div id="y2026" class="history_panel">
+                    <ul class="history_list">
+                        <!-- 나중에 내용을 입력하실 때 아래 주석을 풀고 사용하세요 -->
+                        <!-- 
+                        <li>
+                            <span class="history_month">00</span>
+                            <span class="history_text">내용을 입력하세요.</span>
+                        </li> 
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- =========================
+         푸터
+    ========================== -->
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+</body>
+</html>
