@@ -6,59 +6,49 @@
     <title>인사말 - 블루링크사회적협동조합</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Pretendard', -apple-system, sans-serif; color: #2c3e50; line-height: 1.7; background-color: #ffffff; }
+        body { font-family: 'Pretendard', sans-serif; color: #2d3748; line-height: 1.7; background-color: #fafaf7; }
         
-        header { background: #ffffff; border-bottom: 1px solid #edf2f7; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        /* 헤더 (메인과 동일) */
+        header { background: #ffffff; border-bottom: 1px solid #e8f5e9; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(46,125,50,0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
-        .logo { font-size: 24px; font-weight: 800; color: #0284c7; text-decoration: none; letter-spacing: -1px; }
+        .logo { font-size: 24px; font-weight: 800; color: #2e7d32; text-decoration: none; }
         
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu > li { position: relative; }
-        .nav-menu > li > a { text-decoration: none; color: #1e293b; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
-        .nav-menu > li > a:hover { color: #0284c7; }
-        
-        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #f1f5f9; }
-        .nav-menu > li:hover .submenu { display: block; }
-        .submenu li a { display: block; padding: 10px 20px; color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
-        .submenu li a:hover { background: #f0f9ff; color: #0284c7; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
+        .nav-menu > li > a:hover { color: #2e7d32; }
 
-        .sub-hero { background: linear-gradient(135deg, #0284c7, #1e3a8a); color: #fff; padding: 60px 0; text-align: center; }
+        /* 드롭다운 (메인과 동일) */
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #e8f5e9; }
+        .nav-menu > li:hover .submenu { display: block; }
+        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .submenu li a:hover { background: #f1f8f5; color: #2e7d32; }
+
+        /* 서브페이지 배너 (초록톤으로 통일) */
+        .sub-hero { background: linear-gradient(135deg, #2e7d32, #43a047); color: #fff; padding: 60px 0; text-align: center; }
         .sub-hero h1 { font-size: 34px; font-weight: 800; }
 
+        /* 인사말 컨테이너 */
         .blue_greeting_wrapper {
             max-width: 850px;
             margin: 60px auto;
             padding: 60px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            background: #ffffff;
+            border: 1px solid #e2ece3;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(46,125,50,0.05);
             position: relative;
         }
 
-        .blue_greeting_wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 6px;
-            background: #0284c7;
-            border-radius: 16px 16px 0 0;
-        }
-
-        .g_body { font-size: 18px; text-align: justify; word-break: keep-all; color: #334155; }
-        .g_title { font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 40px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; display: inline-block; }
+        .g_body { font-size: 18px; text-align: justify; word-break: keep-all; color: #374151; }
+        .g_title { font-size: 26px; font-weight: 800; color: #1b4332; margin-bottom: 40px; border-bottom: 2px solid #f1f8f5; padding-bottom: 15px; display: inline-block; }
         .g_paragraph { margin-bottom: 30px; }
-        .emp_link { color: #0284c7; font-weight: 700; border-bottom: 2px solid #bae6fd; }
-        .bold_dark { color: #0f172a; font-weight: 700; }
+        
+        .emp_link { color: #2e7d32; font-weight: 700; border-bottom: 2px solid #c8e6c9; }
+        .bold_dark { color: #1b4332; font-weight: 700; }
 
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 50px 0; margin-top: 100px; font-size: 14px; line-height: 1.8; }
-        footer .footer-logo { color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 12px; display: inline-block; }
-
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .blue_greeting_wrapper { padding: 30px 20px; margin: 30px 15px; }
-            .sub-hero h1 { font-size: 26px; }
-        }
+        footer { background: #1b4332; color: #a3b18b; text-align: center; padding: 50px 0; margin-top: 100px; }
+        .footer-logo { color: #fff; font-weight: 700; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -127,7 +117,6 @@
 
     <footer>
         <div class="footer-logo">조우직업재활시설</div>
-        <p>주소 및 상세 연락처 입력란 | 대표전화: 031-XXX-XXXX</p>
         <p>Copyright © 조우직업재활시설 All rights reserved.</p>
     </footer>
 
