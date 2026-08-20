@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조직도 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .main-menu { height: 100%; display: flex; align-items: center; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
+        .main-menu > li > a:hover { color: #4d873e; }
+        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* 조직도 전용 스타일 */
+        .bl_org_section { padding: 60px 0; background-color: #fdfdfd; text-align: center; font-family: 'Pretendard', sans-serif; border: 1px solid #e8eee8; border-radius: 12px; }
+        .bl_tree, .bl_tree ul, .bl_tree li { position: relative; list-style: none; margin: 0; padding: 0; }
+        .bl_tree { display: inline-block; }
+        .bl_tree ul { display: flex; justify-content: center; padding-top: 40px; }
+        .bl_tree li { padding: 20px 10px 0; }
+        .bl_tree li::before, .bl_tree li::after { content: ''; position: absolute; top: 0; right: 50%; border-top: 1px solid #ccc; width: 50%; height: 20px; }
+        .bl_tree li::after { right: auto; left: 50%; border-left: 1px solid #ccc; }
+        .bl_tree li:only-child::after, .bl_tree li:only-child::before { display: none; }
+        .bl_tree li:only-child { padding-top: 0; }
+        .bl_tree li:first-child::before, .bl_tree li:last-child::after { border: 0 none; }
+        .bl_tree li:last-child::before { border-right: 1px solid #ccc; border-radius: 0 5px 0 0; }
+        .bl_tree li:first-child::after { border-radius: 5px 0 0 0; }
+        .bl_tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 1px solid #ccc; width: 0; height: 40px; margin-left: -1px; }
+        .audit_line { position: absolute; top: 50%; left: 100%; width: 40px; border-top: 1px solid #ccc; z-index: 1; }
+        .bl_node { display: inline-block; width: 180px; background: #fff; border: 1px solid #d1d8e0; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); padding: 18px 0; font-size: 16px; font-weight: 700; color: #2c3e50; position: relative; z-index: 2; }
+        .c_purple { border-top: 5px solid #6c75a9; } 
+        .c_green { border-top: 5px solid #67b475; } 
+        .c_mint { border-top: 5px solid #38b2ac; } 
+        .c_gray { border-top: 5px solid #a0aec0; } 
+        .audit_box { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); margin-left: 40px; }
+        @media (max-width: 768px) {
+            .bl_org_section { padding: 30px 10px; overflow-x: hidden; }
+            .bl_tree ul { flex-direction: column; align-items: center; padding-top: 20px; }
+            .bl_tree li { padding: 20px 0 0 0; width: 100%; }
+            .bl_node { width: 150px; padding: 12px 0; font-size: 14px; }
+            .audit_line { display: none !important; }
+            .audit_box { position: relative; left: 0; top: 0; transform: none; margin: 10px 0 0 0; display: block; }
+            .bl_tree li ul { padding-top: 10px; }
+            .bl_tree li::before, .bl_tree li::after { border: none !important; }
+            .bl_tree ul ul::before { height: 20px; top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">시설</a></li>
+                    <li><a href="#">소통공간</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2 class="page-title">조직도</h2>
+        
+        <div class="bl_org_section">
+            <div class="bl_tree">
+                <ul>
+                    <li>
+                        <div style="position: relative; display: inline-block;">
+                            <div class="bl_node c_purple">총회</div>
+                            <div class="audit_line"></div>
+                            <div class="audit_box">
+                                <div class="bl_node c_mint">감사</div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="bl_node c_green">이사회</div>
+                                <ul>
+                                    <li><div class="bl_node c_gray">생산팀</div></li>
+                                    <li><div class="bl_node c_gray">교육팀</div></li>
+                                    <li><div class="bl_node c_gray">관리팀</div></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+</body>
+</html>
