@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>법인운영방침 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .main-menu { height: 100%; display: flex; align-items: center; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
+        .main-menu > li > a:hover { color: #4d873e; }
+        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* 법인운영방침 카드형 레이아웃 */
+        .policy-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0; }
+        .policy-card { background: #f8fbff; border: 1px solid #d4e6f1; border-top: 4px solid #2980b9; border-radius: 12px; padding: 35px 25px; width: calc(33.333% - 20px); text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
+        .policy-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .policy-card .number { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: #2980b9; color: #fff; border-radius: 50%; font-weight: bold; font-size: 18px; margin-bottom: 20px; }
+        .policy-card .text { font-size: 16px; color: #34495e; line-height: 1.6; word-break: keep-all; font-weight: 500; }
+        
+        @media (max-width: 900px) { .policy-card { width: calc(50% - 20px); } }
+        @media (max-width: 600px) { .policy-card { width: 100%; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">시설</a></li>
+                    <li><a href="#">소통공간</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2 class="page-title">법인운영방침</h2>
+        
+        <div class="policy-grid">
+            <div class="policy-card">
+                <div class="number">1</div>
+                <div class="text">취업을 원하는 고령자, 장애인 등 취약계층에게 안정적 일자리 제공</div>
+            </div>
+            <div class="policy-card">
+                <div class="number">2</div>
+                <div class="text">경제활동을 통해 삶의 질을 향상하여 건강한 사회생활 영위</div>
+            </div>
+            <div class="policy-card">
+                <div class="number">3</div>
+                <div class="text">사회적협동조합의 기부, 나눔 및 자원봉사 활동을 통한 민간복지 확대</div>
+            </div>
+            <div class="policy-card">
+                <div class="number">4</div>
+                <div class="text">지역 내 유휴인구의 경제활동 참여로 인한 지역사회 발전</div>
+            </div>
+            <div class="policy-card">
+                <div class="number">5</div>
+                <div class="text">사회적 일자리 제공으로 인하여 취업 등 적극적 사회 참여를 통한 사회통합 기여</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+</body>
+</html>
