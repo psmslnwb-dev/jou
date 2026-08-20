@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오시는 길 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .main-menu { height: 100%; display: flex; align-items: center; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
+        .main-menu > li > a:hover { color: #4d873e; }
+        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* 오시는길 전용 스타일 */
+        .loc_info_box { margin: 20px 0 40px 0; background: #f9fbfc; padding: 30px; border-radius: 12px; border: 1px solid #e1e8ed; }
+        .loc_info_list { list-style: none; padding: 0; margin: 0; }
+        .loc_info_list li { font-size: 16px; margin-bottom: 12px; color: #444; display: flex; align-items: center; }
+        .loc_info_list li:last-child { margin-bottom: 0; }
+        .loc_label { font-weight: 700; color: #1ebbc9; width: 80px; flex-shrink: 0; }
+        .map_display_area { margin: 30px 0; border: 1px solid #d1d8e0; border-radius: 15px; overflow: hidden; }
+        .traffic_styled_table { width: 100%; border-collapse: collapse; margin-top: 30px; background: #fff; }
+        .traffic_styled_table th { background: #f1f4f7; color: #333; padding: 20px; width: 120px; text-align: center; border-bottom: 1px solid #d1d8e0; font-size: 15px; }
+        .traffic_styled_table td { padding: 20px 25px; border-bottom: 1px solid #f1f4f7; font-size: 15px; line-height: 1.7; color: #555; }
+        .traffic_styled_table .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-weight: 700; margin-right: 5px; font-size: 13px; }
+        .car_bg { color: #34495e; border: 1px solid #34495e; }
+        .bus_bg { color: #1ebbc9; border: 1px solid #1ebbc9; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">시설</a></li>
+                    <li><a href="#">소통공간</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2 class="page-title">오시는 길</h2>
+        
+        <div class="loc_info_box">
+            <ul class="loc_info_list">
+                <li><span class="loc_label">주소</span> <span>경기도 의정부시 오목로 205번길 36, 골드프라자 골드하우스 4층</span></li>
+                <li><span class="loc_label">전화</span> <span>031-823-2000</span></li>
+                <li><span class="loc_label">팩스</span> <span>031-823-2002</span></li>
+            </ul>
+        </div>
+
+        <div class="map_display_area">
+            <div id="daumRoughmapContainer1599572796583" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        </div>
+
+        <table class="traffic_styled_table">
+            <tbody>
+                <tr>
+                    <th><span class="badge car_bg">자가용</span></th>
+                    <td>의정부역 방향에서 오실 경우, 의정부역 동부교차로에서 <strong>양주, 경찰서, 경기도교육청 북부청사 방면</strong>으로 좌회전</td>
+                </tr>
+                <tr>
+                    <th><span class="badge bus_bg">대중교통</span></th>
+                    <td>
+                        <strong>버스 :</strong> 송산초교, 상가단지 10-2, 10-3, 111, 35 (일반), 206(마을), 3600(직행)<br>
+                        <strong>지하철 :</strong> 1호선, 7호선 도봉역 하차 → 도봉산역환승센터에서 10-2, 10-3 버스로 송산초교 상가단지에서 하차
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js" charset="UTF-8"></script>
+        <script charset="UTF-8">
+            new daum.roughmap.Lander({
+                "timestamp" : "1599572796583",
+                "key" : "2zxmh",
+                "mapContent" : "100%",
+                "mapHeight" : "400"
+            }).render();
+        </script>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+</body>
+</html>
