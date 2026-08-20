@@ -1,1043 +1,354 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>조우직업재활시설</title>
-
-    <meta name="description" content="조우직업재활시설 - 마음과 마음이 만나, 함께 날아오르다">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                "Noto Sans KR",
-                "Malgun Gothic",
-                Arial,
-                sans-serif;
-            color: #333;
-            background: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* =========================
-           상단 헤더
-        ========================= */
-
-        header {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid #e8eee8;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            height: 92px;
-            margin: 0 auto;
-            padding: 0 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        /* 로고 */
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 250px;
-        }
-
-        .logo img {
-            width: 62px;
-            height: 62px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #426b38;
-            letter-spacing: -1px;
-        }
-
-        .logo-sub {
-            font-size: 11px;
-            color: #888;
-            margin-top: 2px;
-        }
-
-        /* =========================
-           메인 메뉴
-        ========================= */
-
-        .main-menu {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .main-menu > li {
-            position: relative;
-            height: 100%;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .main-menu > li > a {
-            height: 100%;
-            padding: 0 28px;
-
-            display: flex;
-            align-items: center;
-
-            font-size: 16px;
-            font-weight: 600;
-            color: #444;
-
-            transition: 0.25s;
-        }
-
-        .main-menu > li > a:hover {
-            color: #4d873e;
-        }
-
-        /* =========================
-           드롭다운 메뉴
-        ========================= */
-
-        .submenu {
-            position: absolute;
-            top: 92px;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-
-            width: 190px;
-
-            background: #ffffff;
-            border: 1px solid #e4ebe4;
-            border-radius: 0 0 10px 10px;
-
-            padding: 12px 0;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: 0.25s;
-
-            box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10);
-        }
-
-        .main-menu > li:hover .submenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .submenu li a {
-            display: block;
-            padding: 10px 20px;
-
-            font-size: 14px;
-            color: #555;
-
-            transition: 0.2s;
-        }
-
-        .submenu li a:hover {
-            background: #f1f7ef;
-            color: #4d873e;
-        }
-
-        /* =========================
-           메인 비주얼
-        ========================= */
-
-        .hero {
-            min-height: 600px;
-
-            position: relative;
-            overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 80% 25%,
-                    rgba(174, 211, 126, 0.28),
-                    transparent 28%
-                ),
-                linear-gradient(
-                    135deg,
-                    #f5faef 0%,
-                    #ffffff 55%,
-                    #edf6e8 100%
-                );
-
-            display: flex;
-            align-items: center;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-
-            width: 480px;
-            height: 480px;
-
-            border-radius: 50%;
-
-            background: rgba(151, 193, 105, 0.08);
-
-            right: -150px;
-            bottom: -190px;
-        }
-
-        .hero-inner {
-            max-width: 1200px;
-            width: 100%;
-
-            margin: 0 auto;
-            padding: 70px 25px;
-
-            position: relative;
-            z-index: 2;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-text {
-            max-width: 650px;
-        }
-
-        .hero-small {
-            display: inline-block;
-
-            color: #5d914d;
-            font-size: 15px;
-            font-weight: 600;
-
-            margin-bottom: 18px;
-
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            line-height: 1.3;
-
-            color: #365b2f;
-
-            letter-spacing: -3px;
-
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            color: #78a94f;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: #777;
-            line-height: 1.9;
-
-            margin-bottom: 35px;
-        }
-
-        .hero-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 14px 30px;
-
-            background: #5d914d;
-            color: white;
-
-            border-radius: 30px;
-
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: 0.25s;
-        }
-
-        .hero-button:hover {
-            background: #426f38;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(65, 112, 55, 0.2);
-        }
-
-        /* 오른쪽 장식 */
-
-        .hero-decoration {
-            width: 360px;
-            height: 360px;
-
-            position: relative;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .circle {
-            width: 300px;
-            height: 300px;
-
-            border-radius: 50%;
-
-            background: rgba(146, 190, 103, 0.14);
-
-            position: absolute;
-        }
-
-        .circle-small {
-            width: 190px;
-            height: 190px;
-
-            border-radius: 50%;
-
-            background: rgba(221, 187, 72, 0.12);
-
-            position: absolute;
-
-            top: 10px;
-            right: 20px;
-        }
-
-        .tree-symbol {
-            font-size: 130px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* =========================
-           소개 카드
-        ========================= */
-
-        .quick-section {
-            padding: 75px 25px;
-            background: #ffffff;
-        }
-
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title .small {
-            display: block;
-
-            color: #75a65c;
-            font-size: 14px;
-            font-weight: 600;
-
-            margin-bottom: 8px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: #3c5f34;
-            letter-spacing: -1.5px;
-        }
-
-        .section-title p {
-            margin-top: 10px;
-            color: #888;
-            font-size: 15px;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .quick-card {
-            padding: 35px 30px;
-
-            border: 1px solid #e4ece0;
-            border-radius: 15px;
-
-            background: #ffffff;
-
-            transition: 0.25s;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-card::before {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background: #82ae63;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(61, 98, 53, 0.10);
-        }
-
-        .quick-icon {
-            font-size: 34px;
-            margin-bottom: 18px;
-        }
-
-        .quick-card h3 {
-            font-size: 22px;
-            color: #3f6336;
-
-            margin-bottom: 10px;
-        }
-
-        .quick-card p {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .quick-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .quick-links span {
-            padding: 5px 10px;
-
-            border-radius: 20px;
-
-            background: #f1f7ee;
-            color: #648b57;
-
-            font-size: 12px;
-        }
-
-        /* =========================
-           시설 소개
-        ========================= */
-
-        .about-section {
-            padding: 85px 25px;
-            background: #f6faf3;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .about-image {
-            min-height: 360px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(114, 159, 85, 0.15),
-                    rgba(231, 240, 218, 0.8)
-                );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 100px;
-        }
-
-        .about-text .label {
-            color: #6c9a55;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .about-text h2 {
-            color: #3b6033;
-            font-size: 34px;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: #777;
-            line-height: 2;
-            font-size: 15px;
-        }
-
-        /* =========================
-           하단 문의
-        ========================= */
-
-        .contact-section {
-            padding: 70px 25px;
-
-            background: #527d45;
-            color: #ffffff;
-        }
-
-        .contact-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .contact-text h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .contact-text p {
-            opacity: 0.85;
-            font-size: 14px;
-        }
-
-        .contact-info {
-            text-align: right;
-            font-size: 14px;
-            line-height: 1.9;
-            opacity: 0.95;
-        }
-
-        /* =========================
-           푸터
-        ========================= */
-
-        footer {
-            background: #30482c;
-            color: rgba(255, 255, 255, 0.65);
-
-            padding: 30px 25px;
-
-            font-size: 12px;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* =========================
-           모바일
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .header-inner {
-                height: 75px;
-            }
-
-            .logo {
-                min-width: auto;
-            }
-
-            .logo img {
-                width: 48px;
-                height: 48px;
-            }
-
-            .logo-title {
-                font-size: 17px;
-            }
-
-            .logo-sub {
-                display: none;
-            }
-
-            .main-menu > li > a {
-                padding: 0 12px;
-                font-size: 14px;
-            }
-
-            .submenu {
-                top: 75px;
-            }
-
-            .hero {
-                min-height: 500px;
-            }
-
-            .hero-inner {
-                padding: 60px 25px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero-decoration {
-                width: 260px;
-                height: 260px;
-            }
-
-            .circle {
-                width: 220px;
-                height: 220px;
-            }
-
-            .tree-symbol {
-                font-size: 90px;
-            }
-        }
-
-        @media (max-width: 700px) {
-
-            .header-inner {
-                padding: 0 15px;
-            }
-
-            .main-menu > li > a {
-                padding: 0 7px;
-                font-size: 12px;
-            }
-
-            .hero-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-                letter-spacing: -2px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .hero-decoration {
-                margin-top: 35px;
-                width: 190px;
-                height: 160px;
-            }
-
-            .circle {
-                width: 150px;
-                height: 150px;
-            }
-
-            .circle-small {
-                width: 90px;
-                height: 90px;
-            }
-
-            .tree-symbol {
-                font-size: 65px;
-            }
-
-            .quick-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .about-image {
-                min-height: 250px;
-            }
-
-            .contact-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 25px;
-            }
-
-            .contact-info {
-                text-align: left;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>조우직업재활시설</title>
+  <meta name="description" content="조우직업재활시설 - 마음과 마음이 만나, 함께 날아오르다" />
+
+  <style>
+    /* 기본 초기화 */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans KR', Malgun Gothic, Arial, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* =========================
+       헤더 (상단 메뉴 고정)
+    ========================= */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #e8eee8;
+      z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px;
+      height: 92px;
+      padding: 0 25px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 250px;
+    }
+    .logo img {
+      width: 62px; height: 62px;
+      object-fit: contain;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #426b38;
+      letter-spacing: -1px;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    /* 메인메뉴 스타일 */
+    .main-menu {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .main-menu > li {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+    }
+    .main-menu > li > a {
+      padding: 0 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #444;
+      line-height: 92px;
+      display: block;
+      transition: 0.25s;
+    }
+    .main-menu > li > a:hover {
+      color: #4d873e;
+    }
+
+    /* 드롭다운 */
+    .submenu {
+      position: absolute;
+      top: 92px;
+      left: 0;
+      width: 190px;
+      background: #fff;
+      border: 1px solid #e4ebe4;
+      border-radius: 0 0 10px 10px;
+      padding: 12px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s;
+      box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10);
+      z-index: 2000;
+    }
+    .main-menu > li:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .submenu li a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #555;
+      transition: 0.2s;
+    }
+    .submenu li a:hover {
+      background: #f1f7ef;
+      color: #4d873e;
+    }
+
+    /* =========================
+       메인 콘텐츠 - 내용 부분  
+       각 섹션 숨기고 활성화된 것만 표시
+    ========================= */
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      min-height: 400px;
+    }
+    section.content-section {
+      display: none;
+      padding: 30px;
+      background: #f0f7e7;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      font-size: 16px;
+      line-height: 1.7;
+      color: #365b2f;
+    }
+    section.content-section.active {
+      display: block;
+    }
+
+    /* 제목 스타일 */
+    section.content-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #c1ddb5;
+      padding-bottom: 12px;
+    }
+
+    /* 강조 텍스트 */
+    .emp_link {
+      color: #2980b9;
+      font-weight: 700;
+      border-bottom: 2px solid #d4e6f1;
+    }
+    .bold_dark {
+      color: #2c3e50;
+      font-weight: 700;
+    }
+
+    /* 반응형 간단 처리 */
+    @media (max-width: 700px) {
+      .header-inner {
+        padding: 0 15px;
+        height: 70px;
+      }
+      .main-menu > li > a {
+        padding: 0 12px;
+        font-size: 14px;
+      }
+      main {
+        padding: 0 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header>
-        <div class="header-inner">
-
-            <a href="#" class="logo">
-
-                <!-- CI 이미지 -->
-                <img src="ci.png" alt="조우직업재활시설 CI">
-
-                <div class="logo-text">
-                    <div class="logo-title">조우직업재활시설</div>
-                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
-                </div>
-
-            </a>
-
-            <nav>
-                <ul class="main-menu">
-
-                    <!-- 법인 -->
-                    <li>
-                        <a href="#">법인</a>
-
-                        <ul class="submenu">
-                            <li><a href="greeting.html">인사말</a></li>
-                            <li><a href="policy.html">법인운영방침</a></li>
-                            <li><a href="direction.html">사업추진방향</a></li>
-                            <li><a href="organization.html">조직도</a></li>
-                           <li><a href="location.html">오시는길</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- 시설 -->
-                    <li>
-                        <a href="#">시설</a>
-
-                        <ul class="submenu">
-                            <li><a href="#">인사말</a></li>
-                            <li><a href="#">미션과 비전</a></li>
-                            <li><a href="#">고용 및 이용절차</a></li>
-                            <li><a href="#">사업소개</a></li>
-                            <li><a href="#">연혁</a></li>
-                            <li><a href="#">조직도</a></li>
-                            <li><a href="#">오시는 길</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- 소통공간 -->
-                    <li>
-                        <a href="#">소통공간</a>
-
-                        <ul class="submenu">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">일상</a></li>
-                            <li><a href="#">식단표</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-
-        </div>
-    </header>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-inner">
-
-                <div class="hero-text">
-
-                    <span class="hero-small">
-                        JO-U VOCATIONAL REHABILITATION FACILITY
-                    </span>
-
-                    <h1>
-                        마음과 마음이 만나,<br>
-                        <span>함께</span><br>
-                        날아오르다
-                    </h1>
-
-                    <p class="hero-description">
-                        마음과 마음이 만나,<br>
-                        함께 날아오르는 조우직업재활시설입니다.
-                    </p>
-
-                    <a href="#about" class="hero-button">
-                        시설 알아보기 →
-                    </a>
-
-                </div>
-
-
-                <div class="hero-decoration">
-
-                    <div class="circle"></div>
-                    <div class="circle-small"></div>
-
-                    <div class="tree-symbol">
-                        🌳
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             QUICK MENU
-        ========================== -->
-
-        <section class="quick-section">
-
-            <div class="section-inner">
-
-                <div class="section-title">
-
-                    <span class="small">JOU WELFARE</span>
-
-                    <h2>조우직업재활시설</h2>
-
-                    <p>
-                        마음과 마음이 만나, 함께 날아오르다
-                    </p>
-
-                </div>
-
-
-                <div class="quick-grid">
-
-
-                    <!-- 법인 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🌱</div>
-
-                        <h3>법인</h3>
-
-                        <p>
-                            조우를 운영하는 법인의<br>
-                            방향과 운영철학을 소개합니다.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>인사말</span>
-                            <span>운영방침</span>
-                            <span>사업추진방향</span>
-                            <span>조직도</span>
-                        </div>
-
-                    </div>
-
-
-                    <!-- 시설 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🌿</div>
-
-                        <h3>시설</h3>
-
-                        <p>
-                            조우직업재활시설의<br>
-                            미션과 사업을 소개합니다.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>미션과 비전</span>
-                            <span>사업소개</span>
-                            <span>고용 및 이용절차</span>
-                            <span>연혁</span>
-                        </div>
-
-                    </div>
-
-
-                    <!-- 소통 -->
-
-                    <div class="quick-card">
-
-                        <div class="quick-icon">🦋</div>
-
-                        <h3>소통공간</h3>
-
-                        <p>
-                            조우의 소식과 일상을<br>
-                            함께 만나보세요.
-                        </p>
-
-                        <div class="quick-links">
-                            <span>공지사항</span>
-                            <span>일상</span>
-                            <span>식단표</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section class="about-section" id="about">
-
-            <div class="section-inner">
-
-                <div class="about-content">
-
-                    <div class="about-image">
-                        🌳
-                    </div>
-
-                    <div class="about-text">
-
-                        <div class="label">
-                            ABOUT JOU
-                        </div>
-
-                        <h2>
-                            사람을 중심에 두고<br>
-                            함께 걸어갑니다.
-                        </h2>
-
-                        <p>
-                            조우직업재활시설은 장애인의 직업능력을 향상시키고
-                            안정적인 일자리를 제공하며, 지역사회 안에서
-                            자립할 수 있도록 함께하는 직업재활시설입니다.
-                        </p>
-
-                        <br>
-
-                        <p>
-                            서로의 다름을 존중하고 각자의 가능성을 발견하며,
-                            함께 성장할 수 있는 따뜻한 공간을 만들어가겠습니다.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section class="contact-section">
-
-            <div class="contact-inner">
-
-                <div class="contact-text">
-
-                    <h2>조우직업재활시설</h2>
-
-                    <p>
-                        함께하는 마음, 함께 만들어가는 내일
-                    </p>
-
-                </div>
-
-                <div class="contact-info">
-
-                    <div>
-                        📍 주소 : 주소를 입력해주세요.
-                    </div>
-
-                    <div>
-                        ☎ 전화 : 000-0000-0000
-                    </div>
-
-                    <div>
-                        ✉ 이메일 : 이메일을 입력해주세요.
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="footer-inner">
-
-            <div>
-                © 조우직업재활시설. All Rights Reserved.
-            </div>
-
-            <div>
-                법인 · 시설 · 소통공간
-            </div>
-
-        </div>
-
-    </footer>
-
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="ci.png" alt="조우직업재활시설 CI" />
+      <div class="logo-text">
+        <div class="logo-title">조우직업재활시설</div>
+        <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="main-menu">
+        <li>
+          <a href="#">법인</a>
+          <ul class="submenu">
+            <li><a href="#" data-target="greeting">인사말</a></li>
+            <li><a href="#" data-target="policy">법인운영방침</a></li>
+            <li><a href="#" data-target="direction">사업추진방향</a></li>
+            <li><a href="#" data-target="organization">조직도</a></li>
+            <li><a href="#" data-target="location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">시설</a>
+          <ul class="submenu">
+            <li><a href="#" data-target="facility_greeting">인사말</a></li>
+            <li><a href="#" data-target="mission">미션과 비전</a></li>
+            <li><a href="#" data-target="employment">고용 및 이용절차</a></li>
+            <li><a href="#" data-target="business_intro">사업소개</a></li>
+            <li><a href="#" data-target="history">연혁</a></li>
+            <li><a href="#" data-target="facility_organization">조직도</a></li>
+            <li><a href="#" data-target="facility_location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">소통공간</a>
+          <ul class="submenu">
+            <li><a href="#" data-target="notice">공지사항</a></li>
+            <li><a href="#" data-target="daily">일상</a></li>
+            <li><a href="#" data-target="menu">식단표</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 법인 영역 -->
+  <section id="greeting" class="content-section active">
+    <h2>안녕하십니까?</h2>
+    <p>
+      꿈과 희망을 연결해주는 <span class="emp_link">블루링크사회적협동조합</span>입니다.<br />
+      저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
+    </p>
+    <p>
+      <span class="bold_dark">블루링크사회적협동조합</span>은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <span class="bold_dark">비영리법인</span>입니다.
+      저희는 고령자, 장애인 등 <span class="emp_link">취약계층을 대상으로 안정적인 일자리 창출 및 고용</span>에 그 목적을 두고 있습니다.
+    </p>
+    <p>
+      더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다.
+    </p>
+    <p>
+      블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
+    </p>
+  </section>
+
+  <section id="policy" class="content-section">
+    <h2>법인운영방침</h2>
+    <p>법인운영방침 내용 샘플입니다. 실제 내용으로 교체해 주세요.</p>
+  </section>
+
+  <section id="direction" class="content-section">
+    <h2>사업추진방향</h2>
+    <p>사업추진방향 내용 샘플입니다. 실제 내용으로 교체해 주세요.</p>
+  </section>
+
+  <section id="organization" class="content-section">
+    <h2>조직도</h2>
+    <p>조직도 내용 샘플입니다.</p>
+  </section>
+
+  <section id="location" class="content-section">
+    <h2>오시는 길</h2>
+    <p>오시는 길 내용 샘플입니다.</p>
+  </section>
+
+  <!-- 시설 영역 -->
+  <section id="facility_greeting" class="content-section">
+    <h2>시설 인사말</h2>
+    <p>시설 인사말 내용 샘플입니다.</p>
+  </section>
+
+  <section id="mission" class="content-section">
+    <h2>미션과 비전</h2>
+    <p>미션과 비전 내용 샘플입니다.</p>
+  </section>
+
+  <section id="employment" class="content-section">
+    <h2>고용 및 이용절차</h2>
+    <p>고용 및 이용절차 내용 샘플입니다.</p>
+  </section>
+
+  <section id="business_intro" class="content-section">
+    <h2>사업소개</h2>
+    <p>사업소개 내용 샘플입니다.</p>
+  </section>
+
+  <section id="history" class="content-section">
+    <h2>연혁</h2>
+    <p>연혁 내용 샘플입니다.</p>
+  </section>
+
+  <section id="facility_organization" class="content-section">
+    <h2>시설 조직도</h2>
+    <p>시설 조직도 내용 샘플입니다.</p>
+  </section>
+
+  <section id="facility_location" class="content-section">
+    <h2>시설 오시는 길</h2>
+    <p>시설 오시는 길 내용 샘플입니다.</p>
+  </section>
+
+  <!-- 소통공간 영역 -->
+  <section id="notice" class="content-section">
+    <h2>공지사항</h2>
+    <p>공지사항 내용 샘플입니다.</p>
+  </section>
+
+  <section id="daily" class="content-section">
+    <h2>일상</h2>
+    <p>일상 내용 샘플입니다.</p>
+  </section>
+
+  <section id="menu" class="content-section">
+    <h2>식단표</h2>
+    <p>식단표 내용 샘플입니다.</p>
+  </section>
+</main>
+
+<script>
+  // 메뉴 클릭 시 해당 콘텐츠만 보여주기
+  const menuLinks = document.querySelectorAll('nav a[data-target]');
+  const sections = document.querySelectorAll('section.content-section');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-target');
+
+      sections.forEach(section => {
+        section.classList.toggle('active', section.id === targetId);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
