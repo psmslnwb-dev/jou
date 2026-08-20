@@ -104,7 +104,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 15px; /* 메뉴 간격 추가 */
+            gap: 15px;
         }
 
         .main-menu > li {
@@ -284,30 +284,6 @@
             margin-bottom: 35px;
         }
 
-        .hero-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 14px 30px;
-
-            background: #5d914d;
-            color: white;
-
-            border-radius: 30px;
-
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: 0.25s;
-        }
-
-        .hero-button:hover {
-            background: #426f38;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(65, 112, 55, 0.2);
-        }
-
         /* 오른쪽 장식 */
 
         .hero-decoration {
@@ -407,7 +383,7 @@
             margin: 0 auto;
 
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* 카피라이트 텍스트 중앙 정렬로 변경 */
             align-items: center;
         }
 
@@ -535,7 +511,7 @@
             .footer-inner {
                 flex-direction: column;
                 gap: 10px;
-                align-items: flex-start;
+                align-items: center; /* 모바일에서도 중앙 정렬 */
             }
         }
     </style>
@@ -638,10 +614,6 @@
                         함께 날아오르는 조우직업재활시설입니다.
                     </p>
 
-                    <a href="facility_greeting.html" class="hero-button">
-                        
-                    </a>
-
                 </div>
 
 
@@ -712,10 +684,6 @@
 
             <div>
                 © 조우직업재활시설. All Rights Reserved.
-            </div>
-
-            <div>
-                법인 · 시설 · 소통공간
             </div>
 
         </div>
