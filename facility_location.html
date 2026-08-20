@@ -49,7 +49,7 @@
         .loc_info_list li { font-size: 16px; margin-bottom: 12px; color: #444; display: flex; align-items: center; }
         .loc_info_list li:last-child { margin-bottom: 0; }
         .loc_label { font-weight: 700; color: #648b57; width: 80px; flex-shrink: 0; }
-        .map_display_area { margin: 30px 0; border: 1px solid #d1d8e0; border-radius: 15px; overflow: hidden; }
+        .map_display_area { margin: 30px 0; border: 1px solid #d1d8e0; border-radius: 15px; overflow: hidden; background: #eee; }
         .traffic_styled_table { width: 100%; border-collapse: collapse; margin-top: 30px; background: #fff; }
         .traffic_styled_table th { background: #f6faf3; color: #333; padding: 20px; width: 120px; text-align: center; border-bottom: 1px solid #e4ece0; font-size: 15px; }
         .traffic_styled_table td { padding: 20px 25px; border-bottom: 1px solid #f6faf3; font-size: 15px; line-height: 1.7; color: #555; }
@@ -110,47 +110,44 @@
         
         <div class="loc_info_box">
             <ul class="loc_info_list">
-                <!-- 변경된 주소 -->
                 <li><span class="loc_label">주소</span> <span>경기도 동두천시 이담로101번길 8, 202호</span></li>
-                <!-- 연락처는 필요시 수정하세요 -->
                 <li><span class="loc_label">전화</span> <span>000-0000-0000</span></li>
                 <li><span class="loc_label">팩스</span> <span>000-0000-0000</span></li>
             </ul>
         </div>
 
+        <!-- 구글 지도로 교체된 영역 -->
         <div class="map_display_area">
-            <!-- [주의] 기존 의정부 주소의 카카오맵 약도입니다. 추후 동두천 주소로 재발급받아 아래 div 코드를 교체해주세요. -->
-            <div id="daumRoughmapContainer1599572796583" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            <iframe 
+                width="100%" 
+                height="400" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://maps.google.com/maps?q=경기도%20동두천시%20이담로101번길%208&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                style="display: block;">
+            </iframe>
         </div>
 
         <table class="traffic_styled_table">
             <tbody>
                 <tr>
                     <th><span class="badge car_bg">자가용</span></th>
-                    <!-- 아래 텍스트를 동두천 주소에 맞게 수정해주세요 -->
-                    <td>자가용으로 오시는 길 설명을 이곳에 입력해 주세요. (예: 1호선 지행역 방면에서 진입 등)</td>
+                    <td>
+                        3번 국도(평화로)를 따라 동두천/소요산 방면으로 직진 → 송내삼거리에서 신시가지(지행역) 방면 진입 → 지행역 부근에서 이담로 방면으로 진입
+                    </td>
                 </tr>
                 <tr>
                     <th><span class="badge bus_bg">대중교통</span></th>
-                    <!-- 아래 텍스트를 동두천 주소에 맞게 수정해주세요 -->
                     <td>
-                        <strong>버스 :</strong> 이용 가능한 버스 노선을 입력해 주세요.<br>
-                        <strong>지하철 :</strong> 이용 가능한 지하철역(예: 1호선 지행역 등) 경로를 입력해 주세요.
+                        <strong>지하철 :</strong> 1호선 지행역 하차 (도보 약 10~15분 소요)<br>
+                        <strong>버&nbsp;&nbsp;&nbsp;스 :</strong> 지행역 인근 버스 정류장 하차 (일반 버스 이용 가능)
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- 카카오맵 스크립트 (약도 재발급 시 변경될 수 있음) -->
-        <script class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js" charset="UTF-8"></script>
-        <script charset="UTF-8">
-            new daum.roughmap.Lander({
-                "timestamp" : "1599572796583",
-                "key" : "2zxmh",
-                "mapContent" : "100%",
-                "mapHeight" : "400"
-            }).render();
-        </script>
     </main>
 
     <footer>
