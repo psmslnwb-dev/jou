@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인사말 - 조우직업재활시설</title>
+    <title>인사말 - 블루링크사회적협동조합</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; color: #2c3e50; line-height: 1.7; background-color: #ffffff; }
         
-        header { background: #fff; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; }
-        .logo { font-size: 22px; font-weight: bold; color: #1a365d; text-decoration: none; letter-spacing: -1px; }
+        header { background: #ffffff; border-bottom: 1px solid #edf2f7; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
+        .logo { font-size: 24px; font-weight: 800; color: #0284c7; text-decoration: none; letter-spacing: -1px; }
         
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu > li { position: relative; }
-        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 600; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
-        .nav-menu > li > a:hover { color: #3182ce; }
+        .nav-menu > li > a { text-decoration: none; color: #1e293b; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
+        .nav-menu > li > a:hover { color: #0284c7; }
         
-        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); list-style: none; width: 180px; border-radius: 6px; padding: 10px 0; border: 1px solid #edf2f7; }
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #f1f5f9; }
         .nav-menu > li:hover .submenu { display: block; }
-        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; transition: background 0.2s, color 0.2s; }
-        .submenu li a:hover { background: #ebf8ff; color: #3182ce; }
+        .submenu li a { display: block; padding: 10px 20px; color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .submenu li a:hover { background: #f0f9ff; color: #0284c7; }
 
-        /* 서브페이지 상단 타이틀 배너 */
-        .sub-hero { background: #1a365d; color: #fff; padding: 50px 0; text-align: center; }
-        .sub-hero h1 { font-size: 32px; font-weight: 700; }
+        .sub-hero { background: linear-gradient(135deg, #0284c7, #1e3a8a); color: #fff; padding: 60px 0; text-align: center; }
+        .sub-hero h1 { font-size: 34px; font-weight: 800; }
 
-        /* 인사말 전체 컨테이너 */
         .blue_greeting_wrapper {
             max-width: 850px;
-            margin: 50px auto;
-            padding: 50px;
+            margin: 60px auto;
+            padding: 60px;
             background: #fff;
-            border: 1px solid #e1e8ed;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
             position: relative;
         }
 
@@ -42,48 +40,24 @@
             content: '';
             position: absolute;
             top: 0; left: 0;
-            width: 100%; height: 5px;
-            background: #2980b9;
-            border-radius: 12px 12px 0 0;
+            width: 100%; height: 6px;
+            background: #0284c7;
+            border-radius: 16px 16px 0 0;
         }
 
-        .g_body {
-            font-size: 17.5px;
-            text-align: justify;
-            word-break: keep-all;
-        }
+        .g_body { font-size: 18px; text-align: justify; word-break: keep-all; color: #334155; }
+        .g_title { font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 40px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; display: inline-block; }
+        .g_paragraph { margin-bottom: 30px; }
+        .emp_link { color: #0284c7; font-weight: 700; border-bottom: 2px solid #bae6fd; }
+        .bold_dark { color: #0f172a; font-weight: 700; }
 
-        .g_title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 35px;
-            border-bottom: 2px solid #f1f4f7;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-
-        .g_paragraph {
-            margin-bottom: 25px;
-        }
-
-        .emp_link {
-            color: #2980b9;
-            font-weight: 700;
-            border-bottom: 2px solid #d4e6f1;
-        }
-
-        .bold_dark {
-            color: #2c3e50;
-            font-weight: 700;
-        }
-
-        footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 40px 0; margin-top: 80px; font-size: 13px; line-height: 1.8; }
-        footer .footer-logo { color: #fff; font-weight: bold; font-size: 15px; margin-bottom: 10px; display: inline-block; }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 50px 0; margin-top: 100px; font-size: 14px; line-height: 1.8; }
+        footer .footer-logo { color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 12px; display: inline-block; }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
-            .blue_greeting_wrapper { padding: 25px; margin: 20px; }
+            .blue_greeting_wrapper { padding: 30px 20px; margin: 30px 15px; }
+            .sub-hero h1 { font-size: 26px; }
         }
     </style>
 </head>
@@ -93,8 +67,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">조우직업재활시설</a>
             <ul class="nav-menu">
-                <li>
-                    <a href="#">법인소개</a>
+                <li><a href="#">법인소개</a>
                     <ul class="submenu">
                         <li><a href="greeting.html">인사말</a></li>
                         <li><a href="#">법인운영방침</a></li>
@@ -103,8 +76,7 @@
                         <li><a href="#">오시는 길</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">시설소개</a>
+                <li><a href="#">시설소개</a>
                     <ul class="submenu">
                         <li><a href="greeting.html">인사말</a></li>
                         <li><a href="#">미션과 비전</a></li>
@@ -115,8 +87,7 @@
                         <li><a href="#">오시는 길</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">소통공간</a>
+                <li><a href="#">소통공간</a>
                     <ul class="submenu">
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">일상</a></li>
@@ -136,12 +107,12 @@
 
         <div class="g_body">
             <p class="g_paragraph">
-                꿈과 희망을 연결해주는 <span class="emp_link">조우직업재활시설</span>입니다.<br>
+                꿈과 희망을 연결해주는 <span class="emp_link">블루링크사회적협동조합</span>입니다.<br>
                 저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
             </p>
 
             <p class="g_paragraph">
-                <span class="bold_dark">조우직업재활시설</span>은 장애인 및 취약계층의 안정적인 일자리 창출과 직업훈련을 통해, 스스로 사회구성원으로 당당히 살아갈 수 있도록 돕는 <span class="bold_dark">직업재활시설</span>입니다.
+                <span class="bold_dark">블루링크사회적협동조합</span>은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <span class="bold_dark">비영리법인</span>입니다. 저희는 고령자, 장애인 등 <span class="emp_link">취약계층을 대상으로 안정적인 일자리 창출 및 고용</span>에 그 목적을 두고 있습니다.
             </p>
 
             <p class="g_paragraph">
@@ -149,7 +120,7 @@
             </p>
 
             <p class="g_paragraph" style="margin-bottom: 0;">
-                조우직업재활시설이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
+                블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
             </p>
         </div>
     </div>
