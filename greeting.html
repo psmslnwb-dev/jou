@@ -3,49 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인사말 - 블루링크사회적협동조합</title>
+    <title>인사말 - 조우직업재활시설</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Pretendard', sans-serif; color: #2d3748; line-height: 1.7; background-color: #fafaf7; }
         
-        /* 헤더 (메인과 동일) */
         header { background: #ffffff; border-bottom: 1px solid #e8f5e9; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(46,125,50,0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
         .logo { font-size: 24px; font-weight: 800; color: #2e7d32; text-decoration: none; }
         
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu > li { position: relative; }
-        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; padding: 10px 0; display: block; }
         .nav-menu > li > a:hover { color: #2e7d32; }
 
-        /* 드롭다운 (메인과 동일) */
-        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #e8f5e9; }
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #e8f5e9; z-index: 200; }
         .nav-menu > li:hover .submenu { display: block; }
-        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500; }
         .submenu li a:hover { background: #f1f8f5; color: #2e7d32; }
 
-        /* 서브페이지 배너 (초록톤으로 통일) */
         .sub-hero { background: linear-gradient(135deg, #2e7d32, #43a047); color: #fff; padding: 60px 0; text-align: center; }
         .sub-hero h1 { font-size: 34px; font-weight: 800; }
 
-        /* 인사말 컨테이너 */
-        .blue_greeting_wrapper {
-            max-width: 850px;
-            margin: 60px auto;
-            padding: 60px;
-            background: #ffffff;
-            border: 1px solid #e2ece3;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(46,125,50,0.05);
-            position: relative;
-        }
-
-        .g_body { font-size: 18px; text-align: justify; word-break: keep-all; color: #374151; }
-        .g_title { font-size: 26px; font-weight: 800; color: #1b4332; margin-bottom: 40px; border-bottom: 2px solid #f1f8f5; padding-bottom: 15px; display: inline-block; }
-        .g_paragraph { margin-bottom: 30px; }
-        
-        .emp_link { color: #2e7d32; font-weight: 700; border-bottom: 2px solid #c8e6c9; }
-        .bold_dark { color: #1b4332; font-weight: 700; }
+        .content-container { max-width: 900px; margin: 60px auto; padding: 0 30px; }
+        .greeting-box { background: #fff; padding: 50px; border-radius: 16px; box-shadow: 0 10px 25px rgba(46,125,50,0.06); border: 1px solid #e8f5e9; }
+        .greeting-box h3 { font-size: 24px; color: #1b4332; margin-bottom: 25px; font-weight: 800; }
+        .greeting-box p { font-size: 16px; color: #4a5568; margin-bottom: 20px; line-height: 1.8; }
 
         footer { background: #1b4332; color: #a3b18b; text-align: center; padding: 50px 0; margin-top: 100px; }
         .footer-logo { color: #fff; font-weight: 700; margin-bottom: 10px; }
@@ -60,10 +43,10 @@
                 <li><a href="#">법인소개</a>
                     <ul class="submenu">
                         <li><a href="greeting.html">인사말</a></li>
-                        <li><a href="#">법인운영방침</a></li>
-                        <li><a href="#">사업추진방향</a></li>
-                        <li><a href="#">조직도</a></li>
-                        <li><a href="#">오시는 길</a></li>
+                        <li><a href="bubin.html">법인운영방침</a></li>
+                        <li><a href="direction.html">사업추진방향</a></li>
+                        <li><a href="organization.html">조직도</a></li>
+                        <li><a href="map.html">오시는 길</a></li>
                     </ul>
                 </li>
                 <li><a href="#">시설소개</a>
@@ -73,8 +56,8 @@
                         <li><a href="#">이용절차</a></li>
                         <li><a href="#">사업소개</a></li>
                         <li><a href="#">연혁</a></li>
-                        <li><a href="#">조직도</a></li>
-                        <li><a href="#">오시는 길</a></li>
+                        <li><a href="organization.html">조직도</a></li>
+                        <li><a href="map.html">오시는 길</a></li>
                     </ul>
                 </li>
                 <li><a href="#">소통공간</a>
@@ -92,26 +75,13 @@
         <h1>법인소개</h1>
     </div>
 
-    <div class="blue_greeting_wrapper">
-        <div class="g_title">안녕하십니까?</div>
-
-        <div class="g_body">
-            <p class="g_paragraph">
-                꿈과 희망을 연결해주는 <span class="emp_link">블루링크사회적협동조합</span>입니다.<br>
-                저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
-            </p>
-
-            <p class="g_paragraph">
-                <span class="bold_dark">블루링크사회적협동조합</span>은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <span class="bold_dark">비영리법인</span>입니다. 저희는 고령자, 장애인 등 <span class="emp_link">취약계층을 대상으로 안정적인 일자리 창출 및 고용</span>에 그 목적을 두고 있습니다.
-            </p>
-
-            <p class="g_paragraph">
-                더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다. 
-            </p>
-
-            <p class="g_paragraph" style="margin-bottom: 0;">
-                블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
-            </p>
+    <div class="content-container">
+        <div class="greeting-box">
+            <h3>안녕하십니까?</h3>
+            <p>꿈과 희망을 연결하는 블루링크사회적협동조합입니다.<br>저희 홈페이지를 방문해주셔서 진심으로 감사합니다.</p>
+            <p>블루링크사회적협동조합은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <strong>비영리법인</strong>입니다. 저희는 고령자, 장애인 등 <strong>취약계층을 대상으로 안정적인 일자리 창출 및 고용</strong>에 그 목적을 두고 있습니다.</p>
+            <p>더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다.</p>
+            <p>블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을부탁드립니다.</p>
         </div>
     </div>
 
