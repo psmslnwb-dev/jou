@@ -97,39 +97,48 @@
         }
 
         /* =========================
-           메인 메뉴
+           메인 메뉴 (입체적 테두리 적용)
         ========================= */
 
         .main-menu {
             height: 100%;
             display: flex;
             align-items: center;
+            gap: 15px; /* 메뉴 간격 추가 */
         }
 
         .main-menu > li {
             position: relative;
             height: 100%;
-
             display: flex;
             align-items: center;
         }
 
         .main-menu > li > a {
-            height: 100%;
-            padding: 0 28px;
-
+            padding: 10px 24px;
             display: flex;
             align-items: center;
 
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             color: #444;
+
+            /* 테두리 및 입체적 효과 */
+            background: #ffffff;
+            border: 2px solid #e4ece0;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
 
             transition: 0.25s;
         }
 
-        .main-menu > li > a:hover {
-            color: #4d873e;
+        /* 마우스 호버 시 떠오르는 효과 */
+        .main-menu > li:hover > a {
+            background: #5d914d;
+            border-color: #5d914d;
+            color: #ffffff;
+            box-shadow: 0 6px 15px rgba(93, 145, 77, 0.3);
+            transform: translateY(-2px);
         }
 
         /* =========================
@@ -344,7 +353,7 @@
         }
 
         /* =========================
-           소개 카드
+           소개 카드 (타이틀 제거됨)
         ========================= */
 
         .quick-section {
@@ -355,33 +364,6 @@
         .section-inner {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title .small {
-            display: block;
-
-            color: #75a65c;
-            font-size: 14px;
-            font-weight: 600;
-
-            margin-bottom: 8px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: #3c5f34;
-            letter-spacing: -1.5px;
-        }
-
-        .section-title p {
-            margin-top: 10px;
-            color: #888;
-            font-size: 15px;
         }
 
         .quick-grid {
@@ -455,62 +437,6 @@
             color: #648b57;
 
             font-size: 12px;
-        }
-
-        /* =========================
-           시설 소개
-        ========================= */
-
-        .about-section {
-            padding: 85px 25px;
-            background: #f6faf3;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .about-image {
-            min-height: 360px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(114, 159, 85, 0.15),
-                    rgba(231, 240, 218, 0.8)
-                );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 100px;
-        }
-
-        .about-text .label {
-            color: #6c9a55;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .about-text h2 {
-            color: #3b6033;
-            font-size: 34px;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: #777;
-            line-height: 2;
-            font-size: 15px;
         }
 
         /* =========================
@@ -599,8 +525,9 @@
                 display: none;
             }
 
+            .main-menu { gap: 6px; }
             .main-menu > li > a {
-                padding: 0 12px;
+                padding: 6px 14px;
                 font-size: 14px;
             }
 
@@ -641,9 +568,11 @@
                 padding: 0 15px;
             }
 
+            .main-menu { gap: 4px; }
             .main-menu > li > a {
-                padding: 0 7px;
+                padding: 5px 10px;
                 font-size: 12px;
+                border-width: 1px;
             }
 
             .hero-inner {
@@ -682,15 +611,6 @@
 
             .quick-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .about-image {
-                min-height: 250px;
             }
 
             .contact-inner {
@@ -809,7 +729,7 @@
                         함께 날아오르는 조우직업재활시설입니다.
                     </p>
 
-                    <a href="#about" class="hero-button">
+                    <a href="#quick" class="hero-button">
                         시설 알아보기 →
                     </a>
 
@@ -840,18 +760,7 @@
 
             <div class="section-inner">
 
-                <div class="section-title">
-
-                    <span class="small">JOU WELFARE</span>
-
-                    <h2>조우직업재활시설</h2>
-
-                    <p>
-                        마음과 마음이 만나, 함께 날아오르다
-                    </p>
-
-                </div>
-
+                <!-- 기존 타이틀 영역 삭제됨 -->
 
                 <div class="quick-grid">
 
@@ -930,51 +839,7 @@
         </section>
 
 
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section class="about-section" id="about">
-
-            <div class="section-inner">
-
-                <div class="about-content">
-
-                    <div class="about-image">
-                        🌳
-                    </div>
-
-                    <div class="about-text">
-
-                        <div class="label">
-                            ABOUT JOU
-                        </div>
-
-                        <h2>
-                            사람을 중심에 두고<br>
-                            함께 걸어갑니다.
-                        </h2>
-
-                        <p>
-                            조우직업재활시설은 장애인의 직업능력을 향상시키고
-                            안정적인 일자리를 제공하며, 지역사회 안에서
-                            자립할 수 있도록 함께하는 직업재활시설입니다.
-                        </p>
-
-                        <br>
-
-                        <p>
-                            서로의 다름을 존중하고 각자의 가능성을 발견하며,
-                            함께 성장할 수 있는 따뜻한 공간을 만들어가겠습니다.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+        <!-- ABOUT 구역 삭제됨 -->
 
 
         <!-- =========================
