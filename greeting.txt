@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인사말 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        
+        header { background: #fff; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; }
+        .logo { font-size: 22px; font-weight: bold; color: #1a365d; text-decoration: none; letter-spacing: -1px; }
+        
+        .nav-menu { display: flex; list-style: none; gap: 40px; }
+        .nav-menu > li { position: relative; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 600; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
+        .nav-menu > li > a:hover { color: #3182ce; }
+        
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); list-style: none; width: 180px; border-radius: 6px; padding: 10px 0; border: 1px solid #edf2f7; }
+        .nav-menu > li:hover .submenu { display: block; }
+        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; transition: background 0.2s, color 0.2s; }
+        .submenu li a:hover { background: #ebf8ff; color: #3182ce; }
+
+        /* 서브페이지 상단 타이틀 배너 */
+        .sub-hero { background: #1a365d; color: #fff; padding: 50px 0; text-align: center; }
+        .sub-hero h1 { font-size: 32px; font-weight: 700; }
+
+        /* 인사말 전체 컨테이너 */
+        .blue_greeting_wrapper {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 50px;
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .blue_greeting_wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: #2980b9;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .g_body {
+            font-size: 17.5px;
+            text-align: justify;
+            word-break: keep-all;
+        }
+
+        .g_title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #f1f4f7;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .g_paragraph {
+            margin-bottom: 25px;
+        }
+
+        .emp_link {
+            color: #2980b9;
+            font-weight: 700;
+            border-bottom: 2px solid #d4e6f1;
+        }
+
+        .bold_dark {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 40px 0; margin-top: 80px; font-size: 13px; line-height: 1.8; }
+        footer .footer-logo { color: #fff; font-weight: bold; font-size: 15px; margin-bottom: 10px; display: inline-block; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .blue_greeting_wrapper { padding: 25px; margin: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">조우직업재활시설</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">법인소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">법인운영방침</a></li>
+                        <li><a href="#">사업추진방향</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">시설소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">미션과 비전</a></li>
+                        <li><a href="#">이용절차</a></li>
+                        <li><a href="#">사업소개</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">소통공간</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일상</a></li>
+                        <li><a href="#">식단표</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>법인소개</h1>
+    </div>
+
+    <div class="blue_greeting_wrapper">
+        <div class="g_title">안녕하십니까?</div>
+
+        <div class="g_body">
+            <p class="g_paragraph">
+                꿈과 희망을 연결해주는 <span class="emp_link">조우직업재활시설</span>입니다.<br>
+                저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
+            </p>
+
+            <p class="g_paragraph">
+                <span class="bold_dark">조우직업재활시설</span>은 장애인 및 취약계층의 안정적인 일자리 창출과 직업훈련을 통해, 스스로 사회구성원으로 당당히 살아갈 수 있도록 돕는 <span class="bold_dark">직업재활시설</span>입니다.
+            </p>
+
+            <p class="g_paragraph">
+                더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다. 
+            </p>
+
+            <p class="g_paragraph" style="margin-bottom: 0;">
+                조우직업재활시설이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">조우직업재활시설</div>
+        <p>주소 및 상세 연락처 입력란 | 대표전화: 031-XXX-XXXX</p>
+        <p>Copyright © 조우직업재활시설 All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
