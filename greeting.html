@@ -1,113 +1,172 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>법인 인사말 - 블루링크사회적협동조합</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>법인 인사말 - 블루링크사회적협동조합</title>
+    <style>
+        /* =========================
+           공통 및 헤더/푸터 스타일 (최신버전)
+        ========================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-<style>
-    /* 인사말 전체 컨테이너 */
-    .blue_greeting_wrapper {
-        max-width: 850px;
-        margin: 40px auto;
-        padding: 50px;
-        background: #fff;
-        border: 1px solid #e1e8ed;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-        font-family: 'Pretendard', -apple-system, sans-serif;
-        color: #333;
-        line-height: 1.8;
-        position: relative;
-    }
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
 
-    /* 상단 포인트 라인 (블루링크 테마색) */
-    .blue_greeting_wrapper::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 5px;
-        background: #2980b9;
-        border-radius: 12px 12px 0 0;
-    }
+        /* 메인 메뉴 (입체적 테두리 적용) */
+        .main-menu { height: 100%; display: flex; align-items: center; gap: 15px; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { 
+            padding: 10px 24px; display: flex; align-items: center; font-size: 16px; font-weight: 700; color: #444; 
+            background: #ffffff; border: 2px solid #e4ece0; border-radius: 30px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.05); transition: 0.25s; 
+        }
+        .main-menu > li:hover > a { 
+            background: #5d914d; border-color: #5d914d; color: #ffffff; 
+            box-shadow: 0 6px 15px rgba(93, 145, 77, 0.3); transform: translateY(-2px); 
+        }
 
-    /* 본문 스타일 */
-    .g_body {
-        font-size: 17.5px;
-        text-align: justify;
-        word-break: keep-all;
-    }
+        /* 드롭다운 메뉴 */
+        .submenu { 
+            position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; 
+            background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; 
+            opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); 
+        }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
 
-    .g_title {
-        font-size: 24px;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 35px;
-        border-bottom: 2px solid #f1f4f7;
-        padding-bottom: 15px;
-        display: inline-block;
-    }
+        /* 서브페이지 공통 레이아웃 */
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+        
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 
-    .g_paragraph {
-        margin-bottom: 25px;
-    }
+        @media (max-width: 900px) {
+            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; }
+            .main-menu { gap: 6px; } .main-menu > li > a { padding: 6px 14px; font-size: 14px; } .submenu { top: 75px; }
+        }
+        @media (max-width: 700px) {
+            .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
+            .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
 
-    /* 강조 텍스트 */
-    .emp_link {
-        color: #2980b9;
-        font-weight: 700;
-        border-bottom: 2px solid #d4e6f1;
-    }
-
-    .bold_dark {
-        color: #2c3e50;
-        font-weight: 700;
-    }
-
-    /* 하단 서명 영역 (필요하면 추가 가능) */
-    .g_signature {
-        margin-top: 50px;
-        text-align: right;
-        font-size: 18px;
-        font-weight: 700;
-        color: #2c3e50;
-    }
-    .g_signature span {
-        font-size: 22px;
-        margin-right: 5px;
-    }
-
-    body {
-        background-color: #f9fafb;
-        margin: 0;
-        padding: 0;
-    }
-</style>
+        /* =========================
+           법인 인사말 전용 스타일 (기존 유지)
+        ========================= */
+        .blue_greeting_wrapper { max-width: 850px; margin: 40px auto; padding: 50px; background: #fff; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); font-family: 'Pretendard', -apple-system, sans-serif; color: #333; line-height: 1.8; position: relative; }
+        .blue_greeting_wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: #2980b9; border-radius: 12px 12px 0 0; }
+        .g_body { font-size: 17.5px; text-align: justify; word-break: keep-all; }
+        .g_title { font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 35px; border-bottom: 2px solid #f1f4f7; padding-bottom: 15px; display: inline-block; }
+        .g_paragraph { margin-bottom: 25px; }
+        .emp_link { color: #2980b9; font-weight: 700; border-bottom: 2px solid #d4e6f1; }
+        .bold_dark { color: #2c3e50; font-weight: 700; }
+        .g_signature { margin-top: 50px; text-align: right; font-size: 18px; font-weight: 700; color: #2c3e50; }
+        .g_signature span { font-size: 22px; margin-right: 5px; }
+    </style>
 </head>
 <body>
+    
+    <!-- =========================
+         최신 HEADER
+    ========================== -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <!-- 법인 -->
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <!-- 시설 -->
+                    <li>
+                        <a href="facility_greeting.html">시설</a>
+                        <ul class="submenu">
+                            <li><a href="facility_greeting.html">인사말</a></li>
+                            <li><a href="facility_vision.html">미션과 비전</a></li>
+                            <li><a href="facility_procedure.html">고용 및 이용절차</a></li>
+                            <li><a href="facility_business.html">사업소개</a></li>
+                            <li><a href="facility_history.html">연혁</a></li>
+                            <li><a href="facility_organization.html">조직도</a></li>
+                            <li><a href="facility_location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <!-- 소통공간 (네이버 카페 연동) -->
+                    <li>
+                        <a href="#" target="_blank">소통공간</a>
+                        <ul class="submenu">
+                            <li><a href="#" target="_blank">공지사항 (카페)</a></li>
+                            <li><a href="#" target="_blank">일상 (카페)</a></li>
+                            <li><a href="#" target="_blank">식단표 (카페)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="blue_greeting_wrapper">
-    <div class="g_title">안녕하십니까?</div>
+    <!-- =========================
+         본문 (기존 내용 유지)
+    ========================== -->
+    <main class="content-page">
+        <h2 class="page-title">법인 인사말</h2>
+        
+        <div class="blue_greeting_wrapper">
+            <div class="g_title">안녕하십니까?</div>
 
-    <div class="g_body">
-        <p class="g_paragraph">
-            꿈과 희망을 연결해주는 <span class="emp_link">블루링크사회적협동조합</span>입니다.<br>
-            저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
-        </p>
+            <div class="g_body">
+                <p class="g_paragraph">
+                    꿈과 희망을 연결해주는 <span class="emp_link">블루링크사회적협동조합</span>입니다.<br>
+                    저희 홈페이지를 방문해주셔서 진심으로 감사드립니다.
+                </p>
 
-        <p class="g_paragraph">
-            <span class="bold_dark">블루링크사회적협동조합</span>은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <span class="bold_dark">비영리법인</span>입니다. 저희는 고령자, 장애인 등 <span class="emp_link">취약계층을 대상으로 안정적인 일자리 창출 및 고용</span>에 그 목적을 두고 있습니다.
-        </p>
+                <p class="g_paragraph">
+                    <span class="bold_dark">블루링크사회적협동조합</span>은 협동조합 기본법에 따라 다양한 이해관계자들로 구성된 조합원들이 모여 설립한 <span class="bold_dark">비영리법인</span>입니다. 저희는 고령자, 장애인 등 <span class="emp_link">취약계층을 대상으로 안정적인 일자리 창출 및 고용</span>에 그 목적을 두고 있습니다.
+                </p>
 
-        <p class="g_paragraph">
-            더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다. 
-        </p>
+                <p class="g_paragraph">
+                    더 나아가 취약계층의 적극적인 사회참여를 통해 지역사회 발전에 이바지할 수 있도록 끊임없이 노력하겠습니다. 
+                </p>
 
-        <p class="g_paragraph" style="margin-bottom: 0;">
-            블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
-        </p>
-    </div>
-</div>
+                <p class="g_paragraph" style="margin-bottom: 0;">
+                    블루링크사회적협동조합이 지속적으로 성장하고 발전할 수 있도록 여러분의 많은 관심과 사랑을 부탁드립니다.
+                </p>
+            </div>
+        </div>
+    </main>
 
+    <!-- =========================
+         푸터
+    ========================== -->
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
 </body>
 </html>
