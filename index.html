@@ -104,7 +104,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 15px; /* 메뉴 간격 추가 */
         }
 
         .main-menu > li {
@@ -366,6 +366,62 @@
         }
 
         /* =========================
+           유관기관 배너 (새로 추가됨!)
+        ========================= */
+        .partner-section {
+            padding: 50px 25px;
+            background: #ffffff;
+            border-top: 1px solid #e8eee8;
+        }
+
+        .partner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .partner-list li {
+            flex: 1;
+            min-width: 200px;
+            max-width: 220px;
+        }
+
+        .partner-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            border: 1px solid #d1d8e0;
+            background: #fff;
+            padding: 10px;
+            transition: 0.3s;
+            color: #555;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .partner-list li a:hover {
+            border-color: #5d914d;
+            box-shadow: 0 4px 15px rgba(93, 145, 77, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* 나중에 이미지를 넣을 때 쓰일 스타일 */
+        .partner-list li a img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* =========================
            푸터
         ========================= */
 
@@ -383,7 +439,7 @@
             margin: 0 auto;
 
             display: flex;
-            justify-content: center; /* 카피라이트 텍스트 중앙 정렬로 변경 */
+            justify-content: center;
             align-items: center;
         }
 
@@ -511,7 +567,12 @@
             .footer-inner {
                 flex-direction: column;
                 gap: 10px;
-                align-items: center; /* 모바일에서도 중앙 정렬 */
+                align-items: center; 
+            }
+            
+            /* 모바일에서 파트너 리스트 2줄로 보이게 */
+            .partner-list li {
+                min-width: 45%;
             }
         }
     </style>
@@ -610,7 +671,8 @@
                     </h1>
 
                     <p class="hero-description">
-                        
+                        마음과 마음이 만나,<br>
+                        함께 날아오르는 조우직업재활시설입니다.
                     </p>
 
                 </div>
@@ -668,6 +730,56 @@
 
             </div>
 
+        </section>
+
+        <!-- =========================
+             유관기관 배너 (새로 추가됨)
+        ========================== -->
+        <section class="partner-section">
+            <div class="partner-inner">
+                <ul class="partner-list">
+                    <!-- 1. 의정부시 -->
+                    <li>
+                        <a href="https://www.uiJeongbu.go.kr/" target="_blank">
+                            <!-- 로고 이미지가 준비되면 주석을 풀고 사용하세요 -->
+                            <!-- <img src="logo1.png" alt="의정부시"> -->
+                            <span>의정부시</span>
+                        </a>
+                    </li>
+                    
+                    <!-- 2. 한국장애인직업재활시설협회 -->
+                    <li>
+                        <a href="http://www.kavrd.or.kr/" target="_blank">
+                            <!-- <img src="logo2.png" alt="한국장애인직업재활시설협회"> -->
+                            <span>한국장애인직업재활시설협회</span>
+                        </a>
+                    </li>
+                    
+                    <!-- 3. 경기도장애인직업재활시설협회 -->
+                    <li>
+                        <a href="http://www.gavrd.or.kr/" target="_blank">
+                            <!-- <img src="logo3.png" alt="경기도장애인직업재활시설협회"> -->
+                            <span>경기도장애인직업재활시설협회</span>
+                        </a>
+                    </li>
+                    
+                    <!-- 4. 한국장애인고용공단 -->
+                    <li>
+                        <a href="https://www.kead.or.kr/" target="_blank">
+                            <!-- <img src="logo4.png" alt="한국장애인고용공단"> -->
+                            <span>한국장애인고용공단</span>
+                        </a>
+                    </li>
+                    
+                    <!-- 5. 경기북부 장애인권익옹호기관 -->
+                    <li>
+                        <a href="http://www.ggnbaapd.or.kr/" target="_blank">
+                            <!-- <img src="logo5.png" alt="경기북부 장애인권익옹호기관"> -->
+                            <span>경기북부 장애인권익옹호기관</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
 
     </main>
