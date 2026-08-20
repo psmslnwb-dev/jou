@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Malgun Gothic', sans-serif; color: #333; line-height: 1.6; }
+        header { background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .logo { font-size: 24px; font-weight: bold; color: #2c3e50; text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu > li { position: relative; }
+        .nav-menu > li > a { text-decoration: none; color: #333; font-weight: bold; font-size: 16px; padding: 10px 0; }
+        .nav-menu > li > a:hover { color: #2980b9; }
+        
+        /* 드롭다운 서브메뉴 */
+        .submenu { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); list-style: none; width: 180px; border-radius: 4px; padding: 10px 0; }
+        .nav-menu > li:hover .submenu { display: block; }
+        .submenu li a { display: block; padding: 8px 15px; color: #555; text-decoration: none; font-size: 14px; }
+        .submenu li a:hover { background: #f8f9fa; color: #2980b9; }
+
+        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero h1 { font-size: 40px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; }
+
+        .content { max-width: 1200px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .content h2 { font-size: 28px; margin-bottom: 20px; color: #2c3e50; }
+        footer { background: #2c3e50; color: #fff; text-align: center; padding: 30px 0; margin-top: 50px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">조우직업재활시설</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">법인소개</a>
+                    <ul class="submenu">
+                        <li><a href="#">인사말</a></li>
+                        <li><a href="#">법인운영방침</a></li>
+                        <li><a href="#">사업추진방향</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">시설소개</a>
+                    <ul class="submenu">
+                        <li><a href="#">인사말</a></li>
+                        <li><a href="#">미션과 비전</a></li>
+                        <li><a href="#">이용절차</a></li>
+                        <li><a href="#">사업소개</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">소통공간</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일상</a></li>
+                        <li><a href="#">식단표</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h1>조우직업재활시설에 오신 것을 환영합니다</h1>
+            <p>따뜻한 나눔과 자립을 함께 만들어가는 공간입니다.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>기관 주요 소식 및 안내</h2>
+        <p>상단 메뉴에 마우스를 올리면 하위 메뉴가 깔끔하게 펼쳐집니다.</p>
+    </div>
+
+    <footer>
+        <p>조우직업재활시설 | 주소 및 연락처 정보 입력란</p>
+        <p>Copyright © 조우직업재활시설 All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
