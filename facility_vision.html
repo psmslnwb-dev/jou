@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미션과 비전 - 조우직업재활시설</title>
     <style>
+        /* =========================
+           공통 및 헤더/푸터 스타일 (최신버전)
+        ========================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+
         header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
         .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
@@ -17,24 +21,45 @@
         .logo-text { display: flex; flex-direction: column; }
         .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
         .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
-        .main-menu { height: 100%; display: flex; align-items: center; }
+
+        /* 메인 메뉴 (입체적 테두리 적용) */
+        .main-menu { height: 100%; display: flex; align-items: center; gap: 15px; }
         .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
-        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
-        .main-menu > li > a:hover { color: #4d873e; }
-        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li > a { 
+            padding: 10px 24px; display: flex; align-items: center; font-size: 16px; font-weight: 700; color: #444; 
+            background: #ffffff; border: 2px solid #e4ece0; border-radius: 30px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.05); transition: 0.25s; 
+        }
+        .main-menu > li:hover > a { 
+            background: #5d914d; border-color: #5d914d; color: #ffffff; 
+            box-shadow: 0 6px 15px rgba(93, 145, 77, 0.3); transform: translateY(-2px); 
+        }
+
+        /* 드롭다운 메뉴 */
+        .submenu { 
+            position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; 
+            background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; 
+            opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); 
+        }
         .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
         .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+
         footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
         .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+
         @media (max-width: 900px) {
-            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; } .main-menu > li > a { padding: 0 12px; font-size: 14px; } .submenu { top: 75px; }
+            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; }
+            .main-menu { gap: 6px; } .main-menu > li > a { padding: 6px 14px; font-size: 14px; } .submenu { top: 75px; }
         }
         @media (max-width: 700px) {
-            .header-inner { padding: 0 15px; } .main-menu > li > a { padding: 0 7px; font-size: 12px; } .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
+            .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
         }
 
-        /* 미션 & 비전 전용 스타일 */
+        /* =========================
+           미션 & 비전 전용 스타일 (기존 유지)
+        ========================= */
         .biz_dashboard { max-width: 1000px; margin: 0 auto; padding: 80px 20px; text-align: center; background: #fff; }
         .mission_section { margin-bottom: 60px; padding: 60px 20px; background: #f6faf3; border-radius: 30px; overflow: hidden; }
         .biz_title_main { font-size: 24px; font-weight: 800; letter-spacing: 4px; color: #426b38; margin-bottom: 25px; opacity: 0.8; }
@@ -78,6 +103,10 @@
     </style>
 </head>
 <body>
+    
+    <!-- =========================
+         최신 HEADER
+    ========================== -->
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">
@@ -89,6 +118,7 @@
             </a>
             <nav>
                 <ul class="main-menu">
+                    <!-- 법인 -->
                     <li>
                         <a href="intro.html">법인</a>
                         <ul class="submenu">
@@ -99,6 +129,7 @@
                             <li><a href="location.html">오시는 길</a></li>
                         </ul>
                     </li>
+                    <!-- 시설 -->
                     <li>
                         <a href="facility_greeting.html">시설</a>
                         <ul class="submenu">
@@ -111,12 +142,13 @@
                             <li><a href="facility_location.html">오시는 길</a></li>
                         </ul>
                     </li>
+                    <!-- 소통공간 (네이버 카페 연동) -->
                     <li>
-                        <a href="#">소통공간</a>
+                        <a href="#" target="_blank">소통공간</a>
                         <ul class="submenu">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">일상</a></li>
-                            <li><a href="#">식단표</a></li>
+                            <li><a href="#" target="_blank">공지사항 (카페)</a></li>
+                            <li><a href="#" target="_blank">일상 (카페)</a></li>
+                            <li><a href="#" target="_blank">식단표 (카페)</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -124,6 +156,9 @@
         </div>
     </header>
 
+    <!-- =========================
+         본문 (기존 내용 유지)
+    ========================== -->
     <main>
         <div class="biz_dashboard">
             <!-- 미션 섹션 -->
@@ -158,6 +193,9 @@
         </div>
     </main>
 
+    <!-- =========================
+         푸터
+    ========================== -->
     <footer>
         <div class="footer-inner">
             <div>© 조우직업재활시설. All Rights Reserved.</div>
@@ -165,6 +203,9 @@
         </div>
     </footer>
 
+    <!-- =========================
+         스크립트 (기존 내용 유지)
+    ========================== -->
     <script>
         window.onload = function() {
             const textElement = document.getElementById('mission-text');
