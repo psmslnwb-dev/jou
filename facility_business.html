@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사업소개 - 조우직업재활시설</title>
+    <style>
+        /* =========================
+           공통 및 헤더/푸터 스타일
+        ========================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; color: #333; background: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+        .logo img { width: 62px; height: 62px; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
+        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .main-menu { height: 100%; display: flex; align-items: center; }
+        .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
+        .main-menu > li > a { height: 100%; padding: 0 28px; display: flex; align-items: center; font-size: 16px; font-weight: 600; color: #444; transition: 0.25s; }
+        .main-menu > li > a:hover { color: #4d873e; }
+        .submenu { position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); }
+        .main-menu > li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .submenu li a { display: block; padding: 10px 20px; font-size: 14px; color: #555; transition: 0.2s; }
+        .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
+        
+        @media (max-width: 900px) {
+            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; } .main-menu > li > a { padding: 0 12px; font-size: 14px; } .submenu { top: 75px; }
+        }
+        @media (max-width: 700px) {
+            .header-inner { padding: 0 15px; } .main-menu > li > a { padding: 0 7px; font-size: 12px; } .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
+
+        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* =========================
+           사업소개 전용 탭 레이아웃 스타일
+        ========================= */
+        .biz_wrapper { max-width: 1000px; margin: 0 auto; }
+        
+        /* 탭 버튼 영역 */
+        .biz_tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .biz_tab_btn { 
+            padding: 14px 32px; 
+            border-radius: 30px; 
+            background: #f6faf3; 
+            color: #5d914d; 
+            font-weight: 700; 
+            font-size: 16px; 
+            border: 1px solid #e4ece0; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+        }
+        .biz_tab_btn.active { 
+            background: #3c5f34; 
+            color: #ffffff; 
+            border-color: #3c5f34;
+            box-shadow: 0 6px 15px rgba(60, 95, 52, 0.25); 
+            transform: translateY(-2px);
+        }
+        .biz_tab_btn:hover:not(.active) { background: #e4ece0; }
+
+        /* 탭 내용 영역 */
+        .biz_panel { 
+            display: none; 
+            background: #ffffff; 
+            border: 1px solid #e4ece0; 
+            border-radius: 20px; 
+            padding: 50px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+        }
+        .biz_panel.active { 
+            display: flex; 
+            gap: 50px; 
+            align-items: center; 
+            animation: fadeIn 0.5s ease forwards; 
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 좌측 비주얼(아이콘) 영역 */
+        .biz_visual { 
+            flex: 0 0 35%; 
+            text-align: center; 
+            font-size: 80px; 
+            background: linear-gradient(135deg, #f6faf3, #eaf2e6); 
+            border-radius: 20px; 
+            padding: 60px 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .biz_visual span { display: block; font-size: 16px; font-weight: 700; color: #5d914d; margin-top: 15px; }
+
+        /* 우측 텍스트 정보 영역 */
+        .biz_info { flex: 1; }
+        .biz_info h3 { font-size: 26px; color: #3c5f34; margin-bottom: 25px; font-weight: 800; letter-spacing: -1px; }
+        
+        .biz_list { list-style: none; padding: 0; margin: 0; }
+        .biz_list li { 
+            position: relative; 
+            padding: 15px 20px 15px 45px; 
+            background: #fdfdfd; 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            color: #555; 
+            font-size: 15px; 
+            font-weight: 500;
+            line-height: 1.6;
+            border: 1px solid #f1f5f1;
+        }
+        .biz_list li::before { 
+            content: '✔'; 
+            position: absolute; 
+            left: 18px; 
+            color: #75a65c; 
+            font-size: 16px;
+            font-weight: 900; 
+        }
+
+        @media (max-width: 768px) { 
+            .biz_panel.active { flex-direction: column; padding: 30px 20px; gap: 30px; } 
+            .biz_visual { width: 100%; padding: 40px 0; font-size: 60px; } 
+            .biz_tab_btn { padding: 10px 20px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="ci.png" alt="조우직업재활시설 CI">
+                <div class="logo-text">
+                    <div class="logo-title">조우직업재활시설</div>
+                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="intro.html">법인</a>
+                        <ul class="submenu">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="policy.html">법인운영방침</a></li>
+                            <li><a href="direction.html">사업추진방향</a></li>
+                            <li><a href="organization.html">조직도</a></li>
+                            <li><a href="location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="facility_greeting.html">시설</a>
+                        <ul class="submenu">
+                            <li><a href="facility_greeting.html">인사말</a></li>
+                            <li><a href="facility_vision.html">미션과 비전</a></li>
+                            <li><a href="facility_procedure.html">고용 및 이용절차</a></li>
+                            <li><a href="facility_business.html">사업소개</a></li>
+                            <li><a href="facility_history.html">연혁</a></li>
+                            <li><a href="facility_organization.html">조직도</a></li>
+                            <li><a href="facility_location.html">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">소통공간</a>
+                        <ul class="submenu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">일상</a></li>
+                            <li><a href="#">식단표</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <h2 class="page-title">사업소개</h2>
+        
+        <div class="biz_wrapper">
+            <!-- 상단 탭 버튼 -->
+            <div class="biz_tabs">
+                <button class="biz_tab_btn active" onclick="tabShow(event, 'tab1')">직업상담</button>
+                <button class="biz_tab_btn" onclick="tabShow(event, 'tab2')">직업적응훈련</button>
+                <button class="biz_tab_btn" onclick="tabShow(event, 'tab3')">보호고용</button>
+                <button class="biz_tab_btn" onclick="tabShow(event, 'tab4')">지역사회연계</button>
+            </div>
+
+            <!-- 내용 1: 직업상담 -->
+            <div id="tab1" class="biz_panel active">
+                <div class="biz_visual">
+                    💬
+                    <span>Vocational Counseling</span>
+                </div>
+                <div class="biz_info">
+                    <h3>직업상담 및 평가</h3>
+                    <ul class="biz_list">
+                        <li>이용자 및 보호자 초기 면접을 통한 재활 욕구 파악</li>
+                        <li>개인의 신체적, 심리적, 사회적 직업 능력 정밀 평가</li>
+                        <li>평가 결과를 바탕으로 한 맞춤형 개별 직업재활 계획 수립</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 내용 2: 직업적응훈련 -->
+            <div id="tab2" class="biz_panel">
+                <div class="biz_visual">
+                    🛠️
+                    <span>Adaptation Training</span>
+                </div>
+                <div class="biz_info">
+                    <h3>직업적응훈련</h3>
+                    <ul class="biz_list">
+                        <li>출퇴근, 예절, 대인관계 등 일상생활 및 사회성 향상 훈련</li>
+                        <li>다양한 작업 활동을 통한 기초 작업 기술 및 직무 능력 배양</li>
+                        <li>개인별 문제해결 능력 향상 및 자립 생활 지원 교육</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 내용 3: 보호고용 -->
+            <div id="tab3" class="biz_panel">
+                <div class="biz_visual">
+                    💼
+                    <span>Sheltered Employment</span>
+                </div>
+                <div class="biz_info">
+                    <h3>보호고용사업</h3>
+                    <ul class="biz_list">
+                        <li>임가공, 단순 조립 등 중증장애인에게 적합한 직무 개발 및 제공</li>
+                        <li>안전한 근로 환경에서 생산 활동 참여 및 경제적 자립 지원</li>
+                        <li>생산품 판매 수익금을 통한 정당한 급여 지급 및 처우 개선</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 내용 4: 지역사회연계 -->
+            <div id="tab4" class="biz_panel">
+                <div class="biz_visual">
+                    🤝
+                    <span>Community Relations</span>
+                </div>
+                <div class="biz_info">
+                    <h3>지역사회 연계사업</h3>
+                    <ul class="biz_list">
+                        <li>지역 내 일반 사업체 개발 및 취업 알선 연계망 구축</li>
+                        <li>취업 후 안정적인 직장 적응을 위한 사후지도 및 상담 지원</li>
+                        <li>후원자 및 자원봉사자 발굴을 통한 지역사회 장애 인식 개선 활동</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 조우직업재활시설. All Rights Reserved.</div>
+            <div>법인 · 시설 · 소통공간</div>
+        </div>
+    </footer>
+
+    <!-- 탭 전환 스크립트 -->
+    <script>
+        function tabShow(evt, tabId) {
+            // 모든 패널 숨기기
+            const contents = document.querySelectorAll('.biz_panel');
+            contents.forEach(c => c.classList.remove('active'));
+            
+            // 모든 탭 버튼 비활성화
+            const buttons = document.querySelectorAll('.biz_tab_btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            // 선택된 패널과 버튼만 활성화
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
