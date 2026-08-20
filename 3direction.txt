@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사업추진방향 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; color: #2d3748; line-height: 1.7; background-color: #fafaf7; }
+        
+        header { background: #ffffff; border-bottom: 1px solid #e8f5e9; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(46,125,50,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
+        .logo { font-size: 24px; font-weight: 800; color: #2e7d32; text-decoration: none; }
+        
+        .nav-menu { display: flex; list-style: none; gap: 40px; }
+        .nav-menu > li { position: relative; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; padding: 10px 0; }
+        .nav-menu > li > a:hover { color: #2e7d32; }
+
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #e8f5e9; }
+        .nav-menu > li:hover .submenu { display: block; }
+        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500; }
+        .submenu li a:hover { background: #f1f8f5; color: #2e7d32; }
+
+        .sub-hero { background: linear-gradient(135deg, #2e7d32, #43a047); color: #fff; padding: 60px 0; text-align: center; }
+        .sub-hero h1 { font-size: 34px; font-weight: 800; }
+
+        .content-container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+
+        /* 사업추진방향 스타일 초록톤 맞춤 */
+        .about_img { position: relative; text-align: center; }
+        .about_img img { max-width: 100%; height: auto; border-radius: 12px; }
+        .about_btn { position: absolute; text-decoration: none; }
+        .flow_box {
+            background: #ffffff;
+            border: 2px solid #a5d6a7;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(46,125,50,0.1);
+            color: #1b4332;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        footer { background: #1b4332; color: #a3b18b; text-align: center; padding: 50px 0; margin-top: 100px; }
+        .footer-logo { color: #fff; font-weight: 700; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">조우직업재활시설</a>
+            <ul class="nav-menu">
+                <li><a href="#">법인소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">법인운영방침</a></li>
+                        <li><a href="#">사업추진방향</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">시설소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">미션과 비전</a></li>
+                        <li><a href="#">이용절차</a></li>
+                        <li><a href="#">사업소개</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">소통공간</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일상</a></li>
+                        <li><a href="#">식단표</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>사업추진방향</h1>
+    </div>
+
+    <div class="content-container">
+        <div class="about_img">
+            <img src="/img/about_img02.jpg" alt="">
+            <a href="#" class="about01_btn about_btn">
+                <div class="flow_box">
+                    <div class="hover">
+                        안정적으로 고용을<br>유지하고 매출을 확보할 수<br>있는 고정 매출처 확보
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="about02_btn about_btn">
+                <div class="flow_box">
+                    <div class="hover">
+                        취약계층의 유형과<br>맞는 최적의 사업아이템을<br>확보하여 사업영역 확보
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="about03_btn about_btn">
+                <div class="flow_box">
+                    <div class="hover">
+                        취약계층 일자리 창출<br>사업에 대한 인식개선 및<br>지속적 홍보 활동 추진
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="about04_btn about_btn">
+                <div class="flow_box">
+                    <div class="hover">
+                        지역 사회의 관련 단체,<br>유관기관등과의 업무협조를<br>통해 지속적 취약계층 고용
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">조우직업재활시설</div>
+        <p>Copyright © 조우직업재활시설 All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

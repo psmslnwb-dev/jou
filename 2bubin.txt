@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>법인운영방침 - 조우직업재활시설</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; color: #2d3748; line-height: 1.7; background-color: #fafaf7; }
+        
+        header { background: #ffffff; border-bottom: 1px solid #e8f5e9; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(46,125,50,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
+        .logo { font-size: 24px; font-weight: 800; color: #2e7d32; text-decoration: none; }
+        
+        .nav-menu { display: flex; list-style: none; gap: 40px; }
+        .nav-menu > li { position: relative; }
+        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 700; font-size: 16px; padding: 10px 0; }
+        .nav-menu > li > a:hover { color: #2e7d32; }
+
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #e8f5e9; }
+        .nav-menu > li:hover .submenu { display: block; }
+        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500; }
+        .submenu li a:hover { background: #f1f8f5; color: #2e7d32; }
+
+        .sub-hero { background: linear-gradient(135deg, #2e7d32, #43a047); color: #fff; padding: 60px 0; text-align: center; }
+        .sub-hero h1 { font-size: 34px; font-weight: 800; }
+
+        .content-container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        
+        /* 법인운영방침 스타일 초록톤 맞춤 */
+        .bubin_wrap { text-align: center; }
+        .bubin_box { position: relative; display: inline-block; max-width: 100%; }
+        .bubin_box img { max-width: 100%; height: auto; border-radius: 12px; }
+        
+        .popbtn { position: absolute; }
+        .popbox_cont { 
+            background: #ffffff; 
+            border: 2px solid #a5d6a7; 
+            padding: 15px 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(46,125,50,0.1); 
+            text-align: left;
+            font-size: 15px;
+            color: #1b4332;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .h30 { height: 30px; }
+
+        footer { background: #1b4332; color: #a3b18b; text-align: center; padding: 50px 0; margin-top: 100px; }
+        .footer-logo { color: #fff; font-weight: 700; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">조우직업재활시설</a>
+            <ul class="nav-menu">
+                <li><a href="#">법인소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">법인운영방침</a></li>
+                        <li><a href="#">사업추진방향</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">시설소개</a>
+                    <ul class="submenu">
+                        <li><a href="greeting.html">인사말</a></li>
+                        <li><a href="#">미션과 비전</a></li>
+                        <li><a href="#">이용절차</a></li>
+                        <li><a href="#">사업소개</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">소통공간</a>
+                    <ul class="submenu">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일상</a></li>
+                        <li><a href="#">식단표</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>법인운영방침</h1>
+    </div>
+
+    <div class="content-container">
+        <div class="bubin_wrap">
+            <div class="bubin_box">
+                <img alt="" src="/img/bubin_img01.png">
+                
+                <div class="popbtn popbox01">
+                    <div class="popbox_cont">
+                        취업을 원하는 <br>고령자, 장애인 등 <br>취약계층에게 <br>안정적 일자리 제공
+                    </div>
+                </div>
+                <div class="popbtn popbox02">
+                    <div class="popbox_cont">
+                        경제활동을 통해 <br>삶의 질을 향상하여 <br>건강한 사회생활 영위
+                    </div>
+                </div>
+                <div class="popbtn popbox03">
+                    <div class="popbox_cont">
+                        사회적협동조합의 기부.<br>나눔 및 자원봉사 <br>활동을 통한 민간복지 확대
+                    </div>
+                </div>
+                <div class="popbtn popbox04">
+                    <div class="popbox_cont">
+                        지역 내 유휴인구의 <br>경제활동 참여로 인한 <br>지역사회 발전
+                    </div>
+                </div>
+                <div class="popbtn popbox05">
+                    <div class="popbox_cont">
+                        사회적 일자리 제공으로 <br>인하여 취업 등 적극적 <br>사회 참여를 통한 <br>사회통합 기여
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h30"></div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">조우직업재활시설</div>
+        <p>Copyright © 조우직업재활시설 All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
