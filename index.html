@@ -6,42 +6,49 @@
     <title>조우직업재활시설</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #2c3e50; line-height: 1.7; background-color: #ffffff; }
         
-        header { background: #fff; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; }
-        .logo { font-size: 22px; font-weight: bold; color: #1a365d; text-decoration: none; letter-spacing: -1px; }
+        /* 상단 헤더: 화사하고 깔끔하게 */
+        header { background: #ffffff; border-bottom: 1px solid #edf2f7; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 30px; }
+        .logo { font-size: 24px; font-weight: 800; color: #0284c7; text-decoration: none; letter-spacing: -1px; }
         
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu > li { position: relative; }
-        .nav-menu > li > a { text-decoration: none; color: #2d3748; font-weight: 600; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
-        .nav-menu > li > a:hover { color: #3182ce; }
+        .nav-menu > li > a { text-decoration: none; color: #1e293b; font-weight: 700; font-size: 16px; padding: 10px 0; transition: color 0.2s; }
+        .nav-menu > li > a:hover { color: #0284c7; }
         
-        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); list-style: none; width: 180px; border-radius: 6px; padding: 10px 0; border: 1px solid #edf2f7; }
+        /* 드롭다운 서브메뉴 */
+        .submenu { display: none; position: absolute; top: 100%; left: -20px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); list-style: none; width: 180px; border-radius: 8px; padding: 10px 0; border: 1px solid #f1f5f9; }
         .nav-menu > li:hover .submenu { display: block; }
-        .submenu li a { display: block; padding: 10px 20px; color: #4a5568; text-decoration: none; font-size: 14px; transition: background 0.2s, color 0.2s; }
-        .submenu li a:hover { background: #ebf8ff; color: #3182ce; }
+        .submenu li a { display: block; padding: 10px 20px; color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .submenu li a:hover { background: #f0f9ff; color: #0284c7; }
 
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; height: 450px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-        .hero h1 { font-size: 38px; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px; }
-        .hero p { font-size: 18px; font-weight: 300; opacity: 0.9; }
+        /* 메인 비주얼 배너: 화사한 블루 톤 그라데이션 */
+        .hero { background: linear-gradient(135deg, rgba(2, 132, 199, 0.85), rgba(30, 58, 138, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; height: 480px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .hero p { font-size: 20px; font-weight: 400; opacity: 0.95; }
 
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 30px; }
-        .section-title { text-align: center; font-size: 26px; color: #1a365d; margin-bottom: 40px; font-weight: 700; }
+        /* 컨텐츠 섹션 */
+        .container { max-width: 1200px; margin: 70px auto; padding: 0 30px; }
+        .section-title { text-align: center; font-size: 30px; color: #0f172a; margin-bottom: 50px; font-weight: 800; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #0284c7; margin: 15px auto 0; border-radius: 2px; }
         
         .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card { background: #fff; padding: 35px 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #edf2f7; transition: transform 0.2s, box-shadow 0.2s; text-align: center; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
-        .card h3 { font-size: 20px; color: #2d3748; margin-bottom: 15px; }
-        .card p { font-size: 14px; color: #718096; line-height: 1.5; }
+        .card { background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(2,132,199,0.1); border-color: #bae6fd; }
+        .card h3 { font-size: 22px; color: #0f172a; margin-bottom: 15px; font-weight: 700; }
+        .card p { font-size: 15px; color: #64748b; line-height: 1.6; }
 
-        footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 40px 0; margin-top: 80px; font-size: 13px; line-height: 1.8; }
-        footer .footer-logo { color: #fff; font-weight: bold; font-size: 15px; margin-bottom: 10px; display: inline-block; }
+        /* 하단 푸터 */
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 50px 0; margin-top: 100px; font-size: 14px; line-height: 1.8; }
+        footer .footer-logo { color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 12px; display: inline-block; }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
             .card-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 28px; }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 16px; }
         }
     </style>
 </head>
