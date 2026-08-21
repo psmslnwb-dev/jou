@@ -18,7 +18,7 @@
         /* 스크롤 없이 한 화면에 꽉 차게 만드는 마법의 CSS */
         html, body {
             height: 100%;
-            overflow: hidden; /* 강제 스크롤 방지 */
+            overflow: hidden; 
         }
 
         body {
@@ -68,18 +68,27 @@
             justify-content: space-between;
         }
 
-        /* 로고 */
+        /* =========================
+           로고 (네온 & 움직임 효과 추가)
+        ========================= */
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
             min-width: 250px;
+            transition: transform 0.3s ease; /* 마우스 오버 시 부드러운 전환 */
+        }
+
+        .logo:hover {
+            transform: scale(1.03); /* 마우스를 올리면 살짝 커지는 효과 */
         }
 
         .logo img {
             width: 70px; 
             height: 70px;
             object-fit: contain;
+            /* 위아래로 부드럽게 둥둥 떠다니는 애니메이션 */
+            animation: floatLogo 3s ease-in-out infinite; 
         }
 
         .logo-text {
@@ -93,6 +102,26 @@
             font-weight: 800;
             color: #426b38;
             letter-spacing: -1.5px;
+            /* 은은하게 빛나는 네온 글로우 효과 */
+            animation: neonGlow 2.5s ease-in-out infinite alternate; 
+        }
+
+        /* 애니메이션 키프레임 정의 */
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 2px rgba(120, 169, 79, 0.1),
+                             0 0 5px rgba(120, 169, 79, 0.1);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(124, 179, 66, 0.5),
+                             0 0 12px rgba(124, 179, 66, 0.3),
+                             0 0 20px rgba(124, 179, 66, 0.2);
+            }
         }
 
         /* =========================
@@ -299,7 +328,7 @@
             justify-content: center;
             filter: drop-shadow(0 15px 25px rgba(66, 107, 56, 0.15));
             transition: transform 0.4s ease;
-            margin-top: 50px; /* 약간 위아래 여백 조절 */
+            margin-top: 50px; 
         }
 
         .tree-symbol:hover {
@@ -307,7 +336,7 @@
         }
 
         .tree-symbol svg {
-            width: 440px; /* 화면에 쏙 들어가도록 비율 조정 */
+            width: 440px; 
             height: auto;
         }
 
@@ -520,37 +549,36 @@
                     <div class="tree-symbol">
                         <!-- 하나의 그림으로 묶인 나무 & 사람들 일러스트 -->
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <!-- 바닥과 풀 (나무 기둥과 발밑으로 연결) -->
+                            <!-- 바닥과 풀 -->
                             <path d="M 5 185 Q 100 192 195 185" fill="none" stroke="#A5D6A7" stroke-width="3" stroke-linecap="round"/>
                             <path d="M 15 186 L 13 182 M 18 186 L 20 182 M 80 188 L 80 184 M 185 185 L 187 181 M 120 188 L 118 184" fill="none" stroke="#81C784" stroke-width="2" stroke-linecap="round"/>
 
-                            <!-- 큰 나무 배경 (기둥이 땅까지 내려와 사람들을 품는 형태) -->
+                            <!-- 큰 나무 배경 -->
                             <path d="M 85 185 Q 95 130 95 80 Q 95 60 40 40 Q 95 60 100 80 Q 105 60 160 40 Q 105 60 105 80 Q 105 130 115 185 Z" fill="#6D4C41"/>
                             
-                            <!-- 풍성한 나뭇잎 (사람들을 우산처럼 덮어줌) -->
+                            <!-- 풍성한 나뭇잎 -->
                             <circle cx="100" cy="50" r="55" fill="#8BC34A" opacity="0.95"/>
                             <circle cx="55" cy="85" r="45" fill="#558B2F" opacity="0.95"/>
                             <circle cx="145" cy="85" r="45" fill="#689F38" opacity="0.95"/>
                             <circle cx="100" cy="95" r="50" fill="#7CB342" opacity="0.95"/>
                             <circle cx="65" cy="55" r="35" fill="#AED581" opacity="0.95"/>
                             <circle cx="135" cy="55" r="35" fill="#9CCC65" opacity="0.95"/>
-                            <!-- 아래로 늘어진 잎사귀 추가 -->
                             <circle cx="35" cy="110" r="28" fill="#9CCC65" opacity="0.9"/>
                             <circle cx="165" cy="110" r="28" fill="#AED581" opacity="0.9"/>
 
-                            <!-- 미니 캐릭터 8명 (나무 아래로 이동, 나무 기둥과 겹치며 안정감 부여) -->
+                            <!-- 미니 캐릭터 8명 -->
                             <g stroke="#444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 
                                 <!-- 1. 휠체어를 밀어주는 사람 -->
                                 <circle cx="35" cy="160" r="2.2" fill="#444"/>
                                 <path d="M 35 163 L 35 172 M 35 172 L 32 180 M 35 172 L 38 180 M 35 165 L 42 165" />
 
-                                <!-- 2. 휠체어 탄 사람 (장애인 주차구역 표준 기호처럼 손을 앞으로 뻗음) -->
-                                <circle cx="47" cy="158" r="2.2" fill="#444"/> <!-- 머리 -->
-                                <circle cx="49" cy="172" r="4" /> <!-- 휠체어 바퀴 -->
-                                <path d="M 47 161 L 47 167 L 51 167 L 51 172" /> <!-- 앉은 자세 (ㄱ자) -->
-                                <path d="M 47 163 L 53 163" /> <!-- 앞으로 뻗은 팔(손) -->
-                                <path d="M 42 165 L 47 165" stroke="#999" stroke-width="1"/> <!-- 휠체어 손잡이 -->
+                                <!-- 2. 휠체어 탄 사람 -->
+                                <circle cx="47" cy="158" r="2.2" fill="#444"/> 
+                                <circle cx="49" cy="172" r="4" /> 
+                                <path d="M 47 161 L 47 167 L 51 167 L 51 172" /> 
+                                <path d="M 47 163 L 53 163" /> 
+                                <path d="M 42 165 L 47 165" stroke="#999" stroke-width="1"/> 
 
                                 <!-- 3. 비장애인 어른 -->
                                 <circle cx="67" cy="160" r="2.2" fill="#444"/>
@@ -560,10 +588,10 @@
                                 <circle cx="77" cy="167" r="1.8" fill="#444"/>
                                 <path d="M 77 169 L 77 175 M 77 175 L 74 182 M 77 175 L 80 182 M 77 171 L 72 170 M 77 171 L 81 174" />
 
-                                <!-- 5. 지팡이를 짚은 어르신 (가운데 나무기둥 앞) -->
+                                <!-- 5. 지팡이를 짚은 어르신 -->
                                 <circle cx="95" cy="160" r="2.2" fill="#444"/>
                                 <path d="M 95 163 L 93 173 M 93 173 L 90 183 M 93 173 L 96 183 M 94 165 L 98 171" />
-                                <path d="M 98 171 L 98 183" stroke="#8D6E63" stroke-width="1.2"/> <!-- 지팡이 -->
+                                <path d="M 98 171 L 98 183" stroke="#8D6E63" stroke-width="1.2"/> 
 
                                 <!-- 6. 풍선을 들고 있는 어른 -->
                                 <circle cx="115" cy="160" r="2.2" fill="#444"/>
@@ -592,7 +620,7 @@
         </section>
 
         <!-- =========================
-             유관기관 배너 (위로 이동됨)
+             유관기관 배너
         ========================== -->
         <section class="partner-section">
             <div class="partner-inner">
@@ -627,18 +655,18 @@
         </section>
 
         <!-- =========================
-             CONTACT (맨 밑으로 이동됨, 슬림화)
+             CONTACT 
         ========================== -->
         <section class="contact-section" id="contact">
             <div class="contact-inner">
                 <div class="contact-info">
                     <div class="contact-facility-name">조우직업재활시설</div>
                     
-                    <!-- 세로 공간 절약을 위해 한 줄 표기 -->
                     <div>
                         📍 주소 : 경기도 동두천시 이담로101번길 8, 202호 <span>|</span> 
                         ☎ 전화 : 031-000-0000 <span>|</span> 
-                        ✉ 이메일 : 이메일을 입력해주세요.
+                        <!-- 이메일 정보 업데이트 -->
+                        ✉ 이메일 : jou9111@naver.com
                     </div>
                 </div>
             </div>
