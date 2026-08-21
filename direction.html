@@ -70,12 +70,8 @@
         .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
 
         /* 서브페이지 공통 레이아웃 */
-        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .content-page { max-width: 1200px; margin: 50px auto 100px auto; padding: 0 25px; min-height: 600px; } /* 하단 여백 약간 추가 */
         .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
-        
-        /* 푸터 */
-        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
 
         @media (max-width: 900px) {
             .header-inner { height: 80px; } .logo { min-width: auto; } .logo img { width: 60px; height: 60px; } .logo-title { font-size: 20px; }
@@ -83,7 +79,6 @@
         }
         @media (max-width: 700px) {
             .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
-            .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
         }
 
         /* =========================
@@ -152,7 +147,7 @@
     </header>
 
     <!-- =========================
-         본문 (기존 내용 유지)
+         본문
     ========================== -->
     <main class="content-page">
         <h2 class="page-title">사업추진방향</h2>
@@ -173,13 +168,7 @@
         </div>
     </main>
 
-    <!-- =========================
-         푸터 (깔끔하게 수정됨)
-    ========================== -->
-    <footer>
-        <div class="footer-inner">
-            <div>© 조우직업재활시설. All Rights Reserved.</div>
-        </div>
-    </footer>
+    <!-- 푸터 영역 완전 삭제됨 -->
+
 </body>
 </html>
