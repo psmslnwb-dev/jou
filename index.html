@@ -323,7 +323,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 20px 30px rgba(30, 70, 20, 0.25)); /* 그림자도 좀 더 깊게 */
+            filter: drop-shadow(0 20px 30px rgba(30, 70, 20, 0.2));
             transition: transform 0.4s ease;
             margin-top: 20px; 
         }
@@ -333,7 +333,7 @@
         }
 
         .tree-symbol svg {
-            width: 440px; /* 나무가 웅장해보이도록 크기 약간 키움 */
+            width: 440px; 
             height: auto;
         }
 
@@ -538,88 +538,69 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 리니지 세계수 스타일 나무 & 재배치된 캐릭터 일러스트 -->
+                        <!-- 깔끔하고 웅장한 단색 초록 세계수 & 선명한 캐릭터 일러스트 -->
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             
-                            <!-- 나무 뒤에서 뿜어져 나오는 은은하고 신비로운 후광 -->
-                            <circle cx="100" cy="80" r="95" fill="#E8F5E9" opacity="0.6"/>
-                            <circle cx="100" cy="80" r="70" fill="#C8E6C9" opacity="0.4"/>
+                            <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
+                            <circle cx="100" cy="80" r="90" fill="#E8F5E9" opacity="0.5"/>
 
                             <!-- 바닥과 풀 -->
                             <path d="M -10 185 Q 100 195 210 185 L 210 210 L -10 210 Z" fill="#e8f5e9"/>
                             <path d="M -10 185 Q 100 195 210 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
                             <path d="M 20 186 L 18 182 M 23 186 L 25 182 M 175 186 L 173 182 M 180 186 L 182 182" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/>
 
-                            <!-- 세계수 웅장한 기둥과 뻗어나가는 거대한 뿌리 -->
-                            <!-- 기둥 메인 -->
-                            <path d="M 65 186 Q 80 120 85 60 L 115 60 Q 120 120 135 186 Q 100 178 65 186 Z" fill="#4E342E"/>
-                            <!-- 왼쪽 굵은 뿌리 -->
+                            <!-- 세계수 웅장한 기둥과 뿌리 -->
+                            <path d="M 65 186 Q 80 120 85 60 L 115 60 Q 120 120 135 186 Q 100 178 65 186 Z" fill="#5D4037"/>
                             <path d="M 65 186 Q 40 192 25 187 Q 45 175 75 178 Z" fill="#3E2723"/>
-                            <!-- 오른쪽 굵은 뿌리 -->
                             <path d="M 135 186 Q 160 192 175 187 Q 155 175 125 178 Z" fill="#3E2723"/>
-                            <!-- 기둥 질감(주름) 디테일 -->
                             <path d="M 80 70 Q 75 130 70 180 M 120 70 Q 125 130 130 180 M 100 65 L 100 180" stroke="#3E2723" stroke-width="2.5" fill="none" opacity="0.7"/>
 
-                            <!-- 풍성하고 불규칙한 형태의 세계수 나뭇잎 (고양이 형태 완벽 탈피) -->
-                            <!-- 뒷배경의 가장 짙은 잎사귀 -->
-                            <path d="M 10 90 Q 0 40 50 25 Q 100 -15 150 25 Q 200 40 190 90 Q 210 140 150 140 Q 100 155 50 140 Q -10 140 10 90 Z" fill="#2E7D32" opacity="0.95"/>
+                            <!-- 짙은 초록빛의 풍성하고 자연스러운 웅장한 나무 수관 (얼룩덜룩한 원형 모양 제거) -->
+                            <path d="M 10 95 Q -5 45 50 30 Q 95 -5 145 25 Q 200 40 190 95 Q 210 145 145 145 Q 100 155 55 145 Q -10 145 10 95 Z" fill="#2E7D32"/>
+                            <path d="M 25 90 Q 15 50 65 35 Q 100 5 140 35 Q 185 50 175 90 Q 195 135 140 135 Q 100 145 60 135 Q 5 135 25 90 Z" fill="#388E3C"/>
                             
-                            <!-- 중간톤 잎사귀 레이어 -->
-                            <path d="M 25 90 Q 15 45 65 35 Q 100 0 135 35 Q 185 45 175 90 Q 195 130 145 130 Q 100 145 55 130 Q 5 130 25 90 Z" fill="#388E3C" opacity="0.95"/>
-                            
-                            <!-- 밝은톤 잎사귀 및 볼륨감 하이라이트 -->
-                            <path d="M 40 90 Q 30 55 75 45 Q 100 15 125 45 Q 170 55 160 90 Q 175 120 135 120 Q 100 135 65 120 Q 25 120 40 90 Z" fill="#4CAF50" opacity="0.9"/>
-                            
-                            <!-- 디테일을 더해주는 잎사귀 덩어리들 -->
-                            <circle cx="60" cy="70" r="30" fill="#66BB6A" opacity="0.9"/>
-                            <circle cx="140" cy="70" r="30" fill="#66BB6A" opacity="0.9"/>
-                            <circle cx="100" cy="40" r="35" fill="#66BB6A" opacity="0.9"/>
-                            <circle cx="85" cy="110" r="25" fill="#81C784" opacity="0.85"/>
-                            <circle cx="115" cy="110" r="25" fill="#81C784" opacity="0.85"/>
+                            <!-- 나무의 입체감을 주는 상단 하이라이트 톤 -->
+                            <path d="M 45 80 Q 40 45 80 35 Q 100 15 120 35 Q 160 45 155 80 Q 170 115 125 115 Q 100 125 75 115 Q 30 115 45 80 Z" fill="#4CAF50" opacity="0.85"/>
 
-                            <!-- 나무 사이로 떨어지는 빛내림 (신비로운 세계수 효과) -->
-                            <path d="M 50 20 L 15 185 L 35 185 L 75 20 Z" fill="#FFFFFF" opacity="0.12"/>
-                            <path d="M 110 10 L 80 185 L 105 185 L 135 10 Z" fill="#FFFFFF" opacity="0.15"/>
-                            <path d="M 165 35 L 140 185 L 155 185 L 180 35 Z" fill="#FFFFFF" opacity="0.08"/>
+                            <!-- 나뭇잎 사이로 스며드는 신비로운 빛내림 (세계수 감성) -->
+                            <path d="M 60 20 L 20 185 L 40 185 L 85 20 Z" fill="#FFFFFF" opacity="0.12"/>
+                            <path d="M 120 10 L 90 185 L 115 185 L 145 10 Z" fill="#FFFFFF" opacity="0.15"/>
 
-                            <!-- 흩날리는 나뭇잎들 -->
+                            <!-- 흩날리는 초록 나뭇잎 -->
                             <path d="M 25 75 Q 30 70 35 75 Q 30 80 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
                             <path d="M 175 60 Q 180 55 185 60 Q 180 65 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
-                            <path d="M 160 140 Q 163 137 166 140 Q 163 143 160 140 Z" fill="#81C784" opacity="0.9"/>
-                            <path d="M 40 135 Q 43 132 46 135 Q 43 138 40 135 Z" fill="#81C784" opacity="0.9"/>
 
-                            <!-- 미니 캐릭터 그룹 (휠체어 삭제 및 자연스러운 4팀 재배치) -->
-                            <g stroke="#333" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- 미니 캐릭터 그룹 (초록 나무 배경 위에서 선명하게 보이도록 밝은 외곽선/색상 포인트 추가) -->
+                            <!-- ※ 사람들이 어두운 나무 기둥에 묻히지 않도록 위치 조정 및 옷 색상 포인트 부여 -->
+                            <g stroke="#222" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 
-                                <!-- 1. 비장애인 어른 & 아이 (손잡고 걷는 모습, 왼쪽으로 이동) -->
-                                <!-- 어른 -->
-                                <circle cx="45" cy="158" r="2.5" fill="#333" stroke="none"/>
-                                <path d="M 45 161 L 45 171 M 45 171 L 42 182 M 45 171 L 48 182 M 45 163 L 40 170 M 45 163 L 51 168" />
-                                <!-- 아이 -->
-                                <circle cx="56" cy="165" r="2" fill="#333" stroke="none"/>
-                                <path d="M 56 167 L 56 174 M 56 174 L 53 181 M 56 174 L 59 181 M 56 169 L 51 168 M 56 169 L 60 173" />
+                                <!-- 1. 손잡고 걷는 어른과 아이 (왼쪽) -->
+                                <circle cx="42" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
+                                <path d="M 42 161 L 42 171 M 42 171 L 39 182 M 42 171 L 45 182 M 42 163 L 37 170 M 42 163 L 48 168" />
+                                
+                                <circle cx="53" cy="165" r="2" fill="#FFF" stroke="#222" stroke-width="1.8"/>
+                                <path d="M 53 167 L 53 174 M 53 174 L 50 181 M 53 174 L 56 181 M 53 169 L 48 168 M 53 169 L 57 173" />
 
-                                <!-- 2. 지팡이를 짚은 어르신 (중앙 나무 기둥 근처) -->
-                                <circle cx="85" cy="158" r="2.5" fill="#333" stroke="none"/>
+                                <!-- 2. 지팡이를 짚은 어르신 (나무 기둥 옆 흰색 실루엣 포인트로 시인성 확보) -->
+                                <circle cx="85" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
                                 <path d="M 85 161 L 83 171 M 83 171 L 80 183 M 83 171 L 86 183 M 84 163 L 88 170" />
-                                <path d="M 88 170 L 88 183" stroke="#795548" stroke-width="1.8"/> <!-- 나무 지팡이 -->
+                                <path d="M 88 170 L 88 183" stroke="#A1887F" stroke-width="2"/>
 
-                                <!-- 3. 풍선을 들고 뛰는 아이 (어른 없이 단독으로 역동적인 포즈) -->
-                                <circle cx="112" cy="165" r="2.2" fill="#333" stroke="none"/>
-                                <path d="M 112 167 L 112 174 M 112 174 L 109 181 M 112 174 L 117 180 M 112 170 L 107 163 M 112 170 L 116 162" />
+                                <!-- 3. 풍선을 들고 있는 아이 (중앙-오른쪽) -->
+                                <circle cx="115" cy="165" r="2.2" fill="#FFF" stroke="#222" stroke-width="1.8"/>
+                                <path d="M 115 167 L 115 174 M 115 174 L 112 181 M 115 174 L 118 180 M 115 170 L 110 163 M 115 170 L 120 165" />
                                 
                                 <!-- 노란 풍선 -->
-                                <path d="M 107 163 Q 104 148 104 138" fill="none" stroke="#999" stroke-width="0.8"/>
-                                <circle cx="104" cy="133" r="5" fill="#FFCA28" stroke="none"/>
-                                <path d="M 104 138 L 102 141 L 106 141 Z" fill="#FFCA28" stroke="none"/>
+                                <path d="M 120 165 Q 115 150 110 138" fill="none" stroke="#666" stroke-width="0.8"/>
+                                <circle cx="110" cy="133" r="5" fill="#FFCA28" stroke="#333" stroke-width="1"/>
 
-                                <!-- 4. 안내견과 걷는 시각장애인 (오른쪽 배치) -->
-                                <circle cx="150" cy="158" r="2.5" fill="#333" stroke="none"/>
-                                <path d="M 150 161 L 150 171 M 150 171 L 147 182 M 150 171 L 153 182 M 150 163 L 153 168 M 150 163 L 145 168" />
-                                <!-- 안내견 하네스 끈 -->
-                                <path d="M 145 168 L 137 171" stroke="#90A4AE" stroke-width="1.2"/>
-                                <!-- 강아지 -->
-                                <path d="M 137 173 L 130 173 M 137 173 L 137 178 M 130 173 L 130 178 M 130 173 Q 128 170 126 173 M 137 173 Q 139 170 140 173" stroke="#8D6E63" stroke-width="2.5"/>
+                                <!-- 4. 안내견과 걷는 시각장애인 (오른쪽) -->
+                                <circle cx="152" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
+                                <path d="M 152 161 L 152 171 M 152 171 L 149 182 M 152 171 L 155 182 M 152 163 L 155 168 M 152 163 L 147 168" />
+                                
+                                <!-- 안내견 하네스 끈 및 강아지 -->
+                                <path d="M 147 168 L 139 171" stroke="#B0BEC5" stroke-width="1.2"/>
+                                <path d="M 139 173 L 132 173 M 139 173 L 139 178 M 132 173 L 132 178 M 132 173 Q 130 170 128 173 M 139 173 Q 141 170 142 173" stroke="#A1887F" stroke-width="2.5"/>
                             </g>
                         </svg>
                     </div>
