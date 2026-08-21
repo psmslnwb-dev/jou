@@ -241,18 +241,6 @@
             max-width: 650px;
         }
 
-        .hero-small {
-            display: inline-block;
-
-            color: #5d914d;
-            font-size: 15px;
-            font-weight: 600;
-
-            margin-bottom: 18px;
-
-            letter-spacing: 1px;
-        }
-
         .hero h1 {
             font-size: 52px;
             line-height: 1.3;
@@ -261,22 +249,14 @@
 
             letter-spacing: -3px;
 
-            margin-bottom: 22px;
+            margin-bottom: 0; /* 설명이 사라졌으므로 하단 여백 제거 */
         }
 
         .hero h1 span {
             color: #78a94f;
         }
 
-        .hero-description {
-            font-size: 18px;
-            color: #777;
-            line-height: 1.9;
-
-            margin-bottom: 35px;
-        }
-
-        /* 오른쪽 장식 (SVG 나무 일러스트) */
+        /* 오른쪽 장식 */
         .hero-decoration {
             width: 360px;
             height: 360px;
@@ -313,18 +293,26 @@
             right: 20px;
         }
 
+        /* 코드로 직접 그린 일러스트 영역 */
         .tree-symbol {
             position: relative;
             z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 15px 25px rgba(66, 107, 56, 0.2));
+            filter: drop-shadow(0 15px 25px rgba(66, 107, 56, 0.15));
             transition: transform 0.4s ease;
+            margin-top: 50px;
         }
 
         .tree-symbol:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* 일러스트 크기 제어 */
+        .tree-symbol svg {
+            width: 450px; /* 기존보다 2배 가량 키운 사이즈 */
+            height: auto;
         }
 
         /* =========================
@@ -343,9 +331,16 @@
             margin: 0 auto;
 
             display: flex;
-            /* 좌측 텍스트를 삭제했으므로 우측 정렬로 레이아웃 변경 */
-            justify-content: flex-end; 
+            justify-content: flex-end; /* 텍스트 지웠으므로 우측정렬 */
             align-items: center;
+        }
+
+        .contact-facility-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -1.5px;
         }
 
         .contact-info {
@@ -432,6 +427,7 @@
         ========================= */
 
         @media (max-width: 900px) {
+
             .header-inner { height: 80px; }
             .logo { min-width: auto; }
             .logo img { width: 60px; height: 60px; }
@@ -446,22 +442,28 @@
             .hero h1 { font-size: 40px; }
             .hero-decoration { width: 260px; height: 260px; }
             .circle { width: 220px; height: 220px; }
+            
+            .tree-symbol svg { width: 350px; }
         }
 
         @media (max-width: 700px) {
+
             .header-inner { padding: 0 15px; }
             .main-menu { gap: 4px; }
             .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
 
             .hero-inner { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 34px; letter-spacing: -2px; }
-            .hero-description { font-size: 15px; }
             .hero-decoration { margin-top: 35px; width: 190px; height: 160px; }
             .circle { width: 150px; height: 150px; }
             .circle-small { width: 90px; height: 90px; }
+            
+            .tree-symbol svg { width: 280px; }
 
             .contact-inner { justify-content: center; }
-            .contact-info { text-align: center; }
+            .contact-info { text-align: left; }
+            .contact-facility-name { text-align: left; }
+
             .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
             
             .partner-list li { min-width: 45%; }
@@ -529,18 +531,11 @@
         <section class="hero">
             <div class="hero-inner">
                 <div class="hero-text">
-                    <span class="hero-small">
-                        조우직업재활시설
-                    </span>
                     <h1>
                         마음과 마음이 만나,<br>
                         <span>함께</span><br>
                         날아오르다
                     </h1>
-                    <p class="hero-description">
-                        마음과 마음이 만나,<br>
-                        함께 날아오르는 조우직업재활시설입니다.
-                    </p>
                 </div>
 
                 <div class="hero-decoration">
@@ -548,17 +543,71 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 코드로 직접 그린 고해상도 투명 배경 나무 일러스트 (기존보다 더 큼직하게 240px로 설정) -->
-                        <svg width="240" height="240" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <!-- 나무 기둥 -->
-                            <path d="M45 95 C 45 70, 35 50, 20 35 C 40 50, 48 65, 50 80 C 52 65, 60 50, 80 35 C 65 50, 55 70, 55 95 Z" fill="#6D4C41"/>
-                            <!-- 풍성한 나뭇잎 (조우직업재활시설 테마 컬러 적용) -->
-                            <circle cx="50" cy="25" r="22" fill="#8BC34A" opacity="0.95"/>
-                            <circle cx="28" cy="45" r="18" fill="#558B2F" opacity="0.95"/>
-                            <circle cx="72" cy="45" r="18" fill="#689F38" opacity="0.95"/>
-                            <circle cx="50" cy="45" r="20" fill="#7CB342" opacity="0.95"/>
-                            <circle cx="35" cy="28" r="15" fill="#AED581" opacity="0.95"/>
-                            <circle cx="65" cy="28" r="15" fill="#9CCC65" opacity="0.95"/>
+                        <!-- 코드로 직접 그린 초고화질 일러스트 (확대해도 깨지지 않습니다) -->
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 바닥과 풀 -->
+                            <path d="M 5 190 Q 100 195 195 190" fill="none" stroke="#A5D6A7" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M 15 191 L 13 187 M 18 191 L 20 187 M 80 193 L 80 189 M 185 190 L 187 186 M 120 193 L 118 189" fill="none" stroke="#81C784" stroke-width="2" stroke-linecap="round"/>
+
+                            <!-- 큰 나무 배경 -->
+                            <path d="M 85 160 Q 95 120 95 90 Q 95 70 50 50 Q 95 70 100 90 Q 105 70 150 50 Q 105 70 105 90 Q 105 120 115 160 Z" fill="#6D4C41"/>
+                            <circle cx="100" cy="50" r="45" fill="#8BC34A" opacity="0.95"/>
+                            <circle cx="55" cy="80" r="35" fill="#558B2F" opacity="0.95"/>
+                            <circle cx="145" cy="80" r="35" fill="#689F38" opacity="0.95"/>
+                            <circle cx="100" cy="85" r="45" fill="#7CB342" opacity="0.95"/>
+                            <circle cx="70" cy="55" r="30" fill="#AED581" opacity="0.95"/>
+                            <circle cx="130" cy="55" r="30" fill="#9CCC65" opacity="0.95"/>
+
+                            <!-- 풍선 -->
+                            <path d="M 133 145 Q 135 125 140 110" fill="none" stroke="#999" stroke-width="1"/>
+                            <ellipse cx="140" cy="100" rx="6" ry="8" fill="#FFCA28"/>
+
+                            <!-- 8명의 졸라맨 일러스트 -->
+                            <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <!-- 1. 휠체어를 밀어주는 사람 -->
+                                <path d="M 18 150 L 18 175 L 13 190 M 18 175 L 23 190 M 18 155 L 26 160 L 32 160 M 18 155 L 10 165" />
+                                <circle cx="18" cy="142" r="5" fill="#555"/>
+
+                                <!-- 2. 휠체어에 앉은 사람 -->
+                                <circle cx="35" cy="180" r="10" /> 
+                                <line x1="35" y1="170" x2="35" y2="190" />
+                                <line x1="25" y1="180" x2="45" y2="180" />
+                                <path d="M 35 180 L 35 160 L 45 160 M 35 170 L 43 175" />
+                                <circle cx="35" cy="150" r="5" fill="#555"/>
+
+                                <!-- 3. 비장애인 어른 -->
+                                <path d="M 60 150 L 60 175 L 55 190 M 60 175 L 65 190 M 60 155 L 50 165 M 60 155 L 70 165" />
+                                <circle cx="60" cy="142" r="5" fill="#555"/>
+
+                                <!-- 4. 손잡은 아이 -->
+                                <path d="M 78 164 L 78 180 L 73 190 M 78 180 L 83 190 M 78 168 L 70 165 M 78 168 L 86 175" />
+                                <circle cx="78" cy="158" r="4" fill="#555"/>
+
+                                <!-- 5. 지팡이를 짚은 어르신 -->
+                                <path d="M 100 153 C 103 160 103 170 100 175 L 95 190 M 100 175 L 105 190 M 100 158 L 93 168 M 100 158 L 107 170" />
+                                <circle cx="100" cy="148" r="5" fill="#555"/>
+
+                                <!-- 6. 풍선을 들고 있는 어른 -->
+                                <path d="M 125 150 L 125 175 L 120 190 M 125 175 L 130 190 M 125 155 L 117 165 M 125 155 L 133 145" />
+                                <circle cx="125" cy="142" r="5" fill="#555"/>
+
+                                <!-- 7. 풍선을 향해 손을 뻗는 아이 -->
+                                <path d="M 148 166 L 150 178 L 143 185 M 150 178 L 156 190 M 148 170 L 138 165 M 148 170 L 145 155" />
+                                <circle cx="148" cy="160" r="4" fill="#555"/>
+
+                                <!-- 8. 안내견과 걷는 어른 -->
+                                <path d="M 175 150 L 175 175 L 170 190 M 175 175 L 180 190 M 175 160 L 165 170 M 175 160 L 182 170" />
+                                <circle cx="175" cy="142" r="5" fill="#555"/>
+                            </g>
+
+                            <!-- 어르신 지팡이 -->
+                            <path d="M 105 165 L 105 190 M 103 165 L 107 165" stroke="#8D6E63" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+                            <!-- 안내견 -->
+                            <g stroke="#795548" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M 160 182 Q 165 182 165 185 L 165 190 M 160 182 L 153 182 L 153 190 M 153 182 L 148 185 L 148 190 M 148 183 L 145 181" />
+                            </g>
+                            <line x1="165" y1="170" x2="160" y2="182" stroke="#B0BEC5" stroke-width="1.5" fill="none"/>
                         </svg>
                     </div>
                 </div>
@@ -571,8 +620,11 @@
 
         <section class="contact-section" id="contact">
             <div class="contact-inner">
-                <!-- 좌측 텍스트(조우직업재활시설, 함께하는 마음...) 깔끔하게 완전 삭제됨 -->
+                
                 <div class="contact-info">
+                    <!-- 하단 주소 위에 기관명 추가 -->
+                    <div class="contact-facility-name">조우직업재활시설</div>
+
                     <div>
                         📍 주소 : 경기도 동두천시 이담로101번길 8, 202호
                     </div>
@@ -583,6 +635,7 @@
                         ✉ 이메일 : 이메일을 입력해주세요.
                     </div>
                 </div>
+
             </div>
         </section>
 
