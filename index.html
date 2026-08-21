@@ -276,7 +276,7 @@
             margin-bottom: 35px;
         }
 
-        /* 오른쪽 장식 (나무 아이콘) */
+        /* 오른쪽 장식 (SVG 나무 일러스트) */
         .hero-decoration {
             width: 360px;
             height: 360px;
@@ -313,24 +313,22 @@
             right: 20px;
         }
 
-        /* CSS 마법으로 아래쪽 글씨만 잘라낸 나무 이미지 */
         .tree-symbol {
             position: relative;
             z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: drop-shadow(0 15px 25px rgba(66, 107, 56, 0.2));
+            transition: transform 0.4s ease;
         }
-        
-        .tree-symbol img {
-            width: 250px; 
-            height: 190px; /* 높이를 제한하여 아래 글씨 부분을 가립니다 */
-            object-fit: cover; /* 영역에 맞게 꽉 채움 */
-            object-position: top; /* 윗부분(나무)을 기준으로 보여줌 */
+
+        .tree-symbol:hover {
+            transform: translateY(-10px) scale(1.05);
         }
 
         /* =========================
-           하단 문의 (텍스트로 원복)
+           하단 문의
         ========================= */
 
         .contact-section {
@@ -345,18 +343,9 @@
             margin: 0 auto;
 
             display: flex;
-            justify-content: space-between;
+            /* 좌측 텍스트를 삭제했으므로 우측 정렬로 레이아웃 변경 */
+            justify-content: flex-end; 
             align-items: center;
-        }
-
-        .contact-text h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .contact-text p {
-            opacity: 0.85;
-            font-size: 14px;
         }
 
         .contact-info {
@@ -443,7 +432,6 @@
         ========================= */
 
         @media (max-width: 900px) {
-
             .header-inner { height: 80px; }
             .logo { min-width: auto; }
             .logo img { width: 60px; height: 60px; }
@@ -458,13 +446,9 @@
             .hero h1 { font-size: 40px; }
             .hero-decoration { width: 260px; height: 260px; }
             .circle { width: 220px; height: 220px; }
-            
-            /* 모바일에서도 잘라내기 비율 유지 */
-            .tree-symbol img { width: 180px; height: 135px; }
         }
 
         @media (max-width: 700px) {
-
             .header-inner { padding: 0 15px; }
             .main-menu { gap: 4px; }
             .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
@@ -475,12 +459,9 @@
             .hero-decoration { margin-top: 35px; width: 190px; height: 160px; }
             .circle { width: 150px; height: 150px; }
             .circle-small { width: 90px; height: 90px; }
-            
-            /* 모바일에서도 잘라내기 비율 유지 */
-            .tree-symbol img { width: 140px; height: 105px; }
 
-            .contact-inner { flex-direction: column; align-items: flex-start; gap: 25px; }
-            .contact-info { text-align: left; }
+            .contact-inner { justify-content: center; }
+            .contact-info { text-align: center; }
             .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
             
             .partner-list li { min-width: 45%; }
@@ -567,8 +548,18 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 기존 ci.png를 넣지만, CSS에서 밑 글씨부분을 가리도록 처리했습니다 -->
-                        <img src="ci.png" alt="조우직업재활시설 나무 심볼">
+                        <!-- 코드로 직접 그린 고해상도 투명 배경 나무 일러스트 (기존보다 더 큼직하게 240px로 설정) -->
+                        <svg width="240" height="240" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 나무 기둥 -->
+                            <path d="M45 95 C 45 70, 35 50, 20 35 C 40 50, 48 65, 50 80 C 52 65, 60 50, 80 35 C 65 50, 55 70, 55 95 Z" fill="#6D4C41"/>
+                            <!-- 풍성한 나뭇잎 (조우직업재활시설 테마 컬러 적용) -->
+                            <circle cx="50" cy="25" r="22" fill="#8BC34A" opacity="0.95"/>
+                            <circle cx="28" cy="45" r="18" fill="#558B2F" opacity="0.95"/>
+                            <circle cx="72" cy="45" r="18" fill="#689F38" opacity="0.95"/>
+                            <circle cx="50" cy="45" r="20" fill="#7CB342" opacity="0.95"/>
+                            <circle cx="35" cy="28" r="15" fill="#AED581" opacity="0.95"/>
+                            <circle cx="65" cy="28" r="15" fill="#9CCC65" opacity="0.95"/>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -580,12 +571,7 @@
 
         <section class="contact-section" id="contact">
             <div class="contact-inner">
-                
-                <div class="contact-text">
-                    <h2>조우직업재활시설</h2>
-                    <p>함께하는 마음, 함께 만들어가는 내일</p>
-                </div>
-
+                <!-- 좌측 텍스트(조우직업재활시설, 함께하는 마음...) 깔끔하게 완전 삭제됨 -->
                 <div class="contact-info">
                     <div>
                         📍 주소 : 경기도 동두천시 이담로101번길 8, 202호
