@@ -54,7 +54,7 @@
 
         .header-inner {
             max-width: 1200px;
-            height: 100px; /* 로고가 커져서 헤더 높이 살짝 늘림 */
+            height: 100px;
             margin: 0 auto;
             padding: 0 25px;
 
@@ -63,7 +63,7 @@
             justify-content: space-between;
         }
 
-        /* 로고 (크기 확대) */
+        /* 로고 */
         .logo {
             display: flex;
             align-items: center;
@@ -72,7 +72,7 @@
         }
 
         .logo img {
-            width: 80px; /* 기존 62px -> 80px 확대 */
+            width: 80px; 
             height: 80px;
             object-fit: contain;
         }
@@ -84,7 +84,7 @@
         }
 
         .logo-title {
-            font-size: 24px; /* 기존 20px -> 24px 확대 */
+            font-size: 24px;
             font-weight: 800;
             color: #426b38;
             letter-spacing: -1.5px;
@@ -276,7 +276,7 @@
             margin-bottom: 35px;
         }
 
-        /* 오른쪽 장식 (나무 아이콘 변경됨) */
+        /* 오른쪽 장식 (나무 아이콘) */
         .hero-decoration {
             width: 360px;
             height: 360px;
@@ -313,7 +313,7 @@
             right: 20px;
         }
 
-        /* CI 로고 이미지로 대체된 부분 */
+        /* 텍스트 뺀 나무 이미지만 크게 들어가는 부분 */
         .tree-symbol {
             position: relative;
             z-index: 2;
@@ -323,13 +323,13 @@
         }
         
         .tree-symbol img {
-            width: 180px; /* 원 안에 맞게 적절한 크기 */
+            width: 250px; /* 나무 이미지를 시원하게 키웠습니다 */
             height: auto;
             object-fit: contain;
         }
 
         /* =========================
-           하단 문의 (로고로 대체됨)
+           하단 문의 (텍스트로 원복)
         ========================= */
 
         .contact-section {
@@ -348,27 +348,14 @@
             align-items: center;
         }
 
-        /* 새롭게 추가된 하단 로고 스타일 */
-        .contact-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .contact-text h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
         }
 
-        .contact-logo img {
-            width: 80px; 
-            height: 80px;
-            object-fit: contain;
-            background: #ffffff; /* 초록 바탕에 로고가 잘 보이도록 배경을 하얗게 */
-            border-radius: 12px;
-            padding: 5px;
-        }
-
-        .contact-logo-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff; /* 하단 텍스트는 눈에 잘 띄게 흰색 */
-            letter-spacing: -1.5px;
+        .contact-text p {
+            opacity: 0.85;
+            font-size: 14px;
         }
 
         .contact-info {
@@ -455,13 +442,11 @@
         ========================= */
 
         @media (max-width: 900px) {
+
             .header-inner { height: 80px; }
             .logo { min-width: auto; }
-            /* 모바일에서 상/하단 로고 크기 축소 */
             .logo img { width: 60px; height: 60px; }
             .logo-title { font-size: 20px; }
-            .contact-logo img { width: 60px; height: 60px; }
-            .contact-logo-title { font-size: 20px; }
 
             .main-menu { gap: 6px; }
             .main-menu > li > a { padding: 6px 14px; font-size: 14px; }
@@ -473,10 +458,11 @@
             .hero-decoration { width: 260px; height: 260px; }
             .circle { width: 220px; height: 220px; }
             
-            .tree-symbol img { width: 130px; }
+            .tree-symbol img { width: 180px; }
         }
 
         @media (max-width: 700px) {
+
             .header-inner { padding: 0 15px; }
             .main-menu { gap: 4px; }
             .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
@@ -488,11 +474,12 @@
             .circle { width: 150px; height: 150px; }
             .circle-small { width: 90px; height: 90px; }
             
-            .tree-symbol img { width: 100px; }
+            .tree-symbol img { width: 140px; }
 
             .contact-inner { flex-direction: column; align-items: flex-start; gap: 25px; }
             .contact-info { text-align: left; }
             .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
+            
             .partner-list li { min-width: 45%; }
         }
     </style>
@@ -576,9 +563,9 @@
                     <div class="circle"></div>
                     <div class="circle-small"></div>
                     
-                    <!-- 이모지 대신 로고 이미지로 대체됨 -->
                     <div class="tree-symbol">
-                        <img src="ci.png" alt="조우직업재활시설 로고">
+                        <!-- 나무만 자른 새 이미지 파일(tree.png)을 넣어주세요! -->
+                        <img src="tree.png" alt="조우직업재활시설 나무 심볼">
                     </div>
                 </div>
             </div>
@@ -591,10 +578,10 @@
         <section class="contact-section" id="contact">
             <div class="contact-inner">
                 
-                <!-- 기존 텍스트 삭제 후, 상단과 동일한 로고+타이틀 배치 -->
-                <div class="contact-logo">
-                    <img src="ci.png" alt="조우직업재활시설 CI">
-                    <div class="contact-logo-title">조우직업재활시설</div>
+                <!-- 기존 텍스트 형태로 원복 완료 -->
+                <div class="contact-text">
+                    <h2>조우직업재활시설</h2>
+                    <p>함께하는 마음, 함께 만들어가는 내일</p>
                 </div>
 
                 <div class="contact-info">
