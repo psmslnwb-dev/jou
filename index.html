@@ -313,7 +313,7 @@
             right: 20px;
         }
 
-        /* 텍스트 뺀 나무 이미지만 크게 들어가는 부분 */
+        /* CSS 마법으로 아래쪽 글씨만 잘라낸 나무 이미지 */
         .tree-symbol {
             position: relative;
             z-index: 2;
@@ -323,9 +323,10 @@
         }
         
         .tree-symbol img {
-            width: 250px; /* 나무 이미지를 시원하게 키웠습니다 */
-            height: auto;
-            object-fit: contain;
+            width: 250px; 
+            height: 190px; /* 높이를 제한하여 아래 글씨 부분을 가립니다 */
+            object-fit: cover; /* 영역에 맞게 꽉 채움 */
+            object-position: top; /* 윗부분(나무)을 기준으로 보여줌 */
         }
 
         /* =========================
@@ -458,7 +459,8 @@
             .hero-decoration { width: 260px; height: 260px; }
             .circle { width: 220px; height: 220px; }
             
-            .tree-symbol img { width: 180px; }
+            /* 모바일에서도 잘라내기 비율 유지 */
+            .tree-symbol img { width: 180px; height: 135px; }
         }
 
         @media (max-width: 700px) {
@@ -474,7 +476,8 @@
             .circle { width: 150px; height: 150px; }
             .circle-small { width: 90px; height: 90px; }
             
-            .tree-symbol img { width: 140px; }
+            /* 모바일에서도 잘라내기 비율 유지 */
+            .tree-symbol img { width: 140px; height: 105px; }
 
             .contact-inner { flex-direction: column; align-items: flex-start; gap: 25px; }
             .contact-info { text-align: left; }
@@ -564,8 +567,8 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 나무만 자른 새 이미지 파일(tree.png)을 넣어주세요! -->
-                        <img src="tree.png" alt="조우직업재활시설 나무 심볼">
+                        <!-- 기존 ci.png를 넣지만, CSS에서 밑 글씨부분을 가리도록 처리했습니다 -->
+                        <img src="ci.png" alt="조우직업재활시설 나무 심볼">
                     </div>
                 </div>
             </div>
@@ -578,7 +581,6 @@
         <section class="contact-section" id="contact">
             <div class="contact-inner">
                 
-                <!-- 기존 텍스트 형태로 원복 완료 -->
                 <div class="contact-text">
                     <h2>조우직업재활시설</h2>
                     <p>함께하는 마음, 함께 만들어가는 내일</p>
