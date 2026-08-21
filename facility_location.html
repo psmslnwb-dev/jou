@@ -6,7 +6,7 @@
     <title>시설 오시는 길 - 조우직업재활시설</title>
     <style>
         /* =========================
-           공통 및 헤더/푸터 스타일 (최신버전)
+           공통 및 헤더 스타일 (최신버전)
         ========================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -70,12 +70,8 @@
         .submenu li a:hover { background: #f1f7ef; color: #4d873e; }
 
         /* 서브페이지 공통 레이아웃 */
-        .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
+        .content-page { max-width: 1200px; margin: 50px auto 100px auto; padding: 0 25px; min-height: 600px; }
         .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
-        
-        /* 푸터 */
-        footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
 
         @media (max-width: 900px) {
             .header-inner { height: 80px; } .logo { min-width: auto; } .logo img { width: 60px; height: 60px; } .logo-title { font-size: 20px; }
@@ -83,7 +79,6 @@
         }
         @media (max-width: 700px) {
             .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
-            .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
             .traffic_styled_table th, .traffic_styled_table td { display: block; width: 100%; text-align: left; }
             .traffic_styled_table th { border-bottom: none; padding-bottom: 5px; }
         }
@@ -108,7 +103,7 @@
 <body>
     
     <!-- =========================
-         최신 HEADER (로고 변경 & 카페 주소 연동)
+         최신 HEADER
     ========================== -->
     <header>
         <div class="header-inner">
@@ -144,7 +139,7 @@
                             <li><a href="facility_location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <!-- 소통공간 (네이버 카페 연동 완료) -->
+                    <!-- 소통공간 (네이버 카페 연동) -->
                     <li>
                         <a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
                         <ul class="submenu">
@@ -159,7 +154,7 @@
     </header>
 
     <!-- =========================
-         본문 (기존 내용 유지)
+         본문 
     ========================== -->
     <main class="content-page">
         <h2 class="page-title">시설 오시는 길</h2>
@@ -174,11 +169,8 @@
 
         <!-- 카카오맵(Daum Roughmap) 컨테이너 -->
         <div class="map_display_area">
-            <!-- 
-                카카오맵에서 발급받은 컨테이너 ID로 변경해야 합니다.
-                현재는 맵이 나타나도록 구조만 잡아두었습니다. 
-            -->
-            <div id="daumRoughmapContainer1712345678901" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%;"></div>
+            <!-- 사용자 제공 ID 적용 완료 -->
+            <div id="daumRoughmapContainer1787279964695" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%;"></div>
         </div>
 
         <table class="traffic_styled_table">
@@ -201,19 +193,16 @@
 
     </main>
 
-        <!-- 카카오맵 렌더링 스크립트 -->
+    <!-- 푸터 완전 삭제 완료! -->
+
+    <!-- 카카오맵 렌더링 스크립트 -->
     <script class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js" charset="UTF-8"></script>
     <script charset="UTF-8">
-        /* 
-           아래 timestamp와 key 값을 카카오맵(map.kakao.com)에서 
-           동두천 주소로 검색 후 [공유] -> [HTML 태그 복사]하여 나오는 
-           새로운 숫자로 교체해주시면 완벽하게 해당 위치가 뜹니다! 
-        */
         new daum.roughmap.Lander({
-            "timestamp" : "1712345678901", /* 임시 타임스탬프 (교체 필요) */
-            "key" : "2zxmh", /* 임시 키 (교체 필요) */
-            "mapContent" : "100%",
-            "mapHeight" : "400"
+            "timestamp" : "1787279964695",  /* 사용자 제공 timestamp 반영 완료 */
+            "key" : "tccv5tzjuuy",         /* 사용자 제공 key 반영 완료 */
+            "mapWidth" : "100%",           /* 화면에 꽉 차도록 유지 */
+            "mapHeight" : "400"            /* 일정한 세로 크기 유지 */
         }).render();
     </script>
 </body>
