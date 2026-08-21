@@ -14,15 +14,39 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
+        /* =========================
+           상단 헤더
+        ========================= */
         header { width: 100%; background: rgba(255, 255, 255, 0.97); border-bottom: 1px solid #e8eee8; position: sticky; top: 0; z-index: 1000; }
-        .header-inner { max-width: 1200px; height: 92px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 12px; min-width: 250px; }
-        .logo img { width: 62px; height: 62px; object-fit: contain; }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-title { font-size: 20px; font-weight: 700; color: #426b38; letter-spacing: -1px; }
-        .logo-sub { font-size: 11px; color: #888; margin-top: 2px; }
+        .header-inner { max-width: 1200px; height: 90px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
 
-        /* 메인 메뉴 (입체적 테두리 적용) */
+        /* =========================
+           로고 (네온 & 움직임 효과 추가된 최신버전)
+        ========================= */
+        .logo { display: flex; align-items: center; gap: 15px; min-width: 250px; transition: transform 0.3s ease; }
+        .logo:hover { transform: scale(1.03); }
+        .logo img { 
+            width: 70px; height: 70px; object-fit: contain; 
+            animation: floatLogo 3s ease-in-out infinite; 
+        }
+        .logo-text { display: flex; flex-direction: column; justify-content: center; }
+        .logo-title { 
+            font-size: 24px; font-weight: 800; color: #426b38; letter-spacing: -1.5px; 
+            animation: neonGlow 2.5s ease-in-out infinite alternate; 
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 2px rgba(120, 169, 79, 0.1), 0 0 5px rgba(120, 169, 79, 0.1); }
+            100% { text-shadow: 0 0 5px rgba(124, 179, 66, 0.5), 0 0 12px rgba(124, 179, 66, 0.3), 0 0 20px rgba(124, 179, 66, 0.2); }
+        }
+
+        /* =========================
+           메인 메뉴
+        ========================= */
         .main-menu { height: 100%; display: flex; align-items: center; gap: 15px; }
         .main-menu > li { position: relative; height: 100%; display: flex; align-items: center; }
         .main-menu > li > a { 
@@ -37,7 +61,7 @@
 
         /* 드롭다운 메뉴 */
         .submenu { 
-            position: absolute; top: 92px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; 
+            position: absolute; top: 90px; left: 50%; transform: translateX(-50%) translateY(10px); width: 190px; 
             background: #ffffff; border: 1px solid #e4ebe4; border-radius: 0 0 10px 10px; padding: 12px 0; 
             opacity: 0; visibility: hidden; transition: 0.25s; box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10); 
         }
@@ -49,16 +73,17 @@
         .content-page { max-width: 1200px; margin: 50px auto; padding: 0 25px; min-height: 600px; }
         .page-title { font-size: 28px; color: #3b6033; margin-bottom: 40px; text-align: center; font-weight: 700; border-bottom: 2px solid #5d914d; padding-bottom: 15px; display: inline-block; left: 50%; position: relative; transform: translateX(-50%); }
         
+        /* 푸터 */
         footer { background: #30482c; color: rgba(255, 255, 255, 0.65); padding: 30px 25px; font-size: 12px; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
 
         @media (max-width: 900px) {
-            .header-inner { height: 75px; } .logo { min-width: auto; } .logo img { width: 48px; height: 48px; } .logo-title { font-size: 17px; } .logo-sub { display: none; }
+            .header-inner { height: 80px; } .logo { min-width: auto; } .logo img { width: 60px; height: 60px; } .logo-title { font-size: 20px; }
             .main-menu { gap: 6px; } .main-menu > li > a { padding: 6px 14px; font-size: 14px; } .submenu { top: 75px; }
         }
         @media (max-width: 700px) {
             .header-inner { padding: 0 15px; } .main-menu { gap: 4px; } .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
-            .footer-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
         }
 
         /* =========================
@@ -84,6 +109,7 @@
         .c_mint { border-top: 5px solid #38b2ac; } 
         .c_gray { border-top: 5px solid #a0aec0; } 
         .audit_box { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); margin-left: 40px; }
+        
         @media (max-width: 768px) {
             .bl_org_section { padding: 30px 10px; overflow-x: hidden; }
             .bl_tree ul { flex-direction: column; align-items: center; padding-top: 20px; }
@@ -100,7 +126,7 @@
 <body>
     
     <!-- =========================
-         최신 HEADER
+         최신 HEADER (로고 변경 & 카페 주소 연동)
     ========================== -->
     <header>
         <div class="header-inner">
@@ -108,7 +134,6 @@
                 <img src="ci.png" alt="조우직업재활시설 CI">
                 <div class="logo-text">
                     <div class="logo-title">조우직업재활시설</div>
-                    <div class="logo-sub">마음과 마음이 만나, 함께 날아오르다</div>
                 </div>
             </a>
             <nav>
@@ -137,13 +162,13 @@
                             <li><a href="facility_location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <!-- 소통공간 (네이버 카페 연동) -->
+                    <!-- 소통공간 (네이버 카페 연동 완료) -->
                     <li>
-                        <a href="#" target="_blank">소통공간</a>
+                        <a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
                         <ul class="submenu">
-                            <li><a href="#" target="_blank">공지사항 (카페)</a></li>
-                            <li><a href="#" target="_blank">일상 (카페)</a></li>
-                            <li><a href="#" target="_blank">식단표 (카페)</a></li>
+                            <li><a href="https://cafe.naver.com/jou9111" target="_blank">공지사항 (카페)</a></li>
+                            <li><a href="https://cafe.naver.com/jou9111" target="_blank">일상 (카페)</a></li>
+                            <li><a href="https://cafe.naver.com/jou9111" target="_blank">식단표 (카페)</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -185,12 +210,11 @@
     </main>
 
     <!-- =========================
-         푸터
+         푸터 (깔끔하게 수정됨)
     ========================== -->
     <footer>
         <div class="footer-inner">
             <div>© 조우직업재활시설. All Rights Reserved.</div>
-            <div>법인 · 시설 · 소통공간</div>
         </div>
     </footer>
 </body>
