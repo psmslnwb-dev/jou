@@ -54,7 +54,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-shrink: 0; /* 헤더 크기 고정 */
+            flex-shrink: 0; 
         }
 
         .header-inner {
@@ -189,7 +189,7 @@
            본문 레이아웃 구조
         ========================= */
         main {
-            flex: 1; /* 남은 화면을 꽉 채움 */
+            flex: 1; 
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -200,7 +200,7 @@
         ========================= */
 
         .hero {
-            flex: 1; /* 히어로 영역이 화면의 대부분을 차지하게 함 */
+            flex: 1; 
             position: relative;
             overflow: hidden;
 
@@ -262,7 +262,7 @@
             color: #78a94f;
         }
 
-        /* 오른쪽 장식 */
+        /* 오른쪽 장식 영역 */
         .hero-decoration {
             width: 380px; 
             height: 380px;
@@ -290,7 +290,7 @@
             right: 20px;
         }
 
-        /* 코드로 직접 그린 일러스트 영역 */
+        /* 나무 + 사람 일러스트 그룹 영역 */
         .tree-symbol {
             position: relative;
             z-index: 2;
@@ -299,7 +299,7 @@
             justify-content: center;
             filter: drop-shadow(0 15px 25px rgba(66, 107, 56, 0.15));
             transition: transform 0.4s ease;
-            margin-top: 30px;
+            margin-top: 50px; /* 약간 위아래 여백 조절 */
         }
 
         .tree-symbol:hover {
@@ -307,17 +307,17 @@
         }
 
         .tree-symbol svg {
-            width: 420px; /* 화면에 쏙 들어가도록 비율 조정 */
+            width: 440px; /* 화면에 쏙 들어가도록 비율 조정 */
             height: auto;
         }
 
 
         /* =========================
-           유관기관 배너 (위치 이동됨)
+           유관기관 배너
         ========================= */
         .partner-section {
-            flex-shrink: 0; /* 크기 고정 */
-            padding: 20px 25px; /* 폭을 슬림하게 줄임 */
+            flex-shrink: 0; 
+            padding: 20px 25px; 
             background: #ffffff;
             border-top: 1px solid #e8eee8;
         }
@@ -344,7 +344,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 65px; /* 배너 상자 높이 줄임 */
+            height: 65px; 
             border: 1px solid #d1d8e0;
             background: #fff;
             padding: 10px;
@@ -364,12 +364,12 @@
 
 
         /* =========================
-           하단 문의 (맨 밑으로 이동됨)
+           하단 문의
         ========================= */
 
         .contact-section {
-            flex-shrink: 0; /* 크기 고정 */
-            padding: 15px 25px; /* 폭을 대폭 줄임 */
+            flex-shrink: 0; 
+            padding: 15px 25px; 
             background: #527d45;
             color: #ffffff;
         }
@@ -378,12 +378,12 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column; /* 세로로 배치 후 우측 정렬 */
+            flex-direction: column; 
             align-items: flex-end;
         }
 
         .contact-facility-name {
-            font-size: 20px; /* 크기 살짝 조절 */
+            font-size: 20px; 
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 5px;
@@ -408,7 +408,7 @@
         ========================= */
 
         @media (max-width: 900px) {
-            html, body { overflow: auto; /* 모바일에서는 내용이 겹치지 않게 스크롤 허용 */ }
+            html, body { overflow: auto; }
             body { height: auto; display: block; }
             main { display: block; }
 
@@ -431,12 +431,12 @@
             .hero-decoration { margin-top: 35px; width: 240px; height: 200px; }
             .circle { width: 200px; height: 200px; }
             .circle-small { width: 120px; height: 120px; }
-            .tree-symbol svg { width: 320px; }
+            .tree-symbol svg { width: 340px; }
 
             .contact-inner { align-items: center; }
             .contact-facility-name { text-align: center; font-size: 22px; }
             .contact-info { text-align: center; }
-            .contact-info span { display: none; } /* 모바일에서는 구분선 가림 */
+            .contact-info span { display: none; } 
             .contact-info div { margin-bottom: 3px; }
             
             .partner-list li { min-width: 45%; }
@@ -518,70 +518,73 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 코드로 직접 그린 웅장한 나무와 1cm 미니 캐릭터들 -->
+                        <!-- 하나의 그림으로 묶인 나무 & 사람들 일러스트 -->
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <!-- 바닥과 풀 -->
-                            <path d="M 5 190 Q 100 195 195 190" fill="none" stroke="#A5D6A7" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M 15 191 L 13 187 M 18 191 L 20 187 M 80 193 L 80 189 M 185 190 L 187 186 M 120 193 L 118 189" fill="none" stroke="#81C784" stroke-width="2" stroke-linecap="round"/>
+                            <!-- 바닥과 풀 (나무 기둥과 발밑으로 연결) -->
+                            <path d="M 5 185 Q 100 192 195 185" fill="none" stroke="#A5D6A7" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M 15 186 L 13 182 M 18 186 L 20 182 M 80 188 L 80 184 M 185 185 L 187 181 M 120 188 L 118 184" fill="none" stroke="#81C784" stroke-width="2" stroke-linecap="round"/>
 
-                            <!-- 큰 나무 배경 -->
-                            <path d="M 85 160 Q 95 120 95 90 Q 95 70 50 50 Q 95 70 100 90 Q 105 70 150 50 Q 105 70 105 90 Q 105 120 115 160 Z" fill="#6D4C41"/>
-                            <circle cx="100" cy="50" r="45" fill="#8BC34A" opacity="0.95"/>
-                            <circle cx="55" cy="80" r="35" fill="#558B2F" opacity="0.95"/>
-                            <circle cx="145" cy="80" r="35" fill="#689F38" opacity="0.95"/>
-                            <circle cx="100" cy="85" r="45" fill="#7CB342" opacity="0.95"/>
-                            <circle cx="70" cy="55" r="30" fill="#AED581" opacity="0.95"/>
-                            <circle cx="130" cy="55" r="30" fill="#9CCC65" opacity="0.95"/>
+                            <!-- 큰 나무 배경 (기둥이 땅까지 내려와 사람들을 품는 형태) -->
+                            <path d="M 85 185 Q 95 130 95 80 Q 95 60 40 40 Q 95 60 100 80 Q 105 60 160 40 Q 105 60 105 80 Q 105 130 115 185 Z" fill="#6D4C41"/>
+                            
+                            <!-- 풍성한 나뭇잎 (사람들을 우산처럼 덮어줌) -->
+                            <circle cx="100" cy="50" r="55" fill="#8BC34A" opacity="0.95"/>
+                            <circle cx="55" cy="85" r="45" fill="#558B2F" opacity="0.95"/>
+                            <circle cx="145" cy="85" r="45" fill="#689F38" opacity="0.95"/>
+                            <circle cx="100" cy="95" r="50" fill="#7CB342" opacity="0.95"/>
+                            <circle cx="65" cy="55" r="35" fill="#AED581" opacity="0.95"/>
+                            <circle cx="135" cy="55" r="35" fill="#9CCC65" opacity="0.95"/>
+                            <!-- 아래로 늘어진 잎사귀 추가 -->
+                            <circle cx="35" cy="110" r="28" fill="#9CCC65" opacity="0.9"/>
+                            <circle cx="165" cy="110" r="28" fill="#AED581" opacity="0.9"/>
 
-                            <!-- 미니 캐릭터 8명 -->
+                            <!-- 미니 캐릭터 8명 (나무 아래로 이동, 나무 기둥과 겹치며 안정감 부여) -->
                             <g stroke="#444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 
                                 <!-- 1. 휠체어를 밀어주는 사람 -->
-                                <path d="M 45 177 L 45 185 M 45 185 L 42 190 M 45 185 L 48 190 M 45 179 L 51 179" />
-                                <circle cx="45" cy="174" r="2.2" fill="#444"/>
+                                <circle cx="35" cy="160" r="2.2" fill="#444"/>
+                                <path d="M 35 163 L 35 172 M 35 172 L 32 180 M 35 172 L 38 180 M 35 165 L 42 165" />
 
-                                <!-- 2. 휠체어 탄 사람 (팔 추가, 장애인 주차구역 표준 기호 100% 반영) -->
-                                <circle cx="57" cy="186" r="4" /> <!-- 휠체어 바퀴 -->
-                                <!-- 등, 앉은자세, 무릎 아래, 그리고 뻗은 팔까지 정교하게 표현 -->
-                                <path d="M 55 175 L 55 181 L 59 181 L 59 186 M 55 178 L 58.5 178" /> 
-                                <circle cx="55" cy="172" r="2.2" fill="#444"/> <!-- 머리 -->
-                                <path d="M 51 179 L 55 179" stroke="#999" stroke-width="1"/> <!-- 휠체어 손잡이 -->
+                                <!-- 2. 휠체어 탄 사람 (장애인 주차구역 표준 기호처럼 손을 앞으로 뻗음) -->
+                                <circle cx="47" cy="158" r="2.2" fill="#444"/> <!-- 머리 -->
+                                <circle cx="49" cy="172" r="4" /> <!-- 휠체어 바퀴 -->
+                                <path d="M 47 161 L 47 167 L 51 167 L 51 172" /> <!-- 앉은 자세 (ㄱ자) -->
+                                <path d="M 47 163 L 53 163" /> <!-- 앞으로 뻗은 팔(손) -->
+                                <path d="M 42 165 L 47 165" stroke="#999" stroke-width="1"/> <!-- 휠체어 손잡이 -->
 
                                 <!-- 3. 비장애인 어른 -->
-                                <path d="M 75 177 L 75 185 M 75 185 L 72 190 M 75 185 L 78 190 M 75 179 L 71 183 M 75 179 L 80 183" />
-                                <circle cx="75" cy="174" r="2.2" fill="#444"/>
+                                <circle cx="67" cy="160" r="2.2" fill="#444"/>
+                                <path d="M 67 163 L 67 173 M 67 173 L 64 183 M 67 173 L 70 183 M 67 165 L 63 170 M 67 165 L 72 170" />
 
                                 <!-- 4. 손잡은 아이 -->
-                                <path d="M 85 182 L 85 186 M 85 186 L 83 190 M 85 186 L 87 190 M 85 183 L 80 183 M 85 183 L 88 186" />
-                                <circle cx="85" cy="179" r="1.8" fill="#444"/>
+                                <circle cx="77" cy="167" r="1.8" fill="#444"/>
+                                <path d="M 77 169 L 77 175 M 77 175 L 74 182 M 77 175 L 80 182 M 77 171 L 72 170 M 77 171 L 81 174" />
 
-                                <!-- 5. 지팡이를 짚은 어르신 -->
-                                <path d="M 100 178 L 98 185 M 98 185 L 95 190 M 98 185 L 101 190 M 99 180 L 103 184" />
-                                <circle cx="100" cy="175" r="2.2" fill="#444"/>
-                                <!-- 어르신 지팡이 -->
-                                <path d="M 103 184 L 103 190" stroke="#8D6E63" stroke-width="1.2"/>
+                                <!-- 5. 지팡이를 짚은 어르신 (가운데 나무기둥 앞) -->
+                                <circle cx="95" cy="160" r="2.2" fill="#444"/>
+                                <path d="M 95 163 L 93 173 M 93 173 L 90 183 M 93 173 L 96 183 M 94 165 L 98 171" />
+                                <path d="M 98 171 L 98 183" stroke="#8D6E63" stroke-width="1.2"/> <!-- 지팡이 -->
 
                                 <!-- 6. 풍선을 들고 있는 어른 -->
-                                <path d="M 118 177 L 118 185 M 118 185 L 115 190 M 118 185 L 121 190 M 118 179 L 114 183 M 118 179 L 122 174" />
-                                <circle cx="118" cy="174" r="2.2" fill="#444"/>
+                                <circle cx="115" cy="160" r="2.2" fill="#444"/>
+                                <path d="M 115 163 L 115 173 M 115 173 L 112 183 M 115 173 L 118 183 M 115 165 L 111 170 M 115 165 L 119 158" />
 
                                 <!-- 7. 풍선을 향해 손을 뻗는 아이 -->
-                                <path d="M 132 182 L 132 186 M 132 186 L 130 190 M 132 186 L 134 190 M 132 183 L 128 177 M 132 183 L 135 186" />
-                                <circle cx="132" cy="179" r="1.8" fill="#444"/>
+                                <circle cx="128" cy="167" r="1.8" fill="#444"/>
+                                <path d="M 128 169 L 128 175 M 128 175 L 125 182 M 128 175 L 131 182 M 128 171 L 123 165 M 128 171 L 132 174" />
 
                                 <!-- 8. 안내견과 걷는 시각장애인 -->
-                                <path d="M 152 177 L 152 185 M 152 185 L 149 190 M 152 185 L 155 190 M 152 179 L 155 183 M 152 179 L 147 183" />
-                                <circle cx="152" cy="174" r="2.2" fill="#444"/>
+                                <circle cx="148" cy="160" r="2.2" fill="#444"/>
+                                <path d="M 148 163 L 148 173 M 148 173 L 145 183 M 148 173 L 151 183 M 148 165 L 151 170 M 148 165 L 143 170" />
                                 
-                                <!-- 안내견 하네스(줄) -->
-                                <path d="M 147 183 L 142 185" stroke="#B0BEC5" stroke-width="1"/>
-                                <!-- 안내견 -->
-                                <path d="M 142 186 L 137 186 M 142 186 L 142 190 M 137 186 L 137 190 M 137 186 L 135 184 M 142 186 L 144 184" stroke="#795548" stroke-width="1.5"/>
+                                <!-- 안내견 하네스 & 강아지 -->
+                                <path d="M 143 170 L 138 172" stroke="#B0BEC5" stroke-width="1"/>
+                                <path d="M 138 174 L 133 174 M 138 174 L 138 179 M 133 174 L 133 179 M 133 174 L 131 172 M 138 174 L 140 172" stroke="#795548" stroke-width="1.5"/>
                             </g>
 
-                            <!-- 풍선 (그룹 밖에서 색상 채우기) -->
-                            <path d="M 122 174 L 125 160" fill="none" stroke="#999" stroke-width="0.5"/>
-                            <ellipse cx="126" cy="156" rx="3" ry="4" fill="#FFCA28"/>
+                            <!-- 풍선 -->
+                            <path d="M 119 158 L 123 140" fill="none" stroke="#999" stroke-width="0.5"/>
+                            <ellipse cx="124" cy="136" rx="3.5" ry="5" fill="#FFCA28"/>
                         </svg>
                     </div>
                 </div>
@@ -589,7 +592,7 @@
         </section>
 
         <!-- =========================
-             유관기관 배너 (위로 올라옴)
+             유관기관 배너 (위로 이동됨)
         ========================== -->
         <section class="partner-section">
             <div class="partner-inner">
@@ -624,14 +627,14 @@
         </section>
 
         <!-- =========================
-             CONTACT (맨 밑으로 내려감, 폭 슬림화)
+             CONTACT (맨 밑으로 이동됨, 슬림화)
         ========================== -->
         <section class="contact-section" id="contact">
             <div class="contact-inner">
                 <div class="contact-info">
                     <div class="contact-facility-name">조우직업재활시설</div>
                     
-                    <!-- 정보를 한 줄로 이어서 표기하여 세로 공간 절약 -->
+                    <!-- 세로 공간 절약을 위해 한 줄 표기 -->
                     <div>
                         📍 주소 : 경기도 동두천시 이담로101번길 8, 202호 <span>|</span> 
                         ☎ 전화 : 031-000-0000 <span>|</span> 
@@ -642,8 +645,6 @@
         </section>
 
     </main>
-
-    <!-- 노란색 푸터 영역은 삭제되었습니다 -->
 
 </body>
 </html>
