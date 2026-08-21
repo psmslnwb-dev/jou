@@ -15,8 +15,10 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* 스크롤 없이 한 화면에 꽉 차게 만드는 마법의 CSS */
+        html, body {
+            height: 100%;
+            overflow: hidden; /* 강제 스크롤 방지 */
         }
 
         body {
@@ -28,6 +30,8 @@
             color: #333;
             background: #ffffff;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
         }
 
         a {
@@ -50,11 +54,12 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            flex-shrink: 0; /* 헤더 크기 고정 */
         }
 
         .header-inner {
             max-width: 1200px;
-            height: 100px;
+            height: 90px;
             margin: 0 auto;
             padding: 0 25px;
 
@@ -72,8 +77,8 @@
         }
 
         .logo img {
-            width: 80px; 
-            height: 80px;
+            width: 70px; 
+            height: 70px;
             object-fit: contain;
         }
 
@@ -91,7 +96,7 @@
         }
 
         /* =========================
-           메인 메뉴 (입체적 테두리 적용)
+           메인 메뉴
         ========================= */
 
         .main-menu {
@@ -139,7 +144,7 @@
 
         .submenu {
             position: absolute;
-            top: 92px;
+            top: 90px;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
 
@@ -181,12 +186,21 @@
         }
 
         /* =========================
-           메인 비주얼
+           본문 레이아웃 구조
+        ========================= */
+        main {
+            flex: 1; /* 남은 화면을 꽉 채움 */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* =========================
+           메인 비주얼 (Hero)
         ========================= */
 
         .hero {
-            min-height: 600px;
-
+            flex: 1; /* 히어로 영역이 화면의 대부분을 차지하게 함 */
             position: relative;
             overflow: hidden;
 
@@ -210,24 +224,19 @@
         .hero::before {
             content: "";
             position: absolute;
-
-            width: 480px;
-            height: 480px;
-
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-
             background: rgba(151, 193, 105, 0.08);
-
-            right: -150px;
-            bottom: -190px;
+            right: -100px;
+            bottom: -150px;
         }
 
         .hero-inner {
             max-width: 1200px;
             width: 100%;
-
             margin: 0 auto;
-            padding: 70px 25px;
+            padding: 0 25px;
 
             position: relative;
             z-index: 2;
@@ -241,7 +250,6 @@
             max-width: 650px;
         }
 
-        /* 상하단 불필요한 텍스트 삭제 후 타이틀만 남김 */
         .hero h1 {
             font-size: 52px;
             line-height: 1.3;
@@ -254,44 +262,35 @@
             color: #78a94f;
         }
 
-        /* 오른쪽 장식 (나무 아이콘) */
+        /* 오른쪽 장식 */
         .hero-decoration {
-            width: 450px; /* 나무가 커짐에 따라 영역도 확대 */
-            height: 450px;
-
+            width: 380px; 
+            height: 380px;
             position: relative;
-
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .circle {
-            width: 380px;
-            height: 380px;
-
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-
             background: rgba(146, 190, 103, 0.14);
-
             position: absolute;
         }
 
         .circle-small {
-            width: 240px;
-            height: 240px;
-
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-
             background: rgba(221, 187, 72, 0.12);
-
             position: absolute;
-
-            top: 20px;
-            right: 30px;
+            top: 10px;
+            right: 20px;
         }
 
-        /* 1cm 미니 졸라맨 & 웅장한 나무 일러스트 */
+        /* 코드로 직접 그린 일러스트 영역 */
         .tree-symbol {
             position: relative;
             z-index: 2;
@@ -307,54 +306,18 @@
             transform: translateY(-5px) scale(1.02);
         }
 
-        /* 일러스트 크기 2배 가량 확대 */
         .tree-symbol svg {
-            width: 500px; 
+            width: 420px; /* 화면에 쏙 들어가도록 비율 조정 */
             height: auto;
         }
 
-        /* =========================
-           하단 문의
-        ========================= */
-
-        .contact-section {
-            padding: 70px 25px;
-
-            background: #527d45;
-            color: #ffffff;
-        }
-
-        .contact-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-
-            display: flex;
-            justify-content: flex-end; /* 텍스트 지웠으므로 우측정렬 */
-            align-items: center;
-        }
-
-        /* 우측 하단 추가된 조우직업재활시설 타이틀 */
-        .contact-facility-name {
-            font-size: 26px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            text-align: right;
-        }
-
-        .contact-info {
-            text-align: right;
-            font-size: 14px;
-            line-height: 1.9;
-            opacity: 0.95;
-        }
 
         /* =========================
-           유관기관 배너
+           유관기관 배너 (위치 이동됨)
         ========================= */
         .partner-section {
-            padding: 50px 25px;
+            flex-shrink: 0; /* 크기 고정 */
+            padding: 20px 25px; /* 폭을 슬림하게 줄임 */
             background: #ffffff;
             border-top: 1px solid #e8eee8;
         }
@@ -381,12 +344,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80px;
+            height: 65px; /* 배너 상자 높이 줄임 */
             border: 1px solid #d1d8e0;
             background: #fff;
-            padding: 15px;
+            padding: 10px;
             transition: 0.3s;
-            text-decoration: none;
         }
 
         .partner-list li a:hover {
@@ -400,26 +362,45 @@
             object-fit: contain;
         }
 
+
         /* =========================
-           푸터
+           하단 문의 (맨 밑으로 이동됨)
         ========================= */
 
-        footer {
-            background: #30482c;
-            color: rgba(255, 255, 255, 0.65);
-
-            padding: 30px 25px;
-
-            font-size: 12px;
+        .contact-section {
+            flex-shrink: 0; /* 크기 고정 */
+            padding: 15px 25px; /* 폭을 대폭 줄임 */
+            background: #527d45;
+            color: #ffffff;
         }
 
-        .footer-inner {
+        .contact-inner {
             max-width: 1200px;
             margin: 0 auto;
-
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* 세로로 배치 후 우측 정렬 */
+            align-items: flex-end;
+        }
+
+        .contact-facility-name {
+            font-size: 20px; /* 크기 살짝 조절 */
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.95;
+            word-break: keep-all;
+        }
+
+        .contact-info span {
+            margin: 0 10px;
+            opacity: 0.5;
         }
 
         /* =========================
@@ -427,22 +408,16 @@
         ========================= */
 
         @media (max-width: 900px) {
-            .header-inner { height: 80px; }
-            .logo { min-width: auto; }
+            html, body { overflow: auto; /* 모바일에서는 내용이 겹치지 않게 스크롤 허용 */ }
+            body { height: auto; display: block; }
+            main { display: block; }
+
             .logo img { width: 60px; height: 60px; }
             .logo-title { font-size: 20px; }
-
-            .main-menu { gap: 6px; }
-            .main-menu > li > a { padding: 6px 14px; font-size: 14px; }
             .submenu { top: 75px; }
-
             .hero { min-height: 500px; }
             .hero-inner { padding: 60px 25px; }
             .hero h1 { font-size: 40px; }
-            
-            .hero-decoration { width: 320px; height: 320px; }
-            .circle { width: 280px; height: 280px; }
-            .tree-symbol svg { width: 400px; }
         }
 
         @media (max-width: 700px) {
@@ -458,11 +433,12 @@
             .circle-small { width: 120px; height: 120px; }
             .tree-symbol svg { width: 320px; }
 
-            .contact-inner { justify-content: center; }
-            .contact-facility-name { text-align: left; font-size: 22px; }
-            .contact-info { text-align: left; }
-
-            .footer-inner { flex-direction: column; gap: 10px; align-items: center; }
+            .contact-inner { align-items: center; }
+            .contact-facility-name { text-align: center; font-size: 22px; }
+            .contact-info { text-align: center; }
+            .contact-info span { display: none; } /* 모바일에서는 구분선 가림 */
+            .contact-info div { margin-bottom: 3px; }
+            
             .partner-list li { min-width: 45%; }
         }
     </style>
@@ -521,10 +497,12 @@
     </header>
 
     <!-- =========================
-         HERO
+         HERO & MAIN
     ========================== -->
 
     <main>
+        
+        <!-- 중앙 메인 비주얼 -->
         <section class="hero">
             <div class="hero-inner">
                 <div class="hero-text">
@@ -555,19 +533,19 @@
                             <circle cx="70" cy="55" r="30" fill="#AED581" opacity="0.95"/>
                             <circle cx="130" cy="55" r="30" fill="#9CCC65" opacity="0.95"/>
 
-                            <!-- 미니 캐릭터 8명 (표준 휠체어 기호 반영 & 크기 대폭 축소) -->
+                            <!-- 미니 캐릭터 8명 -->
                             <g stroke="#444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 
                                 <!-- 1. 휠체어를 밀어주는 사람 -->
                                 <path d="M 45 177 L 45 185 M 45 185 L 42 190 M 45 185 L 48 190 M 45 179 L 51 179" />
                                 <circle cx="45" cy="174" r="2.2" fill="#444"/>
 
-                                <!-- 2. 휠체어 탄 사람 (장애인주차구역 표준 기호 스타일) -->
+                                <!-- 2. 휠체어 탄 사람 (팔 추가, 장애인 주차구역 표준 기호 100% 반영) -->
                                 <circle cx="57" cy="186" r="4" /> <!-- 휠체어 바퀴 -->
-                                <path d="M 55 181 L 59 181 L 59 186 M 55 181 L 55 176" /> <!-- 앉은 자세 (ㄱ자) -->
-                                <circle cx="55" cy="173" r="2.2" fill="#444"/> <!-- 머리 -->
-                                <!-- 휠체어 손잡이 -->
-                                <path d="M 51 179 L 55 179" stroke="#999" stroke-width="1"/>
+                                <!-- 등, 앉은자세, 무릎 아래, 그리고 뻗은 팔까지 정교하게 표현 -->
+                                <path d="M 55 175 L 55 181 L 59 181 L 59 186 M 55 178 L 58.5 178" /> 
+                                <circle cx="55" cy="172" r="2.2" fill="#444"/> <!-- 머리 -->
+                                <path d="M 51 179 L 55 179" stroke="#999" stroke-width="1"/> <!-- 휠체어 손잡이 -->
 
                                 <!-- 3. 비장애인 어른 -->
                                 <path d="M 75 177 L 75 185 M 75 185 L 72 190 M 75 185 L 78 190 M 75 179 L 71 183 M 75 179 L 80 183" />
@@ -611,78 +589,61 @@
         </section>
 
         <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section class="contact-section" id="contact">
-            <div class="contact-inner">
-                
-                <div class="contact-info">
-                    <!-- 하단 주소 위에 기관명 텍스트 추가 -->
-                    <div class="contact-facility-name">조우직업재활시설</div>
-
-                    <div>
-                        📍 주소 : 경기도 동두천시 이담로101번길 8, 202호
-                    </div>
-                    <div>
-                        ☎ 전화 : 031-000-0000
-                    </div>
-                    <div>
-                        ✉ 이메일 : 이메일을 입력해주세요.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- =========================
-             유관기관 배너
+             유관기관 배너 (위로 올라옴)
         ========================== -->
         <section class="partner-section">
             <div class="partner-inner">
                 <ul class="partner-list">
                     <li>
                         <a href="https://www.ddc.go.kr/" target="_blank">
-                            <img src="ehdencjs.png" alt="동두천시청" style="max-height: 45px;">
+                            <img src="ehdencjs.png" alt="동두천시청" style="max-height: 35px;">
                         </a>
                     </li>
                     <li>
                         <a href="https://blcoop.or.kr" target="_blank">
-                            <img src="blcoop.png" alt="블루링크사회적협동조합" style="max-height: 32px;">
+                            <img src="blcoop.png" alt="블루링크사회적협동조합" style="max-height: 25px;">
                         </a>
                     </li>
                     <li>
                         <a href="https://www.gavrd.kr/gavrd/" target="_blank">
-                            <img src="rudwlrguq.png" alt="경기도장애인직업재활시설협회" style="max-height: 32px;">
+                            <img src="rudwlrguq.png" alt="경기도장애인직업재활시설협회" style="max-height: 25px;">
                         </a>
                     </li>
                     <li>
                         <a href="https://www.kead.or.kr/" target="_blank">
-                            <img src="rhdydrhdeks.png" alt="한국장애인고용공단" style="max-height: 35px;">
+                            <img src="rhdydrhdeks.png" alt="한국장애인고용공단" style="max-height: 28px;">
                         </a>
                     </li>
                     <li>
                         <a href="https://ggnaapd.or.kr/" target="_blank">
-                            <img src="rnjsdlr.png" alt="경기북부장애인권익옹호기관" style="max-height: 45px;">
+                            <img src="rnjsdlr.png" alt="경기북부장애인권익옹호기관" style="max-height: 35px;">
                         </a>
                     </li>
                 </ul>
             </div>
         </section>
 
+        <!-- =========================
+             CONTACT (맨 밑으로 내려감, 폭 슬림화)
+        ========================== -->
+        <section class="contact-section" id="contact">
+            <div class="contact-inner">
+                <div class="contact-info">
+                    <div class="contact-facility-name">조우직업재활시설</div>
+                    
+                    <!-- 정보를 한 줄로 이어서 표기하여 세로 공간 절약 -->
+                    <div>
+                        📍 주소 : 경기도 동두천시 이담로101번길 8, 202호 <span>|</span> 
+                        ☎ 전화 : 031-000-0000 <span>|</span> 
+                        ✉ 이메일 : 이메일을 입력해주세요.
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-        <div class="footer-inner">
-            <div>
-                © 조우직업재활시설. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <!-- 노란색 푸터 영역은 삭제되었습니다 -->
 
 </body>
 </html>
