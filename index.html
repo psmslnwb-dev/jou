@@ -390,7 +390,7 @@
             100% { transform: translate(25px, 10px) rotate(-10deg); }
         }
 
-        /* ★ 나비 날갯짓 (기존 0.1초에서 1초대로 느리고 우아하게 수정) ★ */
+        /* ★ 나비 날갯짓 (기존 0.1초에서 1초대로 느리고 우아하게) ★ */
         .bf-wings1 { animation: flap 0.9s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .bf-wings2 { animation: flap 1.1s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .bf-wings3 { animation: flap 1.3s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
@@ -645,21 +645,23 @@
                             </g>
 
                             <!-- =========================
-                                 ★ 6마리 나비 & 4개의 하트 (절반 크기 축소!) ★
+                                 ★ 눈알 탈피! 나비 6마리 & 하트 4개 ★
+                                 완벽한 날개 곡선 + 더듬이로 나비 형태 구현
+                                 크기는 기존보다 절반 이하로 확 줄임 (scale 0.45 적용)
                             ========================= -->
                             
                             <!-- 나비 1 (노랑, 왼쪽 위) -->
                             <g transform="translate(30, 20)">
                                 <g class="bf-hover1">
-                                    <!-- scale(0.4)를 적용해 크기를 40%로 축소 -->
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <!-- 더듬이 -->
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
+                                        <!-- 나비 날개 곡선 Path -->
                                         <g class="bf-wings1" fill="#FFEE58">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <!-- 몸통 -->
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
@@ -667,14 +669,12 @@
                             <!-- 나비 2 (흰색, 중앙 왼쪽) -->
                             <g transform="translate(45, 90)">
                                 <g class="bf-hover2">
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
                                         <g class="bf-wings2" fill="#FFFFFF">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
@@ -682,14 +682,12 @@
                             <!-- 나비 3 (하늘색, 왼쪽 아래) -->
                             <g transform="translate(20, 150)">
                                 <g class="bf-hover3">
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
                                         <g class="bf-wings3" fill="#B3E5FC">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
@@ -697,14 +695,12 @@
                             <!-- 나비 4 (분홍색, 중앙 나무기둥 부근) -->
                             <g transform="translate(85, 130)">
                                 <g class="bf-hover4">
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
                                         <g class="bf-wings1" fill="#F8BBD0">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
@@ -712,14 +708,12 @@
                             <!-- 나비 5 (노랑, 빛기둥 부근) -->
                             <g transform="translate(110, 80)">
                                 <g class="bf-hover1">
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
                                         <g class="bf-wings2" fill="#FFEE58">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
@@ -727,42 +721,41 @@
                             <!-- 나비 6 (흰색, 오른쪽 상단) -->
                             <g transform="translate(160, 10)">
                                 <g class="bf-hover3">
-                                    <g transform="scale(0.4)">
+                                    <g transform="scale(0.45)">
+                                        <path d="M -1,-1 L -3,-4 M 1,-1 L 3,-4" stroke="#795548" stroke-width="0.6" fill="none"/>
                                         <g class="bf-wings3" fill="#FFFFFF">
-                                            <ellipse cx="-2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(-30 -2.5 0)"/>
-                                            <ellipse cx="2.5" cy="0" rx="3.5" ry="4.5" transform="rotate(30 2.5 0)"/>
-                                            <ellipse cx="-2" cy="4" rx="2.5" ry="3.5" transform="rotate(-15 -2 4)"/>
-                                            <ellipse cx="2" cy="4" rx="2.5" ry="3.5" transform="rotate(15 2 4)"/>
+                                            <path d="M0,1 C-6,-5 -10,0 -1,4 C-5,7 -4,10 0,7 C4,10 5,7 1,4 C10,0 6,-5 0,1 Z" />
                                         </g>
-                                        <ellipse cx="0" cy="2" rx="1.2" ry="3" fill="#5D4037"/>
+                                        <ellipse cx="0" cy="4" rx="1.2" ry="3.5" fill="#795548" opacity="0.9"/>
                                     </g>
                                 </g>
                             </g>
 
+                            <!-- ★ 크기를 대폭 줄인 하트 4개 ★ -->
                             <!-- 하트 1 (오른쪽 중단) -->
                             <g transform="translate(180, 80)">
-                                <g class="heart-float1" transform="scale(0.6)">
+                                <g class="heart-float1" transform="scale(0.35)">
                                     <path d="M 0 2 C -2 -3, -8 0, -8 5 C -8 10, 0 16, 0 16 C 0 16, 8 10, 8 5 C 8 0, 2 -3, 0 2 Z" fill="#FF8A80" opacity="0.9"/>
                                 </g>
                             </g>
 
                             <!-- 하트 2 (오른쪽 기둥 뿌리 근처) -->
                             <g transform="translate(140, 150)">
-                                <g class="heart-float2" transform="scale(0.5)">
+                                <g class="heart-float2" transform="scale(0.3)">
                                     <path d="M 0 2 C -2 -3, -8 0, -8 5 C -8 10, 0 16, 0 16 C 0 16, 8 10, 8 5 C 8 0, 2 -3, 0 2 Z" fill="#FFB74D" opacity="0.9"/>
                                 </g>
                             </g>
 
                             <!-- 하트 3 (오른쪽 잔디 위) -->
                             <g transform="translate(185, 170)">
-                                <g class="heart-float3" transform="scale(0.55)">
+                                <g class="heart-float3" transform="scale(0.35)">
                                     <path d="M 0 2 C -2 -3, -8 0, -8 5 C -8 10, 0 16, 0 16 C 0 16, 8 10, 8 5 C 8 0, 2 -3, 0 2 Z" fill="#F48FB1" opacity="0.9"/>
                                 </g>
                             </g>
                             
                             <!-- 하트 4 (왼쪽 잔디 위) -->
                             <g transform="translate(60, 160)">
-                                <g class="heart-float1" transform="scale(0.5)">
+                                <g class="heart-float1" transform="scale(0.3)">
                                     <path d="M 0 2 C -2 -3, -8 0, -8 5 C -8 10, 0 16, 0 16 C 0 16, 8 10, 8 5 C 8 0, 2 -3, 0 2 Z" fill="#FF8A80" opacity="0.9"/>
                                 </g>
                             </g>
