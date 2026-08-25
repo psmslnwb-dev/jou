@@ -342,6 +342,7 @@
         ========================= */
         
         .ray-core { 
+            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
             animation: corePulse 4s infinite alternate ease-in-out; 
             transform-origin: 100px -10px; 
         }
@@ -351,6 +352,7 @@
         }
 
         .ray { 
+            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
             animation: shine 4s infinite alternate ease-in-out; 
             transform-origin: 100px -10px; 
         }
@@ -635,18 +637,19 @@
 
                             <!-- =========================
                                  ★ 웅장하게 퍼지는 세계수 빛내림 (God Rays) ★
+                                 기본값을 #FFFFFF 로 박아둬서 까만색을 원천 차단했습니다!
                             ========================= -->
                             <!-- 빛의 근원지 (코어) -->
-                            <circle cx="100" cy="-10" r="30" class="ray-core" />
-                            <circle cx="100" cy="-10" r="15" class="ray-core" style="animation-delay: 1s;" />
+                            <circle cx="100" cy="-10" r="30" class="ray-core" fill="#FFFFFF" opacity="0.2"/>
+                            <circle cx="100" cy="-10" r="15" class="ray-core" fill="#FFFFFF" opacity="0.2" style="animation-delay: 1s;" />
                             
                             <!-- 부채꼴로 장엄하게 퍼지는 5개의 입체 빛줄기 -->
                             <g style="mix-blend-mode: overlay;">
-                                <path class="ray" d="M 90,-10 L -40,200 L 10,200 L 95,-10 Z" />
-                                <path class="ray" d="M 95,-10 L 20,200 L 70,200 L 100,-10 Z" />
-                                <path class="ray" d="M 98,-10 L 75,200 L 125,200 L 102,-10 Z" />
-                                <path class="ray" d="M 105,-10 L 130,200 L 180,200 L 105,-10 Z" />
-                                <path class="ray" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 90,-10 L -40,200 L 10,200 L 95,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 95,-10 L 20,200 L 70,200 L 100,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 98,-10 L 75,200 L 125,200 L 102,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 105,-10 L 130,200 L 180,200 L 105,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
                             </g>
 
                             <!-- 흩날리는 초록 나뭇잎 -->
