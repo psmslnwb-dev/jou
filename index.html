@@ -291,7 +291,7 @@
         /* 오른쪽 장식 영역 */
         .hero-decoration {
             width: 450px; 
-            height: 500px; /* 더 크고 웅장하게 영역 확장 */
+            height: 500px; 
             position: relative;
             display: flex;
             align-items: center;
@@ -333,7 +333,7 @@
         }
 
         .tree-symbol svg {
-            width: 550px; /* 대형 하트나무를 위해 너비를 넉넉하게 확장 */
+            width: 550px;
             height: auto;
         }
 
@@ -613,7 +613,6 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- ★ 잘림 방지! 도화지(viewBox)를 사방으로 아주 넓게 확장했습니다 (-50 -120 300 360) ★ -->
                         <svg viewBox="-50 -120 300 360" xmlns="http://www.w3.org/2000/svg">
                             
                             <!-- 아름다운 나뭇잎 그라데이션 정의 -->
@@ -643,28 +642,23 @@
                             <circle cx="100" cy="20" r="150" fill="#E8F5E9" opacity="0.5"/>
 
                             <!-- =========================
-                                 ★ 빛내림(God Rays)을 나무 뒤로 이동! ★
-                                 코어(달걀귀신)가 나무 앞을 가리지 않게 백그라운드로 배치
+                                 ★ 빛내림(God Rays) 코어 ★
                             ========================= -->
                             <circle cx="100" cy="-30" r="45" class="ray-core" fill="#FFFFFF" opacity="0.2"/>
                             <circle cx="100" cy="-30" r="25" class="ray-core" fill="#FFFFFF" opacity="0.2" style="animation-delay: 1s;" />
                             
-                            <!-- 바닥과 풀 (캔버스 확장에 맞춰 좌우로 길게) -->
+                            <!-- 바닥과 풀 -->
                             <path d="M -50 185 Q 100 195 250 185 L 250 230 L -50 230 Z" fill="#e8f5e9"/>
                             <path d="M -50 185 Q 100 195 250 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
                             <path d="M 20 186 L 18 182 M 23 186 L 25 182 M 175 186 L 173 182 M 180 186 L 182 182" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/>
 
                             <!-- =========================
-                                 ★ 대지에 단단하게 뿌리내린 웅장한 기둥 & 뻗어나가는 가지 ★
+                                 ★ 대지에 단단하게 뿌리내린 웅장한 기둥 & 가지 (유지) ★
                             ========================= -->
-                            <!-- 앙상함을 벗어난 굵고 거대한 밑동 (뿌리 넓게 확장) -->
                             <path d="M 30 186 C 60 186, 75 160, 85 120 C 90 90, 92 60, 92 40 L 108 40 C 108 60, 110 90, 115 120 C 125 160, 140 186, 170 186 Z" fill="#6D4C41"/>
-                            
-                            <!-- 뿌리의 텍스처와 볼륨감을 살려주는 디테일 선 -->
                             <path d="M 60 186 Q 70 160 85 140 Z" fill="#5D4037"/>
                             <path d="M 140 186 Q 130 160 115 140 Z" fill="#5D4037"/>
 
-                            <!-- 수많은 하트 잎파리를 지탱해주는 튼튼하고 다양한 나뭇가지들 -->
                             <g stroke="#6D4C41" fill="none" stroke-linecap="round">
                                 <!-- 좌측 가지들 -->
                                 <path d="M 92 110 Q 60 90 30 60" stroke-width="12"/>
@@ -690,46 +684,27 @@
                             <circle cx="125" cy="80" r="14" fill="#8D6E63"/>
 
                             <!-- =========================
-                                 ★ 웅장하고 풍성한 '하트(마음)' 대형 수관 ★
-                                 다양한 크기, 각도, 색상의 하트 약 25개가 모여 거대한 나무를 이룸
+                                 ★ 마음(하트) 수관 - 징그러움 탈피! 여백의 미 강조 ★
+                                 하트 개수를 8개로 대폭 줄여서 깔끔하고 우아하게 배치
                             ========================= -->
                             
-                            <!-- 1. 배경 층 (가장 크고 어두운 베이스 하트들) -->
-                            <use href="#h" transform="translate(100, -20) scale(1.4) rotate(0)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(40, 30) scale(1.2) rotate(-30)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(160, 30) scale(1.2) rotate(30)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(20, 80) scale(0.9) rotate(-45)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(180, 80) scale(0.9) rotate(45)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(70, -30) scale(1.1) rotate(-15)" fill="url(#leafGrad3)"/>
-                            <use href="#h" transform="translate(130, -30) scale(1.1) rotate(15)" fill="url(#leafGrad3)"/>
+                            <!-- 뒤쪽/큰 하트 -->
+                            <use href="#h" transform="translate(100, -35) scale(1.3) rotate(0)" fill="url(#leafGrad3)"/>
+                            <use href="#h" transform="translate(45, -5) scale(1.1) rotate(-25)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(155, -5) scale(1.1) rotate(25)" fill="url(#leafGrad4)"/>
+                            
+                            <!-- 아래쪽 하트 -->
+                            <use href="#h" transform="translate(20, 50) scale(0.85) rotate(-45)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(180, 50) scale(0.85) rotate(45)" fill="url(#leafGrad1)"/>
+                            
+                            <!-- 앞쪽/포인트 하트 -->
+                            <use href="#h" transform="translate(100, 30) scale(1.0) rotate(5)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(65, 35) scale(0.75) rotate(-15)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(135, 35) scale(0.75) rotate(15)" fill="url(#leafGrad2)"/>
 
-                            <!-- 2. 중간 층 (기본 크기와 밝기, 풍성함을 더해주는 하트들) -->
-                            <use href="#h" transform="translate(100, 10) scale(1.2) rotate(5)" fill="url(#leafGrad1)"/>
-                            <use href="#h" transform="translate(60, 10) scale(1.0) rotate(-20)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(140, 10) scale(1.0) rotate(20)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(35, 60) scale(0.8) rotate(-40)" fill="url(#leafGrad1)"/>
-                            <use href="#h" transform="translate(165, 60) scale(0.8) rotate(40)" fill="url(#leafGrad1)"/>
-                            <use href="#h" transform="translate(80, 50) scale(0.9) rotate(-10)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(120, 50) scale(0.9) rotate(10)" fill="url(#leafGrad1)"/>
-                            <use href="#h" transform="translate(10, 40) scale(0.7) rotate(-55)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(190, 40) scale(0.7) rotate(55)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(85, -15) scale(0.85) rotate(-25)" fill="url(#leafGrad1)"/>
-                            <use href="#h" transform="translate(115, -15) scale(0.85) rotate(25)" fill="url(#leafGrad1)"/>
-
-                            <!-- 3. 최전방 층 (밝고 입체적인 포인트 하트들) -->
-                            <use href="#h" transform="translate(100, 40) scale(0.9) rotate(-5)" fill="url(#leafGrad2)"/>
-                            <use href="#h" transform="translate(100, -5) scale(0.8) rotate(10)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(50, 40) scale(0.7) rotate(-15)" fill="url(#leafGrad2)"/>
-                            <use href="#h" transform="translate(150, 40) scale(0.7) rotate(15)" fill="url(#leafGrad2)"/>
-                            <use href="#h" transform="translate(70, 80) scale(0.6) rotate(-30)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(130, 80) scale(0.6) rotate(30)" fill="url(#leafGrad4)"/>
-                            <use href="#h" transform="translate(25, 20) scale(0.6) rotate(-45)" fill="url(#leafGrad2)"/>
-                            <use href="#h" transform="translate(175, 20) scale(0.6) rotate(45)" fill="url(#leafGrad2)"/>
-                            <use href="#h" transform="translate(100, -40) scale(0.7) rotate(0)" fill="url(#leafGrad2)"/>
 
                             <!-- =========================
                                  ★ 은은하게 빛나는 빛줄기 (God Rays) ★
-                                 나뭇잎 위로 투명하게 쏟아집니다
                             ========================= -->
                             <g style="mix-blend-mode: overlay;">
                                 <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 90,-30 L -30,220 L 10,220 L 95,-30 Z" />
