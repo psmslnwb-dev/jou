@@ -333,7 +333,7 @@
         }
 
         .tree-symbol svg {
-            width: 460px; 
+            width: 480px; /* 대형 나무를 위해 너비 확장 */
             height: auto;
         }
 
@@ -342,7 +342,7 @@
         ========================= */
         
         .ray-core { 
-            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
+            fill: #FFFFFF; /* 까만색 방지 */
             animation: corePulse 4s infinite alternate ease-in-out; 
             transform-origin: 100px -10px; 
         }
@@ -352,7 +352,7 @@
         }
 
         .ray { 
-            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
+            fill: #FFFFFF; /* 까만색 방지 */
             animation: shine 4s infinite alternate ease-in-out; 
             transform-origin: 100px -10px; 
         }
@@ -367,18 +367,18 @@
             100% { opacity: 0.35; fill: #FFF176; transform: scale(1.05) rotate(1.5deg); }
         }
 
-        /* 흩날리는 하트 잎사귀 */
+        /* 흩날리는 미니 하트 나뭇잎 */
         .float-leaf1 { animation: leafFloat1 4s infinite ease-in-out alternate; }
         .float-leaf2 { animation: leafFloat2 5s infinite ease-in-out alternate; }
         .float-leaf3 { animation: leafFloat1 4.5s infinite ease-in-out alternate-reverse; }
         .float-leaf4 { animation: leafFloat2 3.5s infinite ease-in-out alternate-reverse; }
         @keyframes leafFloat1 {
             0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(4px, -6px) rotate(15deg); }
+            100% { transform: translate(6px, -8px) rotate(15deg); }
         }
         @keyframes leafFloat2 {
             0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-5px, -5px) rotate(-15deg); }
+            100% { transform: translate(-6px, -8px) rotate(-15deg); }
         }
 
         /* ★ CI 나비 공중 이동(호버링) 애니메이션 ★ */
@@ -613,9 +613,32 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- ★ 대형 하트 나무 & CI 나비 10마리 ★ -->
+                        <!-- ★ 둘리 얼굴 탈피! CI를 모티브로 한 거대한 하트 세계수 ★ -->
                         <svg viewBox="0 -40 200 240" xmlns="http://www.w3.org/2000/svg">
                             
+                            <!-- 아름다운 나뭇잎 그라데이션 정의 -->
+                            <defs>
+                                <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#81C784"/>
+                                    <stop offset="100%" stop-color="#388E3C"/>
+                                </linearGradient>
+                                <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/>
+                                    <stop offset="100%" stop-color="#4CAF50"/>
+                                </linearGradient>
+                                <linearGradient id="leafGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#66BB6A"/>
+                                    <stop offset="100%" stop-color="#2E7D32"/>
+                                </linearGradient>
+                                <linearGradient id="leafGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#AED581"/>
+                                    <stop offset="100%" stop-color="#558B2F"/>
+                                </linearGradient>
+                                
+                                <!-- 공통으로 사용할 완벽한 하트(마음) 잎사귀 Path (중심점 0,0 기준) -->
+                                <path id="h" d="M0,-40 C-20,-70 -40,-70 -40,-50 C-40,-30 0,0 0,0 C0,0 40,-30 40,-50 C40,-70 20,-70 0,-40 Z"/>
+                            </defs>
+
                             <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
                             <circle cx="100" cy="50" r="110" fill="#E8F5E9" opacity="0.5"/>
 
@@ -624,37 +647,67 @@
                             <path d="M -10 185 Q 100 195 210 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
                             <path d="M 20 186 L 18 182 M 23 186 L 25 182 M 175 186 L 173 182 M 180 186 L 182 182" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/>
 
-                            <!-- ★ 둘리 얼굴 탈피! 웅장하게 뻗어나가는 나뭇가지와 기둥 ★ -->
-                            <!-- 굵은 기둥 밑동 -->
-                            <path d="M 65 186 C 80 140, 90 100, 100 70 C 110 100, 120 140, 135 186 Q 100 175 65 186 Z" fill="#5D4037"/>
-                            <path d="M 65 186 Q 40 192 25 187 Q 45 175 75 178 Z" fill="#3E2723"/>
-                            <path d="M 135 186 Q 160 192 175 187 Q 155 175 125 178 Z" fill="#3E2723"/>
-                            
-                            <!-- 하트 잎파리를 받쳐주는 세밀한 가지들 -->
-                            <path d="M 100 90 Q 70 60 45 45" stroke="#5D4037" stroke-width="8" fill="none" stroke-linecap="round"/>
-                            <path d="M 100 90 Q 130 60 155 45" stroke="#5D4037" stroke-width="8" fill="none" stroke-linecap="round"/>
-                            <path d="M 100 90 Q 80 40 60 10" stroke="#4E342E" stroke-width="6" fill="none" stroke-linecap="round"/>
-                            <path d="M 100 90 Q 120 40 140 10" stroke="#4E342E" stroke-width="6" fill="none" stroke-linecap="round"/>
-                            <path d="M 100 90 Q 100 50 100 0" stroke="#3E2723" stroke-width="5" fill="none" stroke-linecap="round"/>
+                            <!-- =========================
+                                 ★ 뻗어나가는 웅장한 나뭇가지 (CI 스타일 반영) ★
+                            ========================= -->
+                            <g stroke="#6D4C41" fill="none" stroke-linecap="round">
+                                <!-- 메인 굵은 기둥 -->
+                                <path d="M 100 186 C 100 130, 100 90, 100 40" stroke-width="18"/>
+                                
+                                <!-- 좌측 메인 가지들 -->
+                                <path d="M 100 130 C 80 120, 50 90, 30 60" stroke-width="12"/>
+                                <path d="M 98 80 C 80 60, 60 40, 45 10" stroke-width="10"/>
+                                <path d="M 60 90 C 50 85, 30 90, 15 80" stroke-width="6"/>
+                                <path d="M 70 50 C 60 40, 40 30, 25 25" stroke-width="6"/>
+                                
+                                <!-- 우측 메인 가지들 -->
+                                <path d="M 100 120 C 120 110, 150 80, 170 50" stroke-width="12"/>
+                                <path d="M 102 70 C 120 50, 140 30, 155 0" stroke-width="10"/>
+                                <path d="M 140 80 C 150 75, 170 80, 185 70" stroke-width="6"/>
+                                <path d="M 130 40 C 140 30, 160 20, 175 15" stroke-width="6"/>
+                                
+                                <!-- 상단 중앙 가지들 -->
+                                <path d="M 100 50 C 95 30, 85 0, 80 -30" stroke-width="8"/>
+                                <path d="M 100 40 C 105 20, 115 0, 120 -25" stroke-width="8"/>
+                                <path d="M 90 10 C 80 0, 60 -20, 50 -30" stroke-width="5"/>
+                                <path d="M 110 5 C 120 -5, 140 -25, 150 -35" stroke-width="5"/>
+                            </g>
 
-                            <!-- ★ 웅장한 대형 하트 나무 수관 (CI 모티브) ★ -->
-                            <!-- 가장 뒤쪽 거대한 중앙 하트 -->
-                            <path d="M 100 -20 C 30 -70, -20 -10, 100 100 C 220 -10, 170 -70, 100 -20 Z" fill="#2E7D32"/>
+
+                            <!-- =========================
+                                 ★ 마음(하트)이 모여 이룬 거대한 나뭇잎 수관 ★
+                                 수십 개의 하트 잎사귀들이 모여 웅장함을 연출합니다!
+                            ========================= -->
+                            <!-- 배경 층 (어두운 하트들) -->
+                            <use href="#h" transform="translate(100, 15) scale(1.1) rotate(0)" fill="url(#leafGrad3)"/>
+                            <use href="#h" transform="translate(40, 50) scale(0.9) rotate(-30)" fill="url(#leafGrad3)"/>
+                            <use href="#h" transform="translate(160, 50) scale(0.9) rotate(30)" fill="url(#leafGrad3)"/>
                             
-                            <!-- 좌측 하단 하트 -->
-                            <path d="M 50 30 C 0 -10, -30 30, 50 90 C 130 30, 100 -10, 50 30 Z" fill="#388E3C"/>
+                            <!-- 중간 층 (기본 크기 및 다양한 각도) -->
+                            <use href="#h" transform="translate(25, 90) scale(0.7) rotate(-50)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(175, 90) scale(0.7) rotate(50)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(60, -10) scale(0.8) rotate(-15)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(140, -10) scale(0.8) rotate(15)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(50, 120) scale(0.6) rotate(-20)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(150, 120) scale(0.6) rotate(20)" fill="url(#leafGrad2)"/>
                             
-                            <!-- 우측 하단 하트 -->
-                            <path d="M 150 30 C 100 -10, 70 30, 150 90 C 230 30, 200 -10, 150 30 Z" fill="#388E3C"/>
-                            
-                            <!-- 좌측 상단 하트 -->
-                            <path d="M 60 0 C 20 -40, -10 0, 60 70 C 130 0, 100 -40, 60 0 Z" fill="#4CAF50"/>
-                            
-                            <!-- 우측 상단 하트 -->
-                            <path d="M 140 0 C 100 -40, 70 0, 140 70 C 210 0, 180 -40, 140 0 Z" fill="#4CAF50"/>
-                            
-                            <!-- 중앙 하이라이트 밝은 하트 -->
-                            <path d="M 100 15 C 60 -25, 30 15, 100 85 C 170 15, 140 -25, 100 15 Z" fill="#81C784" opacity="0.9"/>
+                            <!-- 중심부 볼륨업 (빈 공간 채우기) -->
+                            <use href="#h" transform="translate(75, 30) scale(0.65) rotate(-10)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(125, 30) scale(0.65) rotate(10)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(85, 70) scale(0.7) rotate(-35)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(115, 70) scale(0.7) rotate(35)" fill="url(#leafGrad3)"/>
+                            <use href="#h" transform="translate(100, 100) scale(0.8) rotate(5)" fill="url(#leafGrad2)"/>
+
+                            <!-- 최전방 장식 층 (밝고 작은 하트들로 입체감 극대화) -->
+                            <use href="#h" transform="translate(100, -15) scale(0.65) rotate(0)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(45, 15) scale(0.55) rotate(-45)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(155, 15) scale(0.55) rotate(45)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(20, 60) scale(0.45) rotate(-70)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(180, 60) scale(0.45) rotate(70)" fill="url(#leafGrad2)"/>
+                            <use href="#h" transform="translate(65, 105) scale(0.45) rotate(-10)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(135, 105) scale(0.45) rotate(10)" fill="url(#leafGrad1)"/>
+                            <use href="#h" transform="translate(100, 50) scale(0.55) rotate(-5)" fill="url(#leafGrad4)"/>
+                            <use href="#h" transform="translate(120, 130) scale(0.4) rotate(25)" fill="url(#leafGrad4)"/>
 
 
                             <!-- =========================
@@ -673,12 +726,14 @@
                                 <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
                             </g>
 
-                            <!-- ★ 흩날리는 잎사귀도 마음(하트) 모양으로 변경! ★ -->
+                            <!-- =========================
+                                 ★ 흩날리는 미니 잎사귀도 마음(하트) 모양! ★
+                            ========================= -->
                             <g>
-                                <path class="float-leaf1" d="M 25 75 C 22 73, 19 77, 25 83 C 31 77, 28 73, 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
-                                <path class="float-leaf2" d="M 175 60 C 172 58, 169 62, 175 68 C 181 62, 178 58, 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
-                                <path class="float-leaf3" d="M 160 140 C 157 138, 154 142, 160 148 C 166 142, 163 138, 160 140 Z" fill="#81C784" opacity="0.9"/>
-                                <path class="float-leaf4" d="M 40 135 C 37 133, 34 137, 40 143 C 46 137, 43 133, 40 135 Z" fill="#81C784" opacity="0.9"/>
+                                <use href="#h" class="float-leaf1" transform="translate(25, 75) scale(0.12)" fill="#81C784"/>
+                                <use href="#h" class="float-leaf2" transform="translate(175, 60) scale(0.12)" fill="#A5D6A7"/>
+                                <use href="#h" class="float-leaf3" transform="translate(160, 140) scale(0.12)" fill="#AED581"/>
+                                <use href="#h" class="float-leaf4" transform="translate(40, 135) scale(0.12)" fill="#4CAF50"/>
                             </g>
 
                             <!-- =========================
