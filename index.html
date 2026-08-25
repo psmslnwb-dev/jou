@@ -338,13 +338,19 @@
         }
 
         /* =========================
-           ★ 추가된 GIF 효과 CSS 애니메이션 ★
+           ★ 빛 색상 변환 및 GIF 효과 CSS 애니메이션 ★
         ========================= */
-        .ray { animation: shine 4s infinite alternate ease-in-out; transform-origin: top; }
+        
+        /* 하얀 빛 <-> 노란 빛 변환 애니메이션 */
+        .ray { 
+            animation: shine 4s infinite alternate ease-in-out; 
+            transform-origin: top; 
+        }
         .ray:nth-child(2) { animation-delay: 1.5s; }
+        
         @keyframes shine { 
-            0% { opacity: 0.05; } 
-            100% { opacity: 0.25; } 
+            0% { opacity: 0.05; fill: #FFFFFF; } /* 부드러운 하얀빛 */
+            100% { opacity: 0.35; fill: #FFF176; } /* 은은하고 밝은 노란빛 */
         }
 
         .float-leaf1 { animation: leafFloat1 4s infinite ease-in-out alternate; }
@@ -581,7 +587,7 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 깔끔하고 웅장한 단색 초록 세계수 & 선명한 캐릭터 일러스트 -->
+                        <!-- 깔끔하고 웅장한 단색 초록 세계수 & 선명한 캐릭터 일러스트 (애니메이션 적용) -->
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             
                             <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
@@ -605,20 +611,22 @@
                             <!-- 나무의 입체감을 주는 상단 하이라이트 톤 -->
                             <path d="M 45 80 Q 40 45 80 35 Q 100 15 120 35 Q 160 45 155 80 Q 170 115 125 115 Q 100 125 75 115 Q 30 115 45 80 Z" fill="#4CAF50" opacity="0.85"/>
 
-                            <!-- 나뭇잎 사이로 스며드는 신비로운 빛내림 (애니메이션 적용) -->
-                            <path class="ray" d="M 60 20 L 20 185 L 40 185 L 85 20 Z" fill="#FFFFFF" opacity="0.12"/>
-                            <path class="ray" d="M 120 10 L 90 185 L 115 185 L 145 10 Z" fill="#FFFFFF" opacity="0.15"/>
+                            <!-- 나뭇잎 사이로 스며드는 신비로운 빛내림 (색상 애니메이션 적용!) -->
+                            <path class="ray" d="M 60 20 L 20 185 L 40 185 L 85 20 Z" />
+                            <path class="ray" d="M 120 10 L 90 185 L 115 185 L 145 10 Z" />
 
                             <!-- 흩날리는 초록 나뭇잎 (애니메이션 적용) -->
-                            <path class="float-leaf1" d="M 25 75 Q 30 70 35 75 Q 30 80 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
-                            <path class="float-leaf2" d="M 175 60 Q 180 55 185 60 Q 180 65 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
-                            <path class="float-leaf3" d="M 160 140 Q 163 137 166 140 Q 163 143 160 140 Z" fill="#81C784" opacity="0.9"/>
-                            <path class="float-leaf4" d="M 40 135 Q 43 132 46 135 Q 43 138 40 135 Z" fill="#81C784" opacity="0.9"/>
+                            <g>
+                                <path class="float-leaf1" d="M 25 75 Q 30 70 35 75 Q 30 80 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
+                                <path class="float-leaf2" d="M 175 60 Q 180 55 185 60 Q 180 65 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
+                                <path class="float-leaf3" d="M 160 140 Q 163 137 166 140 Q 163 143 160 140 Z" fill="#81C784" opacity="0.9"/>
+                                <path class="float-leaf4" d="M 40 135 Q 43 132 46 135 Q 43 138 40 135 Z" fill="#81C784" opacity="0.9"/>
+                            </g>
 
-                            <!-- 미니 캐릭터 그룹 (초록 나무 배경 위에서 선명하게 보이도록 밝은 외곽선/색상 포인트 추가) -->
+                            <!-- 미니 캐릭터 그룹 -->
                             <g stroke="#222" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 
-                                <!-- 1. 손잡고 걷는 어른과 아이 (왼쪽) -->
+                                <!-- 1. 손잡고 걷는 어른과 아이 (애니메이션 .char-bob1) -->
                                 <g class="char-bob1">
                                     <circle cx="42" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
                                     <path d="M 42 161 L 42 171 M 42 171 L 39 182 M 42 171 L 45 182 M 42 163 L 37 170 M 42 163 L 48 168" />
@@ -627,35 +635,35 @@
                                     <path d="M 53 167 L 53 174 M 53 174 L 50 181 M 53 174 L 56 181 M 53 169 L 48 168 M 53 169 L 57 173" />
                                 </g>
 
-                                <!-- 2. 지팡이를 짚은 어르신 (나무 기둥 옆) -->
+                                <!-- 2. 지팡이를 짚은 어르신 (애니메이션 .char-bob2) -->
                                 <g class="char-bob2">
                                     <circle cx="85" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
                                     <path d="M 85 161 L 83 171 M 83 171 L 80 183 M 83 171 L 86 183 M 84 163 L 88 170" />
                                     <path d="M 88 170 L 88 183" stroke="#A1887F" stroke-width="2"/>
                                 </g>
 
-                                <!-- 3. 풍선을 들고 있는 아이 (중앙-오른쪽) -->
+                                <!-- 3. 풍선을 들고 있는 아이 그룹 (애니메이션 .char-bob3) -->
                                 <g class="char-bob3">
                                     <circle cx="115" cy="165" r="2.2" fill="#FFF" stroke="#222" stroke-width="1.8"/>
                                     <path d="M 115 167 L 115 174 M 115 174 L 112 181 M 115 174 L 118 180 M 115 170 L 110 163 M 115 170 L 120 165" />
                                     
-                                    <!-- 노란 풍선 (개별 둥둥 애니메이션 적용) -->
+                                    <!-- 노란 풍선 (개별 둥둥 애니메이션 .balloon-anim 적용) -->
                                     <g class="balloon-anim">
                                         <path d="M 120 165 Q 115 150 110 138" fill="none" stroke="#666" stroke-width="0.8"/>
                                         <circle cx="110" cy="133" r="5" fill="#FFCA28" stroke="#333" stroke-width="1"/>
                                     </g>
                                 </g>
 
-                                <!-- 4. 안내견과 걷는 시각장애인 (오른쪽) -->
+                                <!-- 4. 안내견과 걷는 시각장애인 (애니메이션 .char-bob4) -->
                                 <g class="char-bob4">
                                     <circle cx="152" cy="158" r="2.5" fill="#FFF" stroke="#222" stroke-width="1.8"/>
                                     <path d="M 152 161 L 152 171 M 152 171 L 149 182 M 152 171 L 155 182 M 152 163 L 155 168 M 152 163 L 147 168" />
                                     
                                     <!-- 안내견 하네스 끈 및 강아지 -->
                                     <path d="M 147 168 L 139 171" stroke="#B0BEC5" stroke-width="1.2"/>
-                                    <path d="M 139 173 L 132 173 M 139 173 L 139 178 M 132 173 L 132 178 M 139 173 Q 141 170 142 173" stroke="#A1887F" stroke-width="2.5"/>
-                                    <!-- 강아지 꼬리 애니메이션 -->
-                                    <path class="dog-tail" d="M 132 173 Q 130 170 128 173" stroke="#A1887F" stroke-width="2.5"/>
+                                    <path d="M 139 173 L 132 173 M 139 173 L 139 178 M 132 173 L 132 178 M 132 173 Q 130 170 128 173 M 139 173 Q 141 170 142 173" stroke="#A1887F" stroke-width="2.5"/>
+                                    <!-- 강아지 꼬리 (애니메이션 .dog-tail 적용) -->
+                                    <path class="dog-tail" d="M 132 175 L 129 170" stroke="#A1887F" stroke-width="1.5"/>
                                 </g>
                             </g>
                         </svg>
