@@ -367,29 +367,37 @@
             100% { transform: translate(-5px, -5px) rotate(-15deg); }
         }
 
-        /* ★ 페어리 공중 둥둥 이동 애니메이션 ★ */
-        .fairy-float1 { animation: fairyFloat1 4s infinite alternate ease-in-out; }
-        .fairy-float2 { animation: fairyFloat2 5s infinite alternate ease-in-out; }
-        .fairy-float3 { animation: fairyFloat1 4.5s infinite alternate-reverse ease-in-out; }
-        .fairy-float4 { animation: fairyFloat2 5.5s infinite alternate-reverse ease-in-out; }
+        /* ★ CI 나비 공중 이동(호버링) 애니메이션 ★ */
+        .bf-hover1 { animation: bfHover1 5s infinite alternate ease-in-out; }
+        .bf-hover2 { animation: bfHover2 6s infinite alternate ease-in-out; }
+        .bf-hover3 { animation: bfHover3 4.5s infinite alternate ease-in-out; }
+        .bf-hover4 { animation: bfHover4 5.5s infinite alternate ease-in-out; }
 
-        @keyframes fairyFloat1 {
+        @keyframes bfHover1 {
             0% { transform: translate(0px, 0px); }
-            100% { transform: translate(8px, -10px); }
+            100% { transform: translate(15px, -15px); }
         }
-        @keyframes fairyFloat2 {
+        @keyframes bfHover2 {
             0% { transform: translate(0px, 0px); }
-            100% { transform: translate(-8px, 10px); }
+            100% { transform: translate(-15px, -10px); }
+        }
+        @keyframes bfHover3 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(-10px, 15px); }
+        }
+        @keyframes bfHover4 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(20px, 10px); }
         }
 
-        /* ★ 페어리 반짝임(맥박처럼 크기/투명도 변함) 애니메이션 ★ */
-        .fairy-pulse1 { animation: fairyPulse 1.5s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box;}
-        .fairy-pulse2 { animation: fairyPulse 2s infinite alternate ease-in-out 0.5s; transform-origin: center; transform-box: fill-box;}
-        .fairy-pulse3 { animation: fairyPulse 1.8s infinite alternate ease-in-out 1s; transform-origin: center; transform-box: fill-box;}
-
-        @keyframes fairyPulse {
-            0% { transform: scale(0.85); opacity: 0.5; }
-            100% { transform: scale(1.15); opacity: 1; }
+        /* ★ CI 나비 날갯짓 (Top-down view라 가로 크기가 줄어들며 파닥이는 효과, 속도 1초 내외로 우아하게) ★ */
+        .ci-wings1 { animation: flap 0.8s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
+        .ci-wings2 { animation: flap 1.0s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
+        .ci-wings3 { animation: flap 1.2s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
+        
+        @keyframes flap {
+            0% { transform: scaleX(1); }
+            100% { transform: scaleX(0.2); }
         }
 
         /* =========================
@@ -591,7 +599,7 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <!-- 세로로 긴 거대한 세계수 -->
+                        <!-- 세로로 긴 거대한 세계수 & CI 나비 -->
                         <svg viewBox="0 -40 200 240" xmlns="http://www.w3.org/2000/svg">
                             
                             <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
@@ -626,129 +634,170 @@
                             </g>
 
                             <!-- =========================
-                                 ★ 리니지 감성 신비로운 페어리(정령) 10마리 ★
-                                 중심은 밝고 세로로 은은한 빛줄기가 있는 몽환적인 형태
-                                 잘리지 않게 안전한 내부 영역에 배치
+                                 ★ CI 로고 모양 나비 10마리 ★
+                                 아주 작게 (scale 0.35~0.4), 다양한 색상, 방향 조절, 느린 파닥임
                             ========================= -->
+
+                            <!-- 1. 나비 (노랑, CI 원본 컬러) -->
+                            <g transform="translate(30, 20) rotate(-20)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <!-- 더듬이 -->
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <!-- 윗날개 -->
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <!-- 아랫날개 -->
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
+                                        </g>
+                                        <!-- 몸통 -->
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 2. 나비 (분홍) -->
+                            <g transform="translate(160, 10) rotate(15)">
+                                <g class="bf-hover2">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 3. 나비 (하늘색) -->
+                            <g transform="translate(45, 90) rotate(45)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#81D4FA"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#81D4FA"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#4FC3F7"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#4FC3F7"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 4. 나비 (민트) -->
+                            <g transform="translate(180, 80) rotate(-30)">
+                                <g class="bf-hover4">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#A5D6A7"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#A5D6A7"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#81C784"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#81C784"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 5. 나비 (하양) -->
+                            <g transform="translate(20, 150) rotate(-10)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 6. 나비 (노랑) -->
+                            <g transform="translate(140, 140) rotate(-45)">
+                                <g class="bf-hover2">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 7. 나비 (분홍) -->
+                            <g transform="translate(85, 130) rotate(-15)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 8. 나비 (보라색) -->
+                            <g transform="translate(110, 80) rotate(20)">
+                                <g class="bf-hover4">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#CE93D8"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#CE93D8"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#BA68C8"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#BA68C8"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 9. 나비 (주황색) -->
+                            <g transform="translate(185, 170) rotate(-60)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFB74D"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFB74D"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFA726"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFA726"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
                             
-                            <!-- 페어리 1 (핑크) -->
-                            <g transform="translate(30, 20)">
-                                <g class="fairy-float1">
-                                    <g class="fairy-pulse1">
-                                        <!-- 세로 빛줄기 -->
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#F48FB1" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#F48FB1" opacity="0.4"/>
-                                        <!-- 밝은 중심 코어 -->
-                                        <circle cx="0" cy="0" r="2" fill="#F8BBD0" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 2 (옐로우) -->
-                            <g transform="translate(60, 100)">
-                                <g class="fairy-float2">
-                                    <g class="fairy-pulse2">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#FFF59D" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#FFF59D" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#FFF9C4" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 3 (민트) -->
-                            <g transform="translate(25, 140)">
-                                <g class="fairy-float3">
-                                    <g class="fairy-pulse3">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#A5D6A7" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#A5D6A7" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#C8E6C9" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 4 (스카이블루) -->
-                            <g transform="translate(160, 30)">
-                                <g class="fairy-float4">
-                                    <g class="fairy-pulse1">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#81D4FA" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#81D4FA" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#B3E5FC" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 5 (퍼플) -->
-                            <g transform="translate(145, 110)">
-                                <g class="fairy-float1">
-                                    <g class="fairy-pulse2">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#CE93D8" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#CE93D8" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#E1BEE7" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 6 (화이트) -->
-                            <g transform="translate(170, 150)">
-                                <g class="fairy-float3">
-                                    <g class="fairy-pulse3">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#FFFFFF" opacity="0.6"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#FFFFFF" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#FFFFFF" opacity="0.9"/>
-                                        <circle cx="0" cy="0" r="1" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 7 (핑크) -->
-                            <g transform="translate(85, 160)">
-                                <g class="fairy-float2">
-                                    <g class="fairy-pulse1">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#F48FB1" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#F48FB1" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#F8BBD0" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 8 (옐로우) -->
-                            <g transform="translate(110, 40)">
-                                <g class="fairy-float4">
-                                    <g class="fairy-pulse3">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#FFF59D" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#FFF59D" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#FFF9C4" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 9 (민트) -->
-                            <g transform="translate(130, 165)">
-                                <g class="fairy-float1">
-                                    <g class="fairy-pulse2">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#A5D6A7" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#A5D6A7" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#C8E6C9" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 페어리 10 (스카이블루) -->
-                            <g transform="translate(50, 175)">
-                                <g class="fairy-float3">
-                                    <g class="fairy-pulse1">
-                                        <ellipse cx="0" cy="0" rx="1.5" ry="7" fill="#81D4FA" opacity="0.5"/>
-                                        <ellipse cx="0" cy="0" rx="3" ry="4" fill="#81D4FA" opacity="0.4"/>
-                                        <circle cx="0" cy="0" r="2" fill="#B3E5FC" opacity="0.8"/>
-                                        <circle cx="0" cy="0" r="0.8" fill="#FFFFFF"/>
+                            <!-- 10. 나비 (하양) -->
+                            <g transform="translate(60, 160) rotate(10)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
                                     </g>
                                 </g>
                             </g>
