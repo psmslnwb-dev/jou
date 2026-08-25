@@ -62,6 +62,7 @@
             height: 90px;
             margin: 0 auto;
             padding: 0 25px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -109,8 +110,15 @@
         }
 
         @keyframes neonGlow {
-            0% { text-shadow: 0 0 2px rgba(120, 169, 79, 0.1), 0 0 5px rgba(120, 169, 79, 0.1); }
-            100% { text-shadow: 0 0 5px rgba(124, 179, 66, 0.5), 0 0 12px rgba(124, 179, 66, 0.3), 0 0 20px rgba(124, 179, 66, 0.2); }
+            0% {
+                text-shadow: 0 0 2px rgba(120, 169, 79, 0.1),
+                             0 0 5px rgba(120, 169, 79, 0.1);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(124, 179, 66, 0.5),
+                             0 0 12px rgba(124, 179, 66, 0.3),
+                             0 0 20px rgba(124, 179, 66, 0.2);
+            }
         }
 
         /* =========================
@@ -135,13 +143,16 @@
             padding: 10px 24px;
             display: flex;
             align-items: center;
+
             font-size: 16px;
             font-weight: 700;
             color: #444;
+
             background: #ffffff;
             border: 2px solid #e4ece0;
             border-radius: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+
             transition: 0.25s;
         }
 
@@ -162,14 +173,20 @@
             top: 90px;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
+
             width: 190px;
+
             background: #ffffff;
             border: 1px solid #e4ebe4;
             border-radius: 0 0 10px 10px;
+
             padding: 12px 0;
+
             opacity: 0;
             visibility: hidden;
+
             transition: 0.25s;
+
             box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10);
         }
 
@@ -182,8 +199,10 @@
         .submenu li a {
             display: block;
             padding: 10px 20px;
+
             font-size: 14px;
             color: #555;
+
             transition: 0.2s;
         }
 
@@ -203,13 +222,14 @@
         }
 
         /* =========================
-           ★ 메인 비주얼 (Hero) ★
+           메인 비주얼 (Hero)
         ========================= */
 
         .hero {
             flex: 1; 
             position: relative;
             overflow: hidden;
+
             background:
                 radial-gradient(
                     circle at 80% 25%,
@@ -222,6 +242,7 @@
                     #ffffff 55%,
                     #edf6e8 100%
                 );
+
             display: flex;
             align-items: center;
         }
@@ -242,8 +263,10 @@
             width: 100%;
             margin: 0 auto;
             padding: 0 25px;
+
             position: relative;
             z-index: 2;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -267,8 +290,8 @@
 
         /* 오른쪽 장식 영역 */
         .hero-decoration {
-            width: 450px; 
-            height: 500px; 
+            width: 400px; 
+            height: 450px;
             position: relative;
             display: flex;
             align-items: center;
@@ -276,16 +299,16 @@
         }
 
         .circle {
-            width: 380px;
-            height: 380px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
             background: rgba(146, 190, 103, 0.14);
             position: absolute;
         }
 
         .circle-small {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background: rgba(221, 187, 72, 0.12);
             position: absolute;
@@ -300,54 +323,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 20px 30px rgba(30, 70, 20, 0.2)); 
-            margin-top: 20px; 
+            filter: drop-shadow(0 20px 30px rgba(30, 70, 20, 0.2));
+            transition: transform 0.4s ease;
+            margin-top: 10px; 
+        }
+
+        .tree-symbol:hover {
+            transform: translateY(-5px) scale(1.02);
         }
 
         .tree-symbol svg {
-            width: 550px; 
+            width: 460px; 
             height: auto;
         }
 
         /* =========================
-           ★ 살아 숨 쉬는 나무 애니메이션 CSS ★
+           ★ 웅장하고 신비로운 세계수 빛내림 (God Rays) CSS ★
         ========================= */
         
-        /* 나무 전체가 기분 좋게 숨쉬듯 움직이는 효과 */
-        .tree-alive {
-            transform-origin: 100px 186px; /* 나무 뿌리 부분을 축으로 설정 */
-            animation: treeBreathe 6s infinite alternate ease-in-out;
-        }
-        @keyframes treeBreathe {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.02) rotate(0.5deg); }
-        }
-
-        /* 나뭇잎들이 바람에 살랑이는 효과 (3가지 패턴) */
-        .sway-1 { animation: sway1 4s infinite alternate ease-in-out; transform-origin: 0 0; }
-        .sway-2 { animation: sway2 5.5s infinite alternate ease-in-out; transform-origin: 0 0; }
-        .sway-3 { animation: sway3 4.8s infinite alternate ease-in-out; transform-origin: 0 0; }
-
-        @keyframes sway1 { 0% { transform: rotate(-3deg); } 100% { transform: rotate(4deg); } }
-        @keyframes sway2 { 0% { transform: rotate(3deg); } 100% { transform: rotate(-3deg); } }
-        @keyframes sway3 { 0% { transform: rotate(-5deg); } 100% { transform: rotate(2deg); } }
-
-        /* 빛내림 코어 애니메이션 */
         .ray-core { 
-            fill: #FFFFFF;
+            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
             animation: corePulse 4s infinite alternate ease-in-out; 
-            transform-origin: 100px -20px; 
+            transform-origin: 100px -10px; 
         }
         @keyframes corePulse {
             0% { transform: scale(0.8); opacity: 0.2; fill: #FFFFFF; }
-            100% { transform: scale(1.3); opacity: 0.6; fill: #FFF59D; }
+            100% { transform: scale(1.2); opacity: 0.6; fill: #FFF59D; }
         }
 
-        /* 빛줄기 애니메이션 */
         .ray { 
-            fill: #FFFFFF;
+            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
             animation: shine 4s infinite alternate ease-in-out; 
-            transform-origin: 100px -20px; 
+            transform-origin: 100px -10px; 
         }
         .ray:nth-child(1) { animation-duration: 4.5s; }
         .ray:nth-child(2) { animation-duration: 5s; animation-delay: 1.5s; }
@@ -357,40 +364,55 @@
         
         @keyframes shine { 
             0% { opacity: 0.02; fill: #FFFFFF; transform: scale(0.95) rotate(-1.5deg); }
-            100% { opacity: 0.25; fill: #FFF176; transform: scale(1.05) rotate(1.5deg); }
+            100% { opacity: 0.35; fill: #FFF176; transform: scale(1.05) rotate(1.5deg); }
         }
 
-        /* 흩날리는 미니 하트 나뭇잎 */
+        /* 흩날리는 나뭇잎 */
         .float-leaf1 { animation: leafFloat1 4s infinite ease-in-out alternate; }
         .float-leaf2 { animation: leafFloat2 5s infinite ease-in-out alternate; }
         .float-leaf3 { animation: leafFloat1 4.5s infinite ease-in-out alternate-reverse; }
         .float-leaf4 { animation: leafFloat2 3.5s infinite ease-in-out alternate-reverse; }
         @keyframes leafFloat1 {
             0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(8px, -10px) rotate(25deg); }
+            100% { transform: translate(4px, -6px) rotate(15deg); }
         }
         @keyframes leafFloat2 {
             0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-8px, -10px) rotate(-25deg); }
+            100% { transform: translate(-5px, -5px) rotate(-15deg); }
         }
 
-        /* CI 나비 공중 이동(호버링) */
+        /* ★ CI 나비 공중 이동(호버링) 애니메이션 ★ */
         .bf-hover1 { animation: bfHover1 5s infinite alternate ease-in-out; }
         .bf-hover2 { animation: bfHover2 6s infinite alternate ease-in-out; }
         .bf-hover3 { animation: bfHover3 4.5s infinite alternate ease-in-out; }
         .bf-hover4 { animation: bfHover4 5.5s infinite alternate ease-in-out; }
 
-        @keyframes bfHover1 { 0% { transform: translate(0px, 0px); } 100% { transform: translate(15px, -15px); } }
-        @keyframes bfHover2 { 0% { transform: translate(0px, 0px); } 100% { transform: translate(-15px, -10px); } }
-        @keyframes bfHover3 { 0% { transform: translate(0px, 0px); } 100% { transform: translate(-10px, 15px); } }
-        @keyframes bfHover4 { 0% { transform: translate(0px, 0px); } 100% { transform: translate(20px, 10px); } }
+        @keyframes bfHover1 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(15px, -15px); }
+        }
+        @keyframes bfHover2 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(-15px, -10px); }
+        }
+        @keyframes bfHover3 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(-10px, 15px); }
+        }
+        @keyframes bfHover4 {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(20px, 10px); }
+        }
 
-        /* CI 나비 날갯짓 */
+        /* ★ CI 나비 날갯짓 ★ */
         .ci-wings1 { animation: flap 0.8s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .ci-wings2 { animation: flap 1.0s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .ci-wings3 { animation: flap 1.2s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         
-        @keyframes flap { 0% { transform: scaleX(1); } 100% { transform: scaleX(0.2); } }
+        @keyframes flap {
+            0% { transform: scaleX(1); }
+            100% { transform: scaleX(0.2); }
+        }
 
         /* =========================
            유관기관 배너
@@ -402,26 +424,89 @@
             border-top: 1px solid #e8eee8;
         }
 
-        .partner-inner { max-width: 1200px; margin: 0 auto; }
-        .partner-list { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; }
-        .partner-list li { flex: 1; min-width: 200px; max-width: 220px; }
-        .partner-list li a { display: flex; align-items: center; justify-content: center; height: 90px; border: 1px solid #d1d8e0; background: #fff; padding: 15px; transition: 0.3s; }
-        .partner-list li a:hover { border-color: #5d914d; box-shadow: 0 4px 15px rgba(93, 145, 77, 0.15); transform: translateY(-2px); }
-        .partner-list li a img { width: auto; max-width: 100%; object-fit: contain; }
+        .partner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partner-list li {
+            flex: 1;
+            min-width: 200px;
+            max-width: 220px;
+        }
+
+        .partner-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90px; 
+            border: 1px solid #d1d8e0;
+            background: #fff;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        .partner-list li a:hover {
+            border-color: #5d914d;
+            box-shadow: 0 4px 15px rgba(93, 145, 77, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .partner-list li a img {
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
 
         /* =========================
            하단 문의
         ========================= */
-        .contact-section { flex-shrink: 0; padding: 15px 25px; background: #527d45; color: #ffffff; }
-        .contact-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-end; }
-        .contact-info { text-align: right; font-size: 13px; line-height: 1.5; opacity: 0.95; word-break: keep-all; }
-        .contact-info span { margin: 0 10px; opacity: 0.5; }
 
-        /* 모바일 대응 */
+        .contact-section {
+            flex-shrink: 0; 
+            padding: 15px 25px; 
+            background: #527d45;
+            color: #ffffff;
+        }
+
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-end;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.95;
+            word-break: keep-all;
+        }
+
+        .contact-info span {
+            margin: 0 10px;
+            opacity: 0.5;
+        }
+
+        /* =========================
+           모바일
+        ========================= */
+
         @media (max-width: 900px) {
             html, body { overflow: auto; }
             body { height: auto; display: block; }
             main { display: block; }
+
             .logo img { width: 60px; height: 60px; }
             .logo-title { font-size: 20px; }
             .submenu { top: 75px; }
@@ -429,20 +514,25 @@
             .hero-inner { padding: 60px 25px; }
             .hero h1 { font-size: 40px; }
         }
+
         @media (max-width: 700px) {
             .header-inner { padding: 0 15px; }
             .main-menu { gap: 4px; }
             .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
+
             .hero-inner { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 34px; letter-spacing: -2px; }
+            
             .hero-decoration { margin-top: 35px; width: 240px; height: 200px; }
             .circle { width: 200px; height: 200px; }
             .circle-small { width: 120px; height: 120px; }
             .tree-symbol svg { width: 340px; }
+
             .contact-inner { align-items: center; }
             .contact-info { text-align: center; }
             .contact-info span { display: none; } 
             .contact-info div { margin-bottom: 3px; }
+            
             .partner-list li { min-width: 45%; }
             .partner-list li a { height: 75px; } 
         }
@@ -466,7 +556,8 @@
 
             <nav>
                 <ul class="main-menu">
-                    <li><a href="intro.html">법인</a>
+                    <li>
+                        <a href="intro.html">법인</a>
                         <ul class="submenu">
                             <li><a href="intro.html">인사말</a></li>
                             <li><a href="policy.html">법인운영방침</a></li>
@@ -475,7 +566,8 @@
                             <li><a href="location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <li><a href="facility_greeting.html">조우직업재활시설</a>
+                    <li>
+                        <a href="facility_greeting.html">조우직업재활시설</a>
                         <ul class="submenu">
                             <li><a href="facility_greeting.html">인사말</a></li>
                             <li><a href="facility_vision.html">미션과 비전</a></li>
@@ -486,7 +578,8 @@
                             <li><a href="facility_location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
+                    <li>
+                        <a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
                         <ul class="submenu">
                             <li><a href="https://cafe.naver.com/jou9111" target="_blank">공지사항 (카페)</a></li>
                             <li><a href="https://cafe.naver.com/jou9111" target="_blank">일상 (카페)</a></li>
@@ -520,138 +613,216 @@
                     <div class="circle-small"></div>
                     
                     <div class="tree-symbol">
-                        <svg viewBox="-50 -120 300 360" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 세로로 긴 거대한 세계수 & CI 나비 -->
+                        <svg viewBox="0 -40 200 240" xmlns="http://www.w3.org/2000/svg">
                             
-                            <!-- 나뭇잎 그라데이션 정의 -->
-                            <defs>
-                                <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#81C784"/><stop offset="100%" stop-color="#388E3C"/>
-                                </linearGradient>
-                                <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="100%" stop-color="#4CAF50"/>
-                                </linearGradient>
-                                <linearGradient id="leafGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#2E7D32"/>
-                                </linearGradient>
-                                <linearGradient id="leafGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#AED581"/><stop offset="100%" stop-color="#558B2F"/>
-                                </linearGradient>
-                                
-                                <!-- ★ 자연스러운 다양성을 위한 4가지 다른 모양의 하트 잎사귀 ★ -->
-                                <!-- 1. 기본형 하트 -->
-                                <path id="h1" d="M0,-40 C-20,-70 -40,-70 -40,-50 C-40,-30 0,0 0,0 C0,0 40,-30 40,-50 C40,-70 20,-70 0,-40 Z"/>
-                                <!-- 2. 넓적하고 둥근 하트 -->
-                                <path id="h2" d="M0,-35 C-25,-65 -45,-55 -45,-35 C-45,-15 0,5 0,5 C0,5 45,-15 45,-35 C45,-55 25,-65 0,-35 Z"/>
-                                <!-- 3. 길쭉하고 세련된 하트 -->
-                                <path id="h3" d="M0,-45 C-20,-80 -35,-65 -35,-40 C-35,-15 0,5 0,5 C0,5 35,-15 35,-40 C35,-65 20,-80 0,-45 Z"/>
-                                <!-- 4. 살짝 비대칭적인 자연스러운 하트 -->
-                                <path id="h4" d="M0,-40 C-25,-60 -35,-45 -30,-25 C-25,-5 0,5 0,5 C0,5 45,-15 40,-45 C35,-75 15,-70 0,-40 Z"/>
-                                
-                                <!-- 나비 모양 템플릿 -->
-                                <g id="butterfly">
-                                    <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                    <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                </g>
-                            </defs>
-
                             <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
-                            <circle cx="100" cy="20" r="150" fill="#E8F5E9" opacity="0.5"/>
+                            <circle cx="100" cy="50" r="110" fill="#E8F5E9" opacity="0.5"/>
 
-                            <!-- 빛내림(God Rays) 코어 -->
-                            <circle cx="100" cy="-30" r="45" class="ray-core" fill="#FFFFFF" opacity="0.2"/>
-                            <circle cx="100" cy="-30" r="25" class="ray-core" fill="#FFFFFF" opacity="0.2" style="animation-delay: 1s;" />
-                            
                             <!-- 바닥과 풀 -->
-                            <path d="M -50 185 Q 100 195 250 185 L 250 230 L -50 230 Z" fill="#e8f5e9"/>
-                            <path d="M -50 185 Q 100 195 250 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M -10 185 Q 100 195 210 185 L 210 210 L -10 210 Z" fill="#e8f5e9"/>
+                            <path d="M -10 185 Q 100 195 210 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
                             <path d="M 20 186 L 18 182 M 23 186 L 25 182 M 175 186 L 173 182 M 180 186 L 182 182" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/>
 
-                            <!-- =========================
-                                 ★ 생명력 넘치는 거대한 나무 기둥 (애니메이션 그룹 시작) ★
-                            ========================= -->
-                            <g class="tree-alive">
-                                <!-- 기둥과 가지 -->
-                                <path d="M 30 186 C 60 186, 75 160, 85 120 C 90 90, 92 60, 92 40 L 108 40 C 108 60, 110 90, 115 120 C 125 160, 140 186, 170 186 Z" fill="#6D4C41" stroke="none"/>
-                                <path d="M 60 186 Q 70 160 85 140 Z" fill="#5D4037" stroke="none"/>
-                                <path d="M 140 186 Q 130 160 115 140 Z" fill="#5D4037" stroke="none"/>
-                                
-                                <g stroke="#6D4C41" fill="none" stroke-linecap="round">
-                                    <path d="M 92 110 Q 60 90 30 60" stroke-width="12"/>
-                                    <path d="M 60 80 Q 40 60 15 50" stroke-width="8"/>
-                                    <path d="M 45 70 Q 25 35 10 20" stroke-width="6"/>
-                                    <path d="M 95 70 Q 75 40 45 10" stroke-width="10"/>
-                                    <path d="M 70 40 Q 50 10 35 -10" stroke-width="7"/>
+                            <!-- 세계수 웅장한 기둥과 뿌리 -->
+                            <path d="M 65 186 Q 80 90 85 20 L 115 20 Q 120 90 135 186 Q 100 178 65 186 Z" fill="#5D4037"/>
+                            <path d="M 65 186 Q 40 192 25 187 Q 45 175 75 178 Z" fill="#3E2723"/>
+                            <path d="M 135 186 Q 160 192 175 187 Q 155 175 125 178 Z" fill="#3E2723"/>
+                            <path d="M 80 40 Q 75 130 70 180 M 120 40 Q 125 130 130 180 M 100 35 L 100 180" stroke="#3E2723" stroke-width="2.5" fill="none" opacity="0.7"/>
 
-                                    <path d="M 95 50 Q 80 10 70 -30" stroke-width="10"/>
-                                    <path d="M 105 50 Q 120 10 130 -30" stroke-width="10"/>
-                                    <path d="M 100 40 Q 100 0 100 -40" stroke-width="9"/>
-
-                                    <path d="M 108 110 Q 140 90 170 60" stroke-width="12"/>
-                                    <path d="M 140 80 Q 160 60 185 50" stroke-width="8"/>
-                                    <path d="M 155 70 Q 175 35 190 20" stroke-width="6"/>
-                                    <path d="M 105 70 Q 125 40 155 10" stroke-width="10"/>
-                                    <path d="M 130 40 Q 150 10 165 -10" stroke-width="7"/>
-                                </g>
-
-                                <circle cx="125" cy="80" r="14" fill="#8D6E63"/>
-
-                                <!-- =========================
-                                     ★ 겹침을 최소화하고 여백을 살린 4종류의 잎사귀 ★
-                                     각 잎사귀마다 살랑거리는 애니메이션(sway) 적용
-                                ========================= -->
-                                
-                                <!-- 뒤쪽 잎사귀 (크게) -->
-                                <g transform="translate(100, -30) scale(1.3) rotate(0)"><use href="#h1" class="sway-1" fill="url(#leafGrad3)"/></g>
-                                <g transform="translate(35, 10) scale(1.1) rotate(-30)"><use href="#h2" class="sway-2" fill="url(#leafGrad3)"/></g>
-                                <g transform="translate(165, 10) scale(1.1) rotate(30)"><use href="#h3" class="sway-3" fill="url(#leafGrad3)"/></g>
-                                
-                                <!-- 가지 중간 잎사귀 -->
-                                <g transform="translate(70, -10) scale(0.9) rotate(-15)"><use href="#h2" class="sway-3" fill="url(#leafGrad1)"/></g>
-                                <g transform="translate(130, -10) scale(0.9) rotate(15)"><use href="#h3" class="sway-1" fill="url(#leafGrad2)"/></g>
-                                <g transform="translate(15, 60) scale(0.85) rotate(-45)"><use href="#h1" class="sway-2" fill="url(#leafGrad4)"/></g>
-                                <g transform="translate(185, 60) scale(0.85) rotate(45)"><use href="#h4" class="sway-1" fill="url(#leafGrad4)"/></g>
-                                
-                                <!-- 가지 앞쪽 포인트 잎사귀 -->
-                                <g transform="translate(100, 20) scale(1.0) rotate(0)"><use href="#h4" class="sway-2" fill="url(#leafGrad2)"/></g>
-                                <g transform="translate(55, 45) scale(0.7) rotate(-20)"><use href="#h3" class="sway-1" fill="url(#leafGrad1)"/></g>
-                                <g transform="translate(145, 45) scale(0.7) rotate(20)"><use href="#h1" class="sway-3" fill="url(#leafGrad1)"/></g>
-                                
-                            </g> <!-- // 나무 그룹 끝 -->
+                            <!-- 짙은 초록빛의 웅장하고 거대한 나무 수관 -->
+                            <path d="M 10 95 Q -5 20 50 -10 Q 95 -50 145 -10 Q 200 20 190 95 Q 210 145 145 145 Q 100 155 55 145 Q -10 145 10 95 Z" fill="#2E7D32"/>
+                            <path d="M 25 90 Q 15 25 65 -5 Q 100 -35 140 -5 Q 185 25 175 90 Q 195 135 140 135 Q 100 145 60 135 Q 5 135 25 90 Z" fill="#388E3C"/>
+                            <path d="M 45 80 Q 40 30 80 5 Q 100 -20 120 5 Q 160 30 155 80 Q 170 115 125 115 Q 100 125 75 115 Q 30 115 45 80 Z" fill="#4CAF50" opacity="0.85"/>
 
                             <!-- =========================
-                                 ★ 은은하게 빛나는 빛줄기 (God Rays) ★
+                                 ★ 웅장하게 퍼지는 세계수 빛내림 (God Rays) ★
+                                 기본값을 #FFFFFF 로 박아둬서 까만색을 원천 차단했습니다!
                             ========================= -->
+                            <!-- 빛의 근원지 (코어) -->
+                            <circle cx="100" cy="-10" r="30" class="ray-core" fill="#FFFFFF" opacity="0.2"/>
+                            <circle cx="100" cy="-10" r="15" class="ray-core" fill="#FFFFFF" opacity="0.2" style="animation-delay: 1s;" />
+                            
+                            <!-- 부채꼴로 장엄하게 퍼지는 5개의 입체 빛줄기 -->
                             <g style="mix-blend-mode: overlay;">
-                                <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 90,-30 L -30,220 L 10,220 L 95,-30 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 95,-30 L 20,220 L 70,220 L 100,-30 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 98,-30 L 75,220 L 125,220 L 102,-30 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 105,-30 L 130,220 L 180,220 L 105,-30 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.05" d="M 110,-30 L 190,220 L 230,220 L 110,-30 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 90,-10 L -40,200 L 10,200 L 95,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 95,-10 L 20,200 L 70,200 L 100,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 98,-10 L 75,200 L 125,200 L 102,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 105,-10 L 130,200 L 180,200 L 105,-10 Z" />
+                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
                             </g>
 
-                            <!-- =========================
-                                 ★ 흩날리는 미니 잎사귀도 마음(하트) 모양! ★
-                            ========================= -->
+                            <!-- 흩날리는 초록 나뭇잎 -->
                             <g>
-                                <use href="#h1" class="float-leaf1" transform="translate(25, 105) scale(0.12)" fill="#81C784"/>
-                                <use href="#h2" class="float-leaf2" transform="translate(175, 90) scale(0.12)" fill="#A5D6A7"/>
-                                <use href="#h3" class="float-leaf3" transform="translate(160, 160) scale(0.12)" fill="#AED581"/>
-                                <use href="#h4" class="float-leaf4" transform="translate(40, 165) scale(0.12)" fill="#4CAF50"/>
+                                <path class="float-leaf1" d="M 25 75 Q 30 70 35 75 Q 30 80 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
+                                <path class="float-leaf2" d="M 175 60 Q 180 55 185 60 Q 180 65 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
+                                <path class="float-leaf3" d="M 160 140 Q 163 137 166 140 Q 163 143 160 140 Z" fill="#81C784" opacity="0.9"/>
+                                <path class="float-leaf4" d="M 40 135 Q 43 132 46 135 Q 43 138 40 135 Z" fill="#81C784" opacity="0.9"/>
                             </g>
 
                             <!-- =========================
                                  ★ CI 로고 모양 나비 10마리 ★
                             ========================= -->
-                            <g transform="translate(10, -10) rotate(-20)"><g class="bf-hover1"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings1"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/></g></g></g></g>
-                            <g transform="translate(180, -30) rotate(15)"><g class="bf-hover2"><g transform="scale(0.4)"><use href="#butterfly"/><g class="ci-wings2"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/></g></g></g></g>
-                            <g transform="translate(-10, 110) rotate(45)"><g class="bf-hover3"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings3"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#81D4FA"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#81D4FA"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#4FC3F7"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#4FC3F7"/></g></g></g></g>
-                            <g transform="translate(200, 80) rotate(-30)"><g class="bf-hover4"><g transform="scale(0.4)"><use href="#butterfly"/><g class="ci-wings1"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#A5D6A7"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#A5D6A7"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#81C784"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#81C784"/></g></g></g></g>
-                            <g transform="translate(0, 160) rotate(-10)"><g class="bf-hover1"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings2"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/></g></g></g></g>
-                            <g transform="translate(130, 160) rotate(-45)"><g class="bf-hover2"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings3"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/></g></g></g></g>
-                            <g transform="translate(75, 140) rotate(-15)"><g class="bf-hover3"><g transform="scale(0.4)"><use href="#butterfly"/><g class="ci-wings1"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/></g></g></g></g>
-                            <g transform="translate(100, -70) rotate(20)"><g class="bf-hover4"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings2"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#CE93D8"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#CE93D8"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#BA68C8"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#BA68C8"/></g></g></g></g>
-                            <g transform="translate(190, 170) rotate(-60)"><g class="bf-hover1"><g transform="scale(0.35)"><use href="#butterfly"/><g class="ci-wings3"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFB74D"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFB74D"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFA726"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFA726"/></g></g></g></g>
-                            <g transform="translate(90, 190) rotate(10)"><g class="bf-hover3"><g transform="scale(0.4)"><use href="#butterfly"/><g class="ci-wings1"><path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/><path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/><path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/><path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/></g></g></g></g>
+
+                            <!-- 1. 나비 (노랑) -->
+                            <g transform="translate(30, 20) rotate(-20)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 2. 나비 (분홍) -->
+                            <g transform="translate(160, 10) rotate(15)">
+                                <g class="bf-hover2">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 3. 나비 (하늘색) -->
+                            <g transform="translate(45, 90) rotate(45)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#81D4FA"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#81D4FA"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#4FC3F7"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#4FC3F7"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 4. 나비 (민트) -->
+                            <g transform="translate(180, 80) rotate(-30)">
+                                <g class="bf-hover4">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#A5D6A7"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#A5D6A7"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#81C784"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#81C784"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 5. 나비 (하양) -->
+                            <g transform="translate(20, 150) rotate(-10)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 6. 나비 (노랑) -->
+                            <g transform="translate(140, 140) rotate(-45)">
+                                <g class="bf-hover2">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 7. 나비 (분홍) -->
+                            <g transform="translate(85, 130) rotate(-15)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 8. 나비 (보라색) -->
+                            <g transform="translate(110, 80) rotate(20)">
+                                <g class="bf-hover4">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings2">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#CE93D8"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#CE93D8"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#BA68C8"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#BA68C8"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+
+                            <!-- 9. 나비 (주황색) -->
+                            <g transform="translate(185, 170) rotate(-60)">
+                                <g class="bf-hover1">
+                                    <g transform="scale(0.35)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings3">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFB74D"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFB74D"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFA726"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFA726"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
+                            
+                            <!-- 10. 나비 (하양) -->
+                            <g transform="translate(60, 160) rotate(10)">
+                                <g class="bf-hover3">
+                                    <g transform="scale(0.4)">
+                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                        <g class="ci-wings1">
+                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
+                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
+                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
+                                        </g>
+                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
+                                    </g>
+                                </g>
+                            </g>
 
                         </svg>
                     </div>
@@ -665,11 +836,31 @@
         <section class="partner-section">
             <div class="partner-inner">
                 <ul class="partner-list">
-                    <li><a href="https://www.ddc.go.kr/" target="_blank"><img src="ehdencjs.png" alt="동두천시청" style="max-height: 38px;"></a></li>
-                    <li><a href="https://blcoop.or.kr" target="_blank"><img src="blcoop.png" alt="블루링크사회적협동조합" style="max-height: 38px;"></a></li>
-                    <li><a href="https://www.gavrd.kr/gavrd/" target="_blank"><img src="rudwlrguq.png" alt="경기도장애인직업재활시설협회" style="max-height: 38px;"></a></li>
-                    <li><a href="https://www.kead.or.kr/" target="_blank"><img src="rhdydrhdeks.png" alt="한국장애인고용공단" style="max-height: 38px;"></a></li>
-                    <li><a href="https://ggnaapd.or.kr/" target="_blank"><img src="rnjsdlr.png" alt="경기북부장애인권익옹호기관" style="max-height: 38px;"></a></li>
+                    <li>
+                        <a href="https://www.ddc.go.kr/" target="_blank">
+                            <img src="ehdencjs.png" alt="동두천시청" style="max-height: 38px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://blcoop.or.kr" target="_blank">
+                            <img src="blcoop.png" alt="블루링크사회적협동조합" style="max-height: 38px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.gavrd.kr/gavrd/" target="_blank">
+                            <img src="rudwlrguq.png" alt="경기도장애인직업재활시설협회" style="max-height: 38px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.kead.or.kr/" target="_blank">
+                            <img src="rhdydrhdeks.png" alt="한국장애인고용공단" style="max-height: 38px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://ggnaapd.or.kr/" target="_blank">
+                            <img src="rnjsdlr.png" alt="경기북부장애인권익옹호기관" style="max-height: 38px;">
+                        </a>
+                    </li>
                 </ul>
             </div>
         </section>
