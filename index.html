@@ -338,19 +338,31 @@
         }
 
         /* =========================
-           ★ CSS 애니메이션 효과 ★
+           ★ 웅장하고 신비로운 세계수 빛내림 (God Rays) CSS ★
         ========================= */
         
-        /* 하얀 빛 <-> 노란 빛 변환 및 일렁임 */
+        .ray-core { 
+            animation: corePulse 4s infinite alternate ease-in-out; 
+            transform-origin: 100px -10px; 
+        }
+        @keyframes corePulse {
+            0% { transform: scale(0.8); opacity: 0.2; fill: #FFFFFF; }
+            100% { transform: scale(1.2); opacity: 0.6; fill: #FFF59D; }
+        }
+
         .ray { 
             animation: shine 4s infinite alternate ease-in-out; 
-            transform-origin: top; 
+            transform-origin: 100px -10px; 
         }
-        .ray:nth-child(2) { animation-delay: 1.5s; }
+        .ray:nth-child(1) { animation-duration: 4.5s; }
+        .ray:nth-child(2) { animation-duration: 5s; animation-delay: 1.5s; }
+        .ray:nth-child(3) { animation-duration: 3.5s; animation-delay: 0.5s; }
+        .ray:nth-child(4) { animation-duration: 6s; animation-delay: 2.5s; }
+        .ray:nth-child(5) { animation-duration: 5.5s; animation-delay: 1s; }
         
         @keyframes shine { 
-            0% { opacity: 0.05; fill: #FFFFFF; }
-            100% { opacity: 0.35; fill: #FFF176; }
+            0% { opacity: 0.02; fill: #FFFFFF; transform: scale(0.95) rotate(-1.5deg); }
+            100% { opacity: 0.35; fill: #FFF176; transform: scale(1.05) rotate(1.5deg); }
         }
 
         /* 흩날리는 나뭇잎 */
@@ -390,7 +402,7 @@
             100% { transform: translate(20px, 10px); }
         }
 
-        /* ★ CI 나비 날갯짓 (Top-down view라 가로 크기가 줄어들며 파닥이는 효과, 속도 1초 내외로 우아하게) ★ */
+        /* ★ CI 나비 날갯짓 ★ */
         .ci-wings1 { animation: flap 0.8s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .ci-wings2 { animation: flap 1.0s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
         .ci-wings3 { animation: flap 1.2s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
@@ -621,9 +633,21 @@
                             <path d="M 25 90 Q 15 25 65 -5 Q 100 -35 140 -5 Q 185 25 175 90 Q 195 135 140 135 Q 100 145 60 135 Q 5 135 25 90 Z" fill="#388E3C"/>
                             <path d="M 45 80 Q 40 30 80 5 Q 100 -20 120 5 Q 160 30 155 80 Q 170 115 125 115 Q 100 125 75 115 Q 30 115 45 80 Z" fill="#4CAF50" opacity="0.85"/>
 
-                            <!-- 나뭇잎 사이로 스며드는 신비로운 빛내림 -->
-                            <path class="ray" d="M 60 -10 L 20 185 L 40 185 L 85 -10 Z" />
-                            <path class="ray" d="M 120 -20 L 90 185 L 115 185 L 145 -20 Z" />
+                            <!-- =========================
+                                 ★ 웅장하게 퍼지는 세계수 빛내림 (God Rays) ★
+                            ========================= -->
+                            <!-- 빛의 근원지 (코어) -->
+                            <circle cx="100" cy="-10" r="30" class="ray-core" />
+                            <circle cx="100" cy="-10" r="15" class="ray-core" style="animation-delay: 1s;" />
+                            
+                            <!-- 부채꼴로 장엄하게 퍼지는 5개의 입체 빛줄기 -->
+                            <g style="mix-blend-mode: overlay;">
+                                <path class="ray" d="M 90,-10 L -40,200 L 10,200 L 95,-10 Z" />
+                                <path class="ray" d="M 95,-10 L 20,200 L 70,200 L 100,-10 Z" />
+                                <path class="ray" d="M 98,-10 L 75,200 L 125,200 L 102,-10 Z" />
+                                <path class="ray" d="M 105,-10 L 130,200 L 180,200 L 105,-10 Z" />
+                                <path class="ray" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
+                            </g>
 
                             <!-- 흩날리는 초록 나뭇잎 -->
                             <g>
@@ -635,24 +659,19 @@
 
                             <!-- =========================
                                  ★ CI 로고 모양 나비 10마리 ★
-                                 아주 작게 (scale 0.35~0.4), 다양한 색상, 방향 조절, 느린 파닥임
                             ========================= -->
 
-                            <!-- 1. 나비 (노랑, CI 원본 컬러) -->
+                            <!-- 1. 나비 (노랑) -->
                             <g transform="translate(30, 20) rotate(-20)">
                                 <g class="bf-hover1">
                                     <g transform="scale(0.35)">
-                                        <!-- 더듬이 -->
                                         <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                                         <g class="ci-wings1">
-                                            <!-- 윗날개 -->
                                             <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
                                             <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
-                                            <!-- 아랫날개 -->
                                             <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
                                             <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
                                         </g>
-                                        <!-- 몸통 -->
                                         <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
                                     </g>
                                 </g>
