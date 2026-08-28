@@ -110,15 +110,8 @@
         }
 
         @keyframes neonGlow {
-            0% {
-                text-shadow: 0 0 2px rgba(120, 169, 79, 0.1),
-                             0 0 5px rgba(120, 169, 79, 0.1);
-            }
-            100% {
-                text-shadow: 0 0 5px rgba(124, 179, 66, 0.5),
-                             0 0 12px rgba(124, 179, 66, 0.3),
-                             0 0 20px rgba(124, 179, 66, 0.2);
-            }
+            0% { text-shadow: 0 0 2px rgba(120, 169, 79, 0.1), 0 0 5px rgba(120, 169, 79, 0.1); }
+            100% { text-shadow: 0 0 5px rgba(124, 179, 66, 0.5), 0 0 12px rgba(124, 179, 66, 0.3), 0 0 20px rgba(124, 179, 66, 0.2); }
         }
 
         /* =========================
@@ -173,20 +166,14 @@
             top: 90px;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
-
             width: 190px;
-
             background: #ffffff;
             border: 1px solid #e4ebe4;
             border-radius: 0 0 10px 10px;
-
             padding: 12px 0;
-
             opacity: 0;
             visibility: hidden;
-
             transition: 0.25s;
-
             box-shadow: 0 12px 30px rgba(49, 83, 45, 0.10);
         }
 
@@ -199,10 +186,8 @@
         .submenu li a {
             display: block;
             padding: 10px 20px;
-
             font-size: 14px;
             color: #555;
-
             transition: 0.2s;
         }
 
@@ -222,40 +207,17 @@
         }
 
         /* =========================
-           메인 비주얼 (Hero)
+           ★ 메인 비주얼 (Hero) ★
+           따뜻한 아이보리-그린 그라데이션으로 감성적인 배경
         ========================= */
 
         .hero {
             flex: 1; 
             position: relative;
             overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 80% 25%,
-                    rgba(174, 211, 126, 0.28),
-                    transparent 28%
-                ),
-                linear-gradient(
-                    135deg,
-                    #f5faef 0%,
-                    #ffffff 55%,
-                    #edf6e8 100%
-                );
-
+            background: radial-gradient(circle at 70% 30%, #fdfbf2 0%, #edf6e8 60%, #e0ebd9 100%);
             display: flex;
             align-items: center;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            border-radius: 50%;
-            background: rgba(151, 193, 105, 0.08);
-            right: -80px;
-            bottom: -150px;
         }
 
         .hero-inner {
@@ -263,10 +225,8 @@
             width: 100%;
             margin: 0 auto;
             padding: 0 25px;
-
             position: relative;
             z-index: 2;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -274,6 +234,7 @@
 
         .hero-text {
             max-width: 650px;
+            z-index: 10;
         }
 
         .hero h1 {
@@ -290,30 +251,12 @@
 
         /* 오른쪽 장식 영역 */
         .hero-decoration {
-            width: 400px; 
-            height: 450px;
+            width: 600px; 
+            height: 600px; 
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .circle {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: rgba(146, 190, 103, 0.14);
-            position: absolute;
-        }
-
-        .circle-small {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: rgba(221, 187, 72, 0.12);
-            position: absolute;
-            top: 20px;
-            right: 20px;
         }
 
         /* 나무 일러스트 그룹 영역 */
@@ -323,95 +266,86 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 20px 30px rgba(30, 70, 20, 0.2));
-            transition: transform 0.4s ease;
-            margin-top: 10px; 
-        }
-
-        .tree-symbol:hover {
-            transform: translateY(-5px) scale(1.02);
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 15px 25px rgba(46, 125, 50, 0.15));
         }
 
         .tree-symbol svg {
-            width: 460px; 
-            height: auto;
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* 도화지 밖으로 나가는 요소 허용 */
         }
 
         /* =========================
-           ★ 웅장하고 신비로운 세계수 빛내림 (God Rays) CSS ★
+           ★ 웅장하고 따뜻한 빛내림 & 배경 광원 CSS ★
         ========================= */
         
-        .ray-core { 
-            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
-            animation: corePulse 4s infinite alternate ease-in-out; 
-            transform-origin: 100px -10px; 
+        .sun-glow {
+            animation: pulseSun 4s infinite alternate ease-in-out;
+            transform-origin: 200px 100px;
         }
-        @keyframes corePulse {
-            0% { transform: scale(0.8); opacity: 0.2; fill: #FFFFFF; }
-            100% { transform: scale(1.2); opacity: 0.6; fill: #FFF59D; }
+        @keyframes pulseSun {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .ray { 
-            fill: #FFFFFF; /* 기본값 강제 지정 (까만색 방지) */
-            animation: shine 4s infinite alternate ease-in-out; 
-            transform-origin: 100px -10px; 
+            fill: #FFFFFF;
+            animation: shineRays 5s infinite alternate ease-in-out; 
+            transform-origin: 200px 100px; 
         }
-        .ray:nth-child(1) { animation-duration: 4.5s; }
-        .ray:nth-child(2) { animation-duration: 5s; animation-delay: 1.5s; }
-        .ray:nth-child(3) { animation-duration: 3.5s; animation-delay: 0.5s; }
-        .ray:nth-child(4) { animation-duration: 6s; animation-delay: 2.5s; }
-        .ray:nth-child(5) { animation-duration: 5.5s; animation-delay: 1s; }
+        .ray:nth-child(even) { animation-duration: 6s; animation-delay: 1s; }
         
-        @keyframes shine { 
-            0% { opacity: 0.02; fill: #FFFFFF; transform: scale(0.95) rotate(-1.5deg); }
-            100% { opacity: 0.35; fill: #FFF176; transform: scale(1.05) rotate(1.5deg); }
+        @keyframes shineRays { 
+            0% { opacity: 0.05; transform: scale(0.98) rotate(-1deg); }
+            100% { opacity: 0.3; transform: scale(1.02) rotate(1deg); }
         }
 
-        /* 흩날리는 나뭇잎 */
-        .float-leaf1 { animation: leafFloat1 4s infinite ease-in-out alternate; }
-        .float-leaf2 { animation: leafFloat2 5s infinite ease-in-out alternate; }
-        .float-leaf3 { animation: leafFloat1 4.5s infinite ease-in-out alternate-reverse; }
-        .float-leaf4 { animation: leafFloat2 3.5s infinite ease-in-out alternate-reverse; }
-        @keyframes leafFloat1 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(4px, -6px) rotate(15deg); }
+        /* =========================
+           ★ 톱니바퀴 회전 애니메이션 ★
+        ========================= */
+        .gear-spin {
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: spinGear 10s linear infinite;
         }
-        @keyframes leafFloat2 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-5px, -5px) rotate(-15deg); }
+        .gear-spin-reverse {
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: spinGearRev 12s linear infinite;
         }
+        @keyframes spinGear { 100% { transform: rotate(360deg); } }
+        @keyframes spinGearRev { 100% { transform: rotate(-360deg); } }
 
-        /* ★ CI 나비 공중 이동(호버링) 애니메이션 ★ */
-        .bf-hover1 { animation: bfHover1 5s infinite alternate ease-in-out; }
-        .bf-hover2 { animation: bfHover2 6s infinite alternate ease-in-out; }
-        .bf-hover3 { animation: bfHover3 4.5s infinite alternate ease-in-out; }
-        .bf-hover4 { animation: bfHover4 5.5s infinite alternate ease-in-out; }
-
-        @keyframes bfHover1 {
-            0% { transform: translate(0px, 0px); }
-            100% { transform: translate(15px, -15px); }
-        }
-        @keyframes bfHover2 {
-            0% { transform: translate(0px, 0px); }
-            100% { transform: translate(-15px, -10px); }
-        }
-        @keyframes bfHover3 {
-            0% { transform: translate(0px, 0px); }
-            100% { transform: translate(-10px, 15px); }
-        }
-        @keyframes bfHover4 {
-            0% { transform: translate(0px, 0px); }
-            100% { transform: translate(20px, 10px); }
-        }
-
-        /* ★ CI 나비 날갯짓 ★ */
-        .ci-wings1 { animation: flap 0.8s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
-        .ci-wings2 { animation: flap 1.0s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
-        .ci-wings3 { animation: flap 1.2s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
+        /* =========================
+           ★ 나뭇잎(하트) 살랑이는 효과 ★
+        ========================= */
+        .sway-1 { animation: sway1 4s infinite alternate ease-in-out; transform-origin: center bottom; transform-box: fill-box; }
+        .sway-2 { animation: sway2 5s infinite alternate ease-in-out; transform-origin: center bottom; transform-box: fill-box; }
         
-        @keyframes flap {
-            0% { transform: scaleX(1); }
-            100% { transform: scaleX(0.2); }
+        @keyframes sway1 { 0% { transform: rotate(-3deg); } 100% { transform: rotate(4deg); } }
+        @keyframes sway2 { 0% { transform: rotate(3deg); } 100% { transform: rotate(-2deg); } }
+
+        /* =========================
+           ★ 나비 날갯짓 & 호버링 효과 ★
+        ========================= */
+        .bf-wing { animation: flapWings 0.6s infinite alternate ease-in-out; transform-origin: center; transform-box: fill-box; }
+        @keyframes flapWings { 0% { transform: scaleX(1); } 100% { transform: scaleX(0.2); } }
+
+        .bf-float1 { animation: hover1 4s infinite alternate ease-in-out; }
+        .bf-float2 { animation: hover2 5s infinite alternate ease-in-out; }
+        @keyframes hover1 { 0% { transform: translateY(0px); } 100% { transform: translateY(-10px); } }
+        @keyframes hover2 { 0% { transform: translateY(0px); } 100% { transform: translateY(10px); } }
+
+        /* 점선(비행 궤적) 애니메이션 흐름 효과 */
+        .dashed-path {
+            stroke-dasharray: 6 6;
+            animation: dashMove 20s linear infinite;
+        }
+        @keyframes dashMove {
+            from { stroke-dashoffset: 200; }
+            to { stroke-dashoffset: 0; }
         }
 
         /* =========================
@@ -424,89 +358,26 @@
             border-top: 1px solid #e8eee8;
         }
 
-        .partner-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .partner-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .partner-list li {
-            flex: 1;
-            min-width: 200px;
-            max-width: 220px;
-        }
-
-        .partner-list li a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 90px; 
-            border: 1px solid #d1d8e0;
-            background: #fff;
-            padding: 15px;
-            transition: 0.3s;
-        }
-
-        .partner-list li a:hover {
-            border-color: #5d914d;
-            box-shadow: 0 4px 15px rgba(93, 145, 77, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .partner-list li a img {
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-        }
+        .partner-inner { max-width: 1200px; margin: 0 auto; }
+        .partner-list { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center; }
+        .partner-list li { flex: 1; min-width: 200px; max-width: 220px; }
+        .partner-list li a { display: flex; align-items: center; justify-content: center; height: 90px; border: 1px solid #d1d8e0; background: #fff; padding: 15px; transition: 0.3s; }
+        .partner-list li a:hover { border-color: #5d914d; box-shadow: 0 4px 15px rgba(93, 145, 77, 0.15); transform: translateY(-2px); }
+        .partner-list li a img { width: auto; max-width: 100%; object-fit: contain; }
 
         /* =========================
            하단 문의
         ========================= */
+        .contact-section { flex-shrink: 0; padding: 15px 25px; background: #527d45; color: #ffffff; }
+        .contact-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-end; }
+        .contact-info { text-align: right; font-size: 13px; line-height: 1.5; opacity: 0.95; word-break: keep-all; }
+        .contact-info span { margin: 0 10px; opacity: 0.5; }
 
-        .contact-section {
-            flex-shrink: 0; 
-            padding: 15px 25px; 
-            background: #527d45;
-            color: #ffffff;
-        }
-
-        .contact-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column; 
-            align-items: flex-end;
-        }
-
-        .contact-info {
-            text-align: right;
-            font-size: 13px;
-            line-height: 1.5;
-            opacity: 0.95;
-            word-break: keep-all;
-        }
-
-        .contact-info span {
-            margin: 0 10px;
-            opacity: 0.5;
-        }
-
-        /* =========================
-           모바일
-        ========================= */
-
+        /* 모바일 대응 */
         @media (max-width: 900px) {
             html, body { overflow: auto; }
             body { height: auto; display: block; }
             main { display: block; }
-
             .logo img { width: 60px; height: 60px; }
             .logo-title { font-size: 20px; }
             .submenu { top: 75px; }
@@ -514,25 +385,18 @@
             .hero-inner { padding: 60px 25px; }
             .hero h1 { font-size: 40px; }
         }
-
         @media (max-width: 700px) {
             .header-inner { padding: 0 15px; }
             .main-menu { gap: 4px; }
             .main-menu > li > a { padding: 5px 10px; font-size: 12px; border-width: 1px; }
-
             .hero-inner { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 34px; letter-spacing: -2px; }
-            
-            .hero-decoration { margin-top: 35px; width: 240px; height: 200px; }
-            .circle { width: 200px; height: 200px; }
-            .circle-small { width: 120px; height: 120px; }
-            .tree-symbol svg { width: 340px; }
-
+            .hero-decoration { margin-top: 35px; width: 300px; height: 300px; }
+            .tree-symbol svg { width: 400px; }
             .contact-inner { align-items: center; }
             .contact-info { text-align: center; }
             .contact-info span { display: none; } 
             .contact-info div { margin-bottom: 3px; }
-            
             .partner-list li { min-width: 45%; }
             .partner-list li a { height: 75px; } 
         }
@@ -556,8 +420,7 @@
 
             <nav>
                 <ul class="main-menu">
-                    <li>
-                        <a href="intro.html">법인</a>
+                    <li><a href="intro.html">법인</a>
                         <ul class="submenu">
                             <li><a href="intro.html">인사말</a></li>
                             <li><a href="policy.html">법인운영방침</a></li>
@@ -566,8 +429,7 @@
                             <li><a href="location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="facility_greeting.html">조우직업재활시설</a>
+                    <li><a href="facility_greeting.html">조우직업재활시설</a>
                         <ul class="submenu">
                             <li><a href="facility_greeting.html">인사말</a></li>
                             <li><a href="facility_vision.html">미션과 비전</a></li>
@@ -578,8 +440,7 @@
                             <li><a href="facility_location.html">오시는 길</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
+                    <li><a href="https://cafe.naver.com/jou9111" target="_blank">소통공간</a>
                         <ul class="submenu">
                             <li><a href="https://cafe.naver.com/jou9111" target="_blank">공지사항 (카페)</a></li>
                             <li><a href="https://cafe.naver.com/jou9111" target="_blank">일상 (카페)</a></li>
@@ -609,220 +470,152 @@
                 </div>
 
                 <div class="hero-decoration">
-                    <div class="circle"></div>
-                    <div class="circle-small"></div>
-                    
                     <div class="tree-symbol">
-                        <!-- 세로로 긴 거대한 세계수 & CI 나비 -->
-                        <svg viewBox="0 -40 200 240" xmlns="http://www.w3.org/2000/svg">
+                        
+                        <!-- ★ 제공해주신 CI/일러스트 기반 완벽 구현 SVG ★ -->
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                             
-                            <!-- 나무 뒤 부드러운 빛 은은한 효과 -->
-                            <circle cx="100" cy="50" r="110" fill="#E8F5E9" opacity="0.5"/>
+                            <!-- 그라데이션 및 재사용 그래픽 정의 -->
+                            <defs>
+                                <!-- 따뜻한 나뭇잎 그라데이션 (밝은 잎) -->
+                                <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#9CCC65"/><stop offset="100%" stop-color="#558B2F"/>
+                                </linearGradient>
+                                <!-- 깊이감 있는 나뭇잎 그라데이션 (어두운 잎) -->
+                                <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#7CB342"/><stop offset="100%" stop-color="#33691E"/>
+                                </linearGradient>
+                                
+                                <!-- 완벽한 대칭 하트(마음) 잎사귀 Path (중심 하단 기준) -->
+                                <path id="heart-leaf" d="M 0,0 C -25,-10 -40,-35 -30,-55 C -20,-75 0,-60 0,-40 C 0,-60 20,-75 30,-55 C 40,-35 25,-10 0,0 Z" />
 
-                            <!-- 바닥과 풀 -->
-                            <path d="M -10 185 Q 100 195 210 185 L 210 210 L -10 210 Z" fill="#e8f5e9"/>
-                            <path d="M -10 185 Q 100 195 210 185" fill="none" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M 20 186 L 18 182 M 23 186 L 25 182 M 175 186 L 173 182 M 180 186 L 182 182" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/>
+                                <!-- 톱니바퀴(기어) 패턴 -->
+                                <g id="gear-shape">
+                                    <circle cx="0" cy="0" r="14" fill="none" stroke="#7CB342" stroke-width="4"/>
+                                    <circle cx="0" cy="0" r="18" fill="none" stroke="#7CB342" stroke-width="3" stroke-dasharray="4 6"/>
+                                </g>
 
-                            <!-- 세계수 웅장한 기둥과 뿌리 -->
-                            <path d="M 65 186 Q 80 90 85 20 L 115 20 Q 120 90 135 186 Q 100 178 65 186 Z" fill="#5D4037"/>
-                            <path d="M 65 186 Q 40 192 25 187 Q 45 175 75 178 Z" fill="#3E2723"/>
-                            <path d="M 135 186 Q 160 192 175 187 Q 155 175 125 178 Z" fill="#3E2723"/>
-                            <path d="M 80 40 Q 75 130 70 180 M 120 40 Q 125 130 130 180 M 100 35 L 100 180" stroke="#3E2723" stroke-width="2.5" fill="none" opacity="0.7"/>
-
-                            <!-- 짙은 초록빛의 웅장하고 거대한 나무 수관 -->
-                            <path d="M 10 95 Q -5 20 50 -10 Q 95 -50 145 -10 Q 200 20 190 95 Q 210 145 145 145 Q 100 155 55 145 Q -10 145 10 95 Z" fill="#2E7D32"/>
-                            <path d="M 25 90 Q 15 25 65 -5 Q 100 -35 140 -5 Q 185 25 175 90 Q 195 135 140 135 Q 100 145 60 135 Q 5 135 25 90 Z" fill="#388E3C"/>
-                            <path d="M 45 80 Q 40 30 80 5 Q 100 -20 120 5 Q 160 30 155 80 Q 170 115 125 115 Q 100 125 75 115 Q 30 115 45 80 Z" fill="#4CAF50" opacity="0.85"/>
+                                <!-- 노란 나비 템플릿 -->
+                                <g id="butterfly">
+                                    <path d="M 0,0 C -15,-10 -25,5 -5,10 C 0,12 0,5 0,0 Z" fill="#FFCA28"/>
+                                    <path d="M 0,0 C 15,-10 25,5 5,10 C 0,12 0,5 0,0 Z" fill="#FFCA28"/>
+                                    <path d="M -2,8 C -10,12 -10,20 -3,15 C 0,13 0,10 -2,8 Z" fill="#FFA000"/>
+                                    <path d="M 2,8 C 10,12 10,20 3,15 C 0,13 0,10 2,8 Z" fill="#FFA000"/>
+                                    <!-- 나비 몸통 -->
+                                    <ellipse cx="0" cy="6" rx="2" ry="6" fill="#8D6E63"/>
+                                </g>
+                            </defs>
 
                             <!-- =========================
-                                 ★ 웅장하게 퍼지는 세계수 빛내림 (God Rays) ★
-                                 기본값을 #FFFFFF 로 박아둬서 까만색을 원천 차단했습니다!
+                                 ★ 태양빛 (Sun Glow & God Rays) ★
                             ========================= -->
-                            <!-- 빛의 근원지 (코어) -->
-                            <circle cx="100" cy="-10" r="30" class="ray-core" fill="#FFFFFF" opacity="0.2"/>
-                            <circle cx="100" cy="-10" r="15" class="ray-core" fill="#FFFFFF" opacity="0.2" style="animation-delay: 1s;" />
-                            
-                            <!-- 부채꼴로 장엄하게 퍼지는 5개의 입체 빛줄기 -->
-                            <g style="mix-blend-mode: overlay;">
-                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 90,-10 L -40,200 L 10,200 L 95,-10 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 95,-10 L 20,200 L 70,200 L 100,-10 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 98,-10 L 75,200 L 125,200 L 102,-10 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 105,-10 L 130,200 L 180,200 L 105,-10 Z" />
-                                <path class="ray" fill="#FFFFFF" opacity="0.02" d="M 110,-10 L 190,200 L 240,200 L 110,-10 Z" />
-                            </g>
-
-                            <!-- 흩날리는 초록 나뭇잎 -->
+                            <circle cx="200" cy="100" r="80" fill="#FFF9C4" opacity="0.6" filter="blur(8px)" class="sun-glow"/>
                             <g>
-                                <path class="float-leaf1" d="M 25 75 Q 30 70 35 75 Q 30 80 25 75 Z" fill="#A5D6A7" opacity="0.8"/>
-                                <path class="float-leaf2" d="M 175 60 Q 180 55 185 60 Q 180 65 175 60 Z" fill="#A5D6A7" opacity="0.8"/>
-                                <path class="float-leaf3" d="M 160 140 Q 163 137 166 140 Q 163 143 160 140 Z" fill="#81C784" opacity="0.9"/>
-                                <path class="float-leaf4" d="M 40 135 Q 43 132 46 135 Q 43 138 40 135 Z" fill="#81C784" opacity="0.9"/>
+                                <polygon points="200,100 0,0 50,0" class="ray" />
+                                <polygon points="200,100 150,0 250,0" class="ray" />
+                                <polygon points="200,100 400,50 400,150" class="ray" />
+                                <polygon points="200,100 0,300 50,400" class="ray" />
+                                <polygon points="200,100 350,400 400,300" class="ray" />
                             </g>
 
                             <!-- =========================
-                                 ★ CI 로고 모양 나비 10마리 ★
+                                 ★ 대지와 잔디 ★
                             ========================= -->
+                            <path d="M -50 360 Q 200 330 450 360 L 450 450 L -50 450 Z" fill="#AED581" opacity="0.5"/>
+                            <path d="M -50 380 Q 200 350 450 380" fill="none" stroke="#AED581" stroke-width="4"/>
 
-                            <!-- 1. 나비 (노랑) -->
-                            <g transform="translate(30, 20) rotate(-20)">
-                                <g class="bf-hover1">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings1">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
+                            <!-- =========================
+                                 ★ 톱니바퀴 (기어) & 손 디테일 ★
+                                 (원하는 이미지 하단의 직업재활 상징)
+                            ========================= -->
+                            <!-- 좌측 기어 그룹 -->
+                            <g transform="translate(130, 340)">
+                                <use href="#gear-shape" class="gear-spin"/>
+                                <!-- 기어 안의 미니 하트 -->
+                                <path d="M 0,3 C -5,0 -8,-4 -5,-7 C -2,-10 0,-6 0,-4 C 0,-6 2,-10 5,-7 C 8,-4 5,0 0,3 Z" fill="#8BC34A"/>
+                            </g>
+                            <g transform="translate(100, 360) scale(0.7)">
+                                <use href="#gear-shape" class="gear-spin-reverse"/>
+                            </g>
+                            <g transform="translate(155, 365) scale(0.6)">
+                                <use href="#gear-shape" class="gear-spin-reverse"/>
+                            </g>
+                            <!-- 바닥의 아주 작은 미니 하트 -->
+                            <path d="M 175,370 C 170,367 167,363 170,360 C 173,357 175,361 175,363 C 175,361 177,357 180,360 C 183,363 180,367 175,370 Z" fill="#7CB342"/>
+
+                            <!-- 우측 기어 & 손 그룹 -->
+                            <g transform="translate(270, 325)">
+                                <use href="#gear-shape" class="gear-spin"/>
+                            </g>
+                            <g transform="translate(245, 345) scale(0.7)">
+                                <use href="#gear-shape" class="gear-spin-reverse"/>
+                            </g>
+                            <g transform="translate(295, 345) scale(0.6)">
+                                <use href="#gear-shape" class="gear-spin-reverse"/>
+                            </g>
+                            <!-- 톱니바퀴를 받치는 손 (단순화된 실루엣) -->
+                            <path d="M 245,365 C 235,365 230,355 240,350 C 250,345 260,355 270,355 C 280,355 290,345 300,350 C 310,355 305,365 295,365 C 285,365 270,375 270,375 C 270,375 255,365 245,365 Z" fill="#795548"/>
+
+                            <!-- =========================
+                                 ★ 나무 기둥 & 가지 (우아한 곡선) ★
+                            ========================= -->
+                            <g fill="none" stroke-linecap="round">
+                                <!-- 굵은 메인 기둥 -->
+                                <path d="M 180 380 Q 200 280 200 180" stroke="#5D4037" stroke-width="16"/>
+                                <path d="M 220 380 Q 200 280 200 180" stroke="#5D4037" stroke-width="16"/>
+                                <path d="M 180 380 L 220 380 L 200 180 Z" fill="#5D4037" stroke="none"/>
+                                
+                                <!-- 좌측으로 뻗은 가지 -->
+                                <path d="M 198 250 Q 150 220 110 200" stroke="#5D4037" stroke-width="10"/>
+                                <path d="M 140 215 Q 120 230 90 235" stroke="#5D4037" stroke-width="6"/>
+                                <path d="M 198 180 Q 160 140 120 120" stroke="#5D4037" stroke-width="8"/>
+                                
+                                <!-- 우측으로 뻗은 가지 -->
+                                <path d="M 202 230 Q 250 190 280 150" stroke="#5D4037" stroke-width="10"/>
+                                <path d="M 245 185 Q 280 195 310 195" stroke="#5D4037" stroke-width="6"/>
                             </g>
 
-                            <!-- 2. 나비 (분홍) -->
-                            <g transform="translate(160, 10) rotate(15)">
-                                <g class="bf-hover2">
-                                    <g transform="scale(0.4)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings2">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- CI 포인트! 갈색 동그란 열매 -->
+                            <circle cx="230" cy="210" r="20" fill="#8D6E63"/>
 
-                            <!-- 3. 나비 (하늘색) -->
-                            <g transform="translate(45, 90) rotate(45)">
-                                <g class="bf-hover3">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings3">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#81D4FA"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#81D4FA"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#4FC3F7"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#4FC3F7"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- =========================
+                                 ★ 하트(마음) 잎사귀 5개 배치 ★
+                                 (원하는 이미지처럼 크고 여백 있게)
+                            ========================= -->
+                            <!-- 우측 끝 하트 -->
+                            <g transform="translate(300, 160) scale(1.1) rotate(45)"><use href="#heart-leaf" class="sway-1" fill="url(#leafGrad1)"/></g>
+                            <!-- 좌측 아래 작은 하트 -->
+                            <g transform="translate(150, 260) scale(0.6) rotate(-20)"><use href="#heart-leaf" class="sway-2" fill="url(#leafGrad2)"/></g>
+                            <!-- 좌측 끝 하트 -->
+                            <g transform="translate(100, 200) scale(1.1) rotate(-45)"><use href="#heart-leaf" class="sway-1" fill="url(#leafGrad2)"/></g>
+                            <!-- 좌측 위 하트 -->
+                            <g transform="translate(140, 140) scale(1.3) rotate(-15)"><use href="#heart-leaf" class="sway-2" fill="url(#leafGrad1)"/></g>
+                            <!-- 중앙 최상단 대형 하트 -->
+                            <g transform="translate(200, 130) scale(1.6) rotate(5)"><use href="#heart-leaf" class="sway-1" fill="url(#leafGrad1)"/></g>
+                            <!-- 우측 틈새 작은 하트 -->
+                            <g transform="translate(240, 160) scale(0.4) rotate(15)"><use href="#heart-leaf" class="sway-2" fill="url(#leafGrad1)"/></g>
 
-                            <!-- 4. 나비 (민트) -->
-                            <g transform="translate(180, 80) rotate(-30)">
-                                <g class="bf-hover4">
-                                    <g transform="scale(0.4)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings1">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#A5D6A7"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#A5D6A7"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#81C784"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#81C784"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- =========================
+                                 ★ 날아다니는 점선 궤적 & 노란 나비 ★
+                            ========================= -->
+                            <!-- 좌측 하단 점선 및 나비 -->
+                            <path d="M 40,280 Q 20,250 40,220 T 90,270" fill="none" stroke="#9E9E9E" stroke-width="1.5" class="dashed-path"/>
+                            <g transform="translate(90, 270) rotate(-45)"><g class="bf-float1"><g transform="scale(0.8)"><use href="#butterfly" class="bf-wing"/></g></g></g>
 
-                            <!-- 5. 나비 (하양) -->
-                            <g transform="translate(20, 150) rotate(-10)">
-                                <g class="bf-hover1">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings2">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- 중앙 상단 점선 및 나비 (작은 나비 추가) -->
+                            <path d="M 230,120 Q 250,100 270,110 T 320,80" fill="none" stroke="#9E9E9E" stroke-width="1.5" class="dashed-path"/>
+                            <g transform="translate(230, 120) rotate(-20)"><g class="bf-float2"><g transform="scale(0.4)"><use href="#butterfly" class="bf-wing"/></g></g></g>
 
-                            <!-- 6. 나비 (노랑) -->
-                            <g transform="translate(140, 140) rotate(-45)">
-                                <g class="bf-hover2">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings3">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFCA28"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFCA28"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFB300"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFB300"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 7. 나비 (분홍) -->
-                            <g transform="translate(85, 130) rotate(-15)">
-                                <g class="bf-hover3">
-                                    <g transform="scale(0.4)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings1">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#F48FB1"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#F48FB1"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#F06292"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#F06292"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 8. 나비 (보라색) -->
-                            <g transform="translate(110, 80) rotate(20)">
-                                <g class="bf-hover4">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings2">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#CE93D8"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#CE93D8"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#BA68C8"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#BA68C8"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
-
-                            <!-- 9. 나비 (주황색) -->
-                            <g transform="translate(185, 170) rotate(-60)">
-                                <g class="bf-hover1">
-                                    <g transform="scale(0.35)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings3">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFB74D"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFB74D"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#FFA726"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#FFA726"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- 우측 대형 나비 궤적 -->
+                            <path d="M 320,80 Q 360,80 370,120 T 310,180" fill="none" stroke="#9E9E9E" stroke-width="1.5" class="dashed-path"/>
+                            <g transform="translate(320, 80) rotate(30)"><g class="bf-float1"><g transform="scale(1.5)"><use href="#butterfly" class="bf-wing"/></g></g></g>
                             
-                            <!-- 10. 나비 (하양) -->
-                            <g transform="translate(60, 160) rotate(10)">
-                                <g class="bf-hover3">
-                                    <g transform="scale(0.4)">
-                                        <path d="M -1,-1 Q -3,-6 -6,-5 M 1,-1 Q 3,-6 6,-5" stroke="#795548" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                                        <g class="ci-wings1">
-                                            <path d="M 0,2 C -18,-15 -28,3 -8,12 C -3,14 0,8 0,2 Z" fill="#FFFFFF"/>
-                                            <path d="M 0,2 C 18,-15 28,3 8,12 C 3,14 0,8 0,2 Z" fill="#FFFFFF"/>
-                                            <path d="M -2,8 C -12,12 -12,22 -3,16 C 0,14 0,10 -2,8 Z" fill="#E0E0E0"/>
-                                            <path d="M 2,8 C 12,12 12,22 3,16 C 0,14 0,10 2,8 Z" fill="#E0E0E0"/>
-                                        </g>
-                                        <ellipse cx="0" cy="7" rx="2.5" ry="7" fill="#795548"/>
-                                    </g>
-                                </g>
-                            </g>
+                            <!-- 우측 하단 궤적 및 나비 -->
+                            <path d="M 310,180 Q 350,190 350,220 T 300,260" fill="none" stroke="#9E9E9E" stroke-width="1.5" class="dashed-path"/>
+                            <g transform="translate(300, 260) rotate(15)"><g class="bf-float2"><g transform="scale(0.7)"><use href="#butterfly" class="bf-wing"/></g></g></g>
+
+                            <!-- 가장 우측 외곽 나비 -->
+                            <g transform="translate(360, 210) rotate(-10)"><g class="bf-float1"><g transform="scale(0.6)"><use href="#butterfly" class="bf-wing"/></g></g></g>
 
                         </svg>
                     </div>
